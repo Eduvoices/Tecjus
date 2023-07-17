@@ -1,159 +1,142 @@
 import exit from './assets/log-out.svg'
 import logo from './assets/Logo_page-0001-removebg-preview1.png'
-import add from './assets/plus-circle.svg'
-import editIcon from './assets/edit.svg'
-import del from './assets/trash-2.svg'
-import check from './assets/check.svg'
-import cancel from './assets/x.svg'
 import file from './assets/file-text.svg'
 import search from './assets/search.svg'
+import InputMask from 'react-input-mask'
 
 import './styles.css'
 import { useState } from 'react'
 
 function App() {
-  const [edit, setEdit] = useState(false)
+  const [mask, setMask] = useState('')
 
-  function onClick() {
-    setEdit(!edit)
+  function Input() {
+    if (mask === 'cpf') {
+      return (
+        <InputMask mask='999.999.999-99' className='input' />
+      )
+    } else if (mask === 'data') {
+      return (
+        <InputMask mask='99/99/9999' className='input'/>
+      )
+    } else {
+      return (
+        <input className="input" id=''/>
+      )
+    }
   }
+
 
   return (
     <div className="container">
-            <div className="container-cadastro">
+            <div className="container-consulta">
                 <div className="wrapper">
                   <img src={exit} alt='Sair do sistema' className='exit'/>
                   <span  className="form-title">
-                            <img src={logo} alt="Logo do sistema"/>
-                        </span>
+                    <img src={logo} alt="Logo do sistema"/>
+                  </span>
 
                         <span className="form-title">
-                        Cadastro
+                        Consulta
                         </span>
 
-                      <form className="cadastro-form">
+                      <form className="consulta-form">
                         <div className="wrap-input">
-                            <input className="input" type="text" id='nome'/>
-                            <span className='focus-input' data-placeholder='Nome completo'></span>
+                            <Input className="input" id=''/>
+                            <span className='focus-input' data-placeholder='Informação de busca'></span>
+                            
                         </div>
-                        <div className="wrap-input">
-                            <input className="input" type="number" id='rg'/>
-                            <span className='focus-input' data-placeholder='RG'></span>
-                        </div>
-                        <div className="wrap-input">
-                            <input className="input" type="number" id='cpf'/>
-                            <span className='focus-input' data-placeholder='CPF'></span>
-                        </div>
-                        <div className="wrap-input">
-                            <input className="input" type="number" id='nascimento'/>
-                            <span className='focus-input' data-placeholder='Data de nascimento'></span>
-                        </div>
-                        <div className="wrap-input">
-                            <input className="input" type="number" id='cep'/>
-                            <span className='focus-input' data-placeholder='CEP'></span>
-                        </div>
-                        <div className="wrap-input">
-                            <input className="input" type="text" id='endereco'/>
-                            <span className='focus-input' data-placeholder='Endereço'></span>
-                        </div>
-                        <div className="wrap-input">
-                            <input className="input" type="number" id='numero'/>
-                            <span className='focus-input' data-placeholder='Nº'></span>
-                        </div>
-                        <div className="wrap-input">
-                            <input className="input" type="text" id='complemento'/>
-                            <span className='focus-input' data-placeholder='Complemento'></span>
-                        </div>
-                        <div className="wrap-input">
-                            <input className="input" type="text" id='bairro'/>
-                            <span className='focus-input' data-placeholder='Bairro'></span>
-                        </div>
-                        <div className="wrap-input">
-                            <input className="input" type="text" id='cidade'/>
-                            <span className='focus-input' data-placeholder='Cidade'></span>
-                        </div>
-                        <div className="wrap-input">
-                            <input className="input" type="number" id='uf'/>
-                            <span className='focus-input' data-placeholder='UF'></span>
-                        </div>
-                        <div className="wrap-input">
-                            <input className="input" type="number" id='telefone1'/>
-                            <span className='focus-input' data-placeholder='Telefone 1'></span>
-                        </div>
-                        <div className="wrap-input">
-                            <input className="input" type="number" id='telefone2'/>
-                            <span className='focus-input' data-placeholder='Telefone 2'></span>
-                        </div>
-                        <div className="wrap-input">
-                            <input className="input" type="number" id='telefone3'/>
-                            <span className='focus-input' data-placeholder='Telefone 3'></span>
-                        </div>
-                        <div className="wrap-input">
-                            <input className="input" type="email" id='email'/>
-                            <span className='focus-input' data-placeholder='Email'></span>
-                        </div>
-                        <div className="wrap-input">
-                            <input className="input" type="text" id='social'/>
-                            <span className='focus-input' data-placeholder='Rede Social'></span>
-                        </div>
-                        <div className="wrap-input">
-                            <input className="input" type="text" id='responsavel'/>
-                            <span className='focus-input' data-placeholder='Responsável'></span>
-                        </div>
-                        
-                          
+
+                        <button type='button' className='search-btn'>
+                          <img src={search} alt='Pesquisar' />
+                        </button>
+
+                        <select className='wrap-select'>
+                          <option className='option' onClick={e => setMask('')}>Tipo</option>
+                          <option className='option' onClick={e => setMask('')}>Nome</option>
+                          <option className='option' onClick={e => setMask('cpf')}>CPF</option>
+                          <option className='option' onClick={e => setMask('data')}>Data de cadastro</option>
+                        </select>
+
+                        <select className='wrap-select'>
+                          <option className='option'>Tipo de consulta</option>
+                          <option className='option'>Advogado</option>
+                          <option className='option'>Cliente</option>
+                          <option className='option'>Funcionário</option>
+                          <option className='option'>Pessoa</option>
+                          <option className='option'>Parceiro</option>
+                          <option className='option'>Usuário</option>
+                        </select>
                     </form>
 
-                    <div className='obs'>
-                    <h4>Observações</h4>
-                    <textarea id='textarea'/>
+                    <div className='drag'>
+                      <p>
+                        Arraste um cabeçalho da coluna aqui para agrupar por essa coluna
+                      </p>
+                    </div>
+
+                    <table>
+                      <thead>
+                        <th>Código</th>
+                        <th>Nome</th>
+                        <th>CPF</th>
+                        <th>Rua</th>
+                        <th>Número</th>
+                        <th>Bairro</th>
+                        <th>Complemento</th>
+                        <th>CEP</th>
+                        <th>Cidade</th>
+                        <th>Data de nascimento</th>
+                      </thead>
+
+                      <tr>
+                        <td>1072</td>
+                        <td>Priscila Paiva Blasechi</td>
+                        <td>000.000.000-00</td>
+                        <td>Rua Teste do Teste Teste</td>
+                        <td>000</td>
+                        <td>Bairro</td>
+                        <td>Complemento</td>
+                        <td>00000-000</td>
+                        <td>Arapongas</td>
+                        <td>01/01/1010</td>
+                      </tr>
+                    </table>
+
+                    <table>
+                      <thead>
+                        <th>Telefone 1</th>
+                        <th>Telefone 2</th>
+                        <th>Telefone 3</th>
+                        <th>E-mail</th>
+                        <th>Responsável</th>
+                        <th>Rede Social</th>
+                        <th>Como ?</th>
+                        <th>Observação</th>
+                        <th>Data de Cadastro</th>
+                      </thead>
+
+                      <tr>
+                        <td>(99)99999-9999</td>
+                        <td>(99)99999-9999</td>
+                        <td>(99)99999-9999</td>
+                        <td>exemplo@exemplo.com</td>
+                        <td>Nome do Responsável</td>
+                        <td>@exemplo</td>
+                        <td>Complemento</td>
+                        <td>Exemplo</td>
+                        <td>01/01/1010</td>
+                      </tr>
+                    </table>
+
+                    <button type="submit" className='form-btn'>
+                            <img src={file} alt='Cadastro' />
+                              Cadastro
+                    </button>
 
                     </div>
-                        
-                        <div className="button-row">
-                            
-                              {edit === true ? (
-                                <>
-                                  <button type="button" className='form-btn'>
-                            <img src={check} alt='' />
-                              Ok
-                              </button>
-                            <button type="button" className='form-btn' onClick={onClick}>
-                            <img src={cancel} alt='' />
-                              Cancelar
-                              </button>
-                            <button type="button" className='form-btn'>
-                            <img src={file} alt='' />
-                              Cadastro
-                              </button>
-                                </>
-                              ) : (
-                                <>
-                                  <button type="button" className='form-btn'>
-                              <img src={add} alt='Inserir'/>
-                              Inserir
-                              </button>
-                            <button type="button" className='form-btn' onClick={onClick}>
-                              <img src={editIcon} alt='' />
-                              Alterar
-                              </button>
-                            <button type="button" className='form-btn'>
-                            <img src={del} alt='' />
-                              Excluir
-                              </button>
-                                </>
-                              )}
-                            
-                            <button type="button" className='form-btn'>
-                            <img src={search} alt='' />
-                              Consulta
-                              </button>
-                              
-                        </div>
-                        
-                </div>
             </div>
-        </div>
+    </div>
   );
 }
 
