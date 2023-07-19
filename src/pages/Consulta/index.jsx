@@ -1,10 +1,11 @@
-import exit from './assets/log-out.svg'
-import logo from './assets/Logo_page-0001-removebg-preview1.png'
-import file from './assets/file-text.svg'
-import search from './assets/search.svg'
+import exit from '../../assets/log-out.svg'
+import logo from '../../assets/Logo_page-0001-removebg-preview1.png'
+import file from '../../assets/file-text.svg'
+import search from '../../assets/search.svg'
 import InputMask from 'react-input-mask'
 
-import './styles.css'
+import * as S from './styles'
+
 import { useState } from 'react'
 
 function Consulta() {
@@ -28,54 +29,54 @@ function Consulta() {
 
     
         return (
-        <div className="container">
-                <div className="container-consulta">
-                    <div className="wrapper">
-                        <img src={exit} alt='Sair do sistema' className='exit'/>
-                        <span  className="form-title">
+        <S.Container className="container">
+                <S.ContainerConsulta className="container-consulta">
+                    <S.Wrapper className="wrapper">
+                        <S.Exit src={exit} alt='Sair do sistema' className='exit'/>
+                        <S.FormTitle  className="form-title">
                         <img src={logo} alt="Logo do sistema"/>
-                        </span>
+                        </S.FormTitle>
     
-                            <span className="form-title">
+                            <S.FormTitle className="form-title">
                             Consulta
-                            </span>
+                            </S.FormTitle>
     
-                            <form className="consulta-form">
-                            <div className="wrap-input">
+                        <S.ConsultaForm className="consulta-form">
+                            <S.WrapInput className="wrap-input">
                                 <Input className="input" id=''/>
-                                <span className='focus-input' data-placeholder='Informação de busca'></span>
+                                <S.FocusInput className='focus-input' data-placeholder='Informação de busca'></S.FocusInput>
                                 
-                            </div>
+                            </S.WrapInput>
     
-                            <button type='button' className='search-btn'>
+                            <S.SearchBtn type='button' className='search-btn'>
                                 <img src={search} alt='Pesquisar' />
-                            </button>
+                            </S.SearchBtn>
     
-                            <select className='wrap-select'>
-                                <option className='option' onClick={e => setMask('')}>Tipo</option>
-                                <option className='option' onClick={e => setMask('')}>Nome</option>
-                                <option className='option' onClick={e => setMask('cpf')}>CPF</option>
-                                <option className='option' onClick={e => setMask('data')}>Data de cadastro</option>
-                            </select>
+                            <S.WrapSelect className='wrap-select'>
+                                <S.Option className='option' onClick={e => setMask('')}>Tipo</S.Option>
+                                <S.Option className='option' onClick={e => setMask('')}>Nome</S.Option>
+                                <S.Option className='option' onClick={e => setMask('cpf')}>CPF</S.Option>
+                                <S.Option className='option' onClick={e => setMask('data')}>Data de cadastro</S.Option>
+                            </S.WrapSelect>
     
-                            <select className='wrap-select'>
-                                <option className='option'>Tipo de consulta</option>
-                                <option className='option'>Advogado</option>
-                                <option className='option'>Cliente</option>
-                                <option className='option'>Funcionário</option>
-                                <option className='option'>Pessoa</option>
-                                <option className='option'>Parceiro</option>
-                                <option className='option'>Usuário</option>
-                            </select>
-                        </form>
+                            <S.WrapSelect className='wrap-select'>
+                                <S.Option className='option'>Tipo de consulta</S.Option>
+                                <S.Option className='option'>Advogado</S.Option>
+                                <S.Option className='option'>Cliente</S.Option>
+                                <S.Option className='option'>Funcionário</S.Option>
+                                <S.Option className='option'>Pessoa</S.Option>
+                                <S.Option className='option'>Parceiro</S.Option>
+                                <S.Option className='option'>Usuário</S.Option>
+                            </S.WrapSelect>
+                        </S.ConsultaForm>
     
-                        <div className='drag'>
+                        <S.Drag className='drag'>
                             <p>
                             Arraste um cabeçalho da coluna aqui para agrupar por essa coluna
                             </p>
-                        </div>
+                        </S.Drag>
     
-                        <table>
+                        <S.Table>
                             <thead>
                             <th>Código</th>
                             <th>Nome</th>
@@ -101,9 +102,9 @@ function Consulta() {
                             <td>Arapongas</td>
                             <td>01/01/1010</td>
                             </tr>
-                        </table>
+                        </S.Table>
     
-                        <table>
+                        <S.Table>
                             <thead>
                             <th>Telefone 1</th>
                             <th>Telefone 2</th>
@@ -127,16 +128,16 @@ function Consulta() {
                             <td>Exemplo</td>
                             <td>01/01/1010</td>
                             </tr>
-                        </table>
+                        </S.Table>
     
-                        <button type="submit" className='form-btn'>
+                        <S.FormBtn type="submit" className='form-btn'>
                                 <img src={file} alt='Cadastro' />
                                     Cadastro
-                        </button>
+                        </S.FormBtn>
     
-                        </div>
-                </div>
-        </div>
+                    </S.Wrapper>
+                </S.ContainerConsulta>
+        </S.Container>
         );
 }
 
