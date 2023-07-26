@@ -43,6 +43,7 @@ function Menu() {
                     </S.ListItem>
                     <S.ListItem className='list-item'>
                         <img src={exit} alt='Sair do sistema'/>
+                        {/* <S.ListAnchor className='sair'>Sair</S.ListAnchor> */}
                     </S.ListItem>
                     </S.List>
                     </S.NavContainer>

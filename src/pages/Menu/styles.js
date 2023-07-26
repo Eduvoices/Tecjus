@@ -7,23 +7,52 @@ background-color: #4b453d;
 height: 100vh;
 display: flex;
 justify-content: center;
+
+@media (max-width: 1023px) {
+    height: 100%;
+}
 `
 export const NavContainer = styled.nav`
 background-color: #4b453d;
 padding: 24px;
+position: relative
+
+@media (max-width: 1023px) {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 `
 export const List = styled.ul`
 display: flex;
 justify-content: space-between;
 align-items: center;
+
+@media (max-width: 1023px) {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
 `
 export const ListItem = styled.li`
 list-style: none;
+display: flex;
+align-items:center;
+justify-content: center;
+margin: 8px 0;
 
 img {
     cursor: pointer;
-
+    
+    @media (max-width: 1023px) {
+        display: flex;
+        position: absolute;
+        top: 0;
+        right: 0;
+        padding: 16px;
+        cursor: pointer;
+    }
 }
+
 `
 export const ListAnchor = styled.button`
 padding: 8px;
@@ -45,6 +74,20 @@ box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 export const ButtonRow = styled.div`
 display: flex;
 justify-content: space-between;
+
+@media (max-width: 1023px) {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+@media (min-width: 1024px) and (max-width: 1260px) {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+}
 `
 
 export const ButtonItem = styled.button`
@@ -60,6 +103,12 @@ justify-content: center;
 align-items: center;
 background-color: #575047;
 margin-right: 16px;
+
+@media (max-width: 1023px) {
+    margin: 8px 0;
+    width: 100%;
+    height: 56px;
+}
 
 img {
     margin-right: 8px;
@@ -103,11 +152,23 @@ display: flex;
 justify-content: space-between;
 align-items: center;
 padding: 16px;
+
+@media (max-width: 1023px) {
+    font-size: 12px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+    text-align: center;
+}
 `
 export const Birthday = styled.div`
 display: block;
 
 p {
     padding: 8px;
+}
+
+@media (max-width: 1023px) {
+    width: 100%;
 }
 `

@@ -42,15 +42,15 @@ function Consulta() {
                             </S.FormTitle>
     
                         <S.ConsultaForm className="consulta-form">
+                            
                             <S.WrapInput className="wrap-input">
                                 <Input className="input" id=''/>
                                 <S.FocusInput className='focus-input' data-placeholder='Informação de busca'></S.FocusInput>
                                 
                             </S.WrapInput>
     
-                            <S.SearchBtn type='button' className='search-btn'>
-                                <img src={search} alt='Pesquisar' />
-                            </S.SearchBtn>
+
+                        
     
                             <S.WrapSelect className='wrap-select'>
                                 <S.Option className='option' onClick={e => setMask('')}>Tipo</S.Option>
@@ -68,6 +68,10 @@ function Consulta() {
                                 <S.Option className='option'>Parceiro</S.Option>
                                 <S.Option className='option'>Usuário</S.Option>
                             </S.WrapSelect>
+
+                            <S.SearchBtn type='button' className='search-btn'>
+                                <img src={search} alt='Pesquisar' />
+                            </S.SearchBtn>
                         </S.ConsultaForm>
     
                         <S.Drag className='drag'>
@@ -90,6 +94,7 @@ function Consulta() {
                             <th>Data de nascimento</th>
                             </thead>
     
+                            <tbody>
                             <tr>
                             <td>1072</td>
                             <td>Priscila Paiva Blasechi</td>
@@ -102,6 +107,7 @@ function Consulta() {
                             <td>Arapongas</td>
                             <td>01/01/1010</td>
                             </tr>
+                            </tbody>
                         </S.Table>
     
                         <S.Table>
@@ -129,6 +135,89 @@ function Consulta() {
                             <td>01/01/1010</td>
                             </tr>
                         </S.Table>
+
+                        <div className='central'>
+                        <S.TableResp>
+                            <tbody>
+                            <tr>
+                                <td className='info'>Código</td>
+                                <td>1072</td>
+                            </tr>
+                            <tr>
+                                <td className='info'>Nome</td>
+                                <td>Priscila Paiva Blasechi</td>
+                            </tr>
+                            <tr>
+                                <td className='info'>CPF</td>
+                                <td>000.000.000-00</td>
+                            </tr>
+                            <tr>
+                                <td className='info'>Rua</td>
+                                <td>Rua Teste do Teste Teste</td>
+                            </tr>
+                            <tr>
+                                <td className='info'>Número</td>
+                                <td>000</td>
+                            </tr>
+                            <tr>
+                                <td className='info'>Bairro</td>
+                                <td>Bairro</td>
+                            </tr>
+                            <tr>
+                                <td className='info'>Complemento</td>
+                                <td>Complemento</td>
+                            </tr>
+                            <tr>
+                                <td className='info'>CEP</td>
+                                <td className>0000-000</td>
+                            </tr>
+                            <tr>
+                                <td className='info'>Cidade</td>
+                                <td>Arapongas</td>
+                            </tr>
+                            <tr>
+                                <td className='info'>Data de nascimento</td>
+                                <td>01/01/1010</td>
+                            </tr>
+                            <tr>
+                                <td className='info'>Telefone 1</td>
+                                <td>(99)99999-9999</td>
+                            </tr>
+                            <tr>
+                                <td className='info'>Telefone 2</td>
+                                <td>(99)99999-9999</td>
+                            </tr>
+                            <tr>
+                                <td className='info'>Telefone 3</td>
+                                <td>(99)99999-9999</td>
+                            </tr>
+                            <tr>
+                                <td className='info'>E-mail</td>
+                                <td>exemplo@exemplo.com</td>
+                            </tr>
+                            <tr>
+                                <td className='info'>Responsável</td>
+                                <td>Nome do Responsável</td>
+                            </tr>
+                            <tr>
+                                <td className='info'>Rede Social</td>
+                                <td>@exemplo</td>
+                            </tr>
+                            <tr>
+                                <td className='info'>Como ?</td>
+                                <td>Exemplo</td>
+                            </tr>
+                            <tr>
+                                <td className='info'>Observação</td>
+                                <td>Exemplo</td>
+                            </tr>
+                            <tr>
+                                <td className='info'>Data de cadastro</td>
+                                <td>01/01/1010</td>
+                            </tr>
+                            </tbody>
+                        </S.TableResp>
+                        </div>
     
                         <S.FormBtn type="submit" className='form-btn'>
                                 <img src={file} alt='Cadastro' />

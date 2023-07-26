@@ -26,6 +26,10 @@ align-items: center;
 justify-content: center;
 display: flex;
 flex-direction: column;
+
+.central {
+    margin: 0 auto;
+}
 `
 export const FormTitle = styled.span`
 display: block;
@@ -50,6 +54,11 @@ text-align: center;
 margin: 64px 0;
 justify-content: center;
 align-items: center;
+
+@media (max-width: 1023px) {
+    display: block;
+    width: 100%
+}
 `
 export const FocusInput = styled.span`
 position: absolute;
@@ -106,6 +115,11 @@ position: relative;
 border-bottom: 2px solid #adadad;
 display: flex;
 
+@media (max-width: 1023px) {
+    display: block;
+    margin-bottom: 8px;
+}
+
 .input {
     font-size: 16px;
     color: #fff;
@@ -140,6 +154,11 @@ color: #fff;
 text-align: center;
 font-size: 16px;
 
+@media (max-width: 1023px) {
+    width: 100%;
+    margin-bottom: 8px;
+}
+
 &:hover {
     cursor: pointer;
 }
@@ -160,6 +179,11 @@ padding: 0 8px;
 border: 2px solid #adadad;
 border-radius: 8px;
 background-color: transparent;
+
+@media (max-width: 1023px) {
+    margin: 8px 0;
+    width: 100%;
+}
 
 &:hover {
     cursor: pointer;
@@ -218,8 +242,42 @@ padding: 8px;
 width: 100%;
 background: #4b453d;
 
+@media (max-width: 1023px) {
+    display: none;
+}
+
 td , th{
     border: 1px solid #fff;
+    padding: 8px;
+}
+`
+export const TableResp = styled.table`
+color: #fff;
+font-size: 12px;
+text-align: justified;
+border-radius: 8px;
+padding: 8px;
+width: 100%;
+background: #4b453d;
+margin: 24px auto;
+display: none;
+
+tbody {
+    width: 100%;
+}
+
+.info {
+    font-weight: bold;
+}
+
+@media (max-width: 1023px) {
+    display: block;
+}
+
+td {
+    border: 1px solid #fff;
+    width: 50%;
+    height: 48px;
     padding: 8px;
 }
 `

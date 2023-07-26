@@ -34,11 +34,15 @@ margin: 36px 0;
 img {
     width: 240px;
 
+    @media (max-width: 480px) {
+        width: 100%;
+    }
+
 }
 `
 export const CadastroForm = styled.form`
-display: flex;
-flex-wrap: wrap;
+display: grid;
+grid-template-columns: 1fr 1fr;
 gap: 16px;
 font-size: 30px;
 color: azure;
@@ -46,6 +50,11 @@ line-height: 1.2;
 text-align: center;
 margin: 64px 0;
 justify-content: space-between;
+
+@media (max-width: 1023px) {
+    width: 100%;
+    display: block;
+}
 `
 export const FocusInput = styled.span`
 position: absolute;
@@ -139,36 +148,7 @@ margin-bottom: 37px;
         }
     }
 }
-
-#nome, #endereco, #cidade {
-    width: 480px;
-}
-
-#rg, #cpf, #nascimento, #cep, #telefone1, #telefone2, #telefone3, #email, #social, #responsavel {
-    width: 400px;
-}
-
-#numero, #uf {
-    width: 80px;
-}
-
-#code {
-    width: 240px;
-}
 `
-
-// .input {
-//     font-size: 16px;
-//     color: #fff;
-//     line-height: 1.2;
-//     border: none;
-//     width: 100%;
-//     height: 48px;
-//     background: transparent;
-//     padding: 0 8px;
-//     text-align: center;
-// }
-
 
 export const Required = styled.span`
 font-size: 12px;
@@ -179,6 +159,11 @@ line-height: 1.2;
 export const ButtonRow = styled.div`
 display: flex;
 justify-content: space-between;
+
+@media (max-width: 480px) {
+    width: 100%;
+    display: block;
+}
 `
 export const FormBtn = styled.button`
 padding: 8px;
@@ -195,6 +180,11 @@ width: 100%;
 height: 48px;
 background:  #c9b4a0;
 margin-left: 4px;
+
+@media (max-width: 480px) {
+    width: 100%;
+    margin-bottom: 8px;
+}
 
 img {
     margin-right: 8px;
@@ -235,6 +225,10 @@ justify-content: center;
     border: 2px solid #c9b4a0;
     padding: 8px;
     font-size: 14px;
+    
+    @media (max-width: 480px) {
+        width: 100%;
+    }
 }
 
 h4 {

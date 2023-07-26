@@ -30,12 +30,20 @@ color: azure;
 line-height: 1.2;
 text-align: center;
 margin: 36px 0;
+
+@media (max-width: 480px) {
+    font-size: 24px;
+}
 `
 export const LoginForm = styled.form`
 width: 100%;
 
 img {
     width: 360px;
+
+    @media (max-width: 480px) {
+        width: 100%;
+    }
 }
 `
 export const WrapInput = styled.div`
