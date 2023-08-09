@@ -28,20 +28,9 @@ padding: 8px;
 `
 export const List = styled.ul`
 display: flex;
-justify-content: space-between;
-align-items: center;
 
-@media (max-width: 1023px) {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-}
-`
-export const ListItem = styled.li`
-list-style: none;
-display: flex;
-align-items:center;
-justify-content: center;
-margin: 8px 0;
+align-items: center;
+width: 100%;
 
 img {
     cursor: pointer;
@@ -56,17 +45,36 @@ img {
     }
 }
 
+@media (max-width: 1023px) {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+`
+export const ListItem = styled.li`
+list-style: none;
+display: flex;
+align-items:center;
+justify-content: center;
+width: 100%;
+cursor: pointer;
 `
 export const ListAnchor = styled.button`
-padding: 8px;
-background-color: transparent;
+padding: 16px;
+font-size: 12px;
+border: 1px solid #c9b4a0;
+border-radius: 8px;
 color: #fff;
-cursor: pointer;
-width: 160px;
-border: none;
+line-height: 1.2;
+text-transform: uppercase;
+display: flex;
+justify-content: center;
+align-items: center;
+background-color: #575047;
+margin-right: 16px;
+width: 100%;
 `
 export const Wrapper = styled.main`
-width: 90%;
+width: 100%;
 background-color: #fff;
 border-radius: 12px;
 padding: 32px;
@@ -74,14 +82,16 @@ box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 height: 540px;
 display: flex;
 justify-content: space-between;
+margin: 0 16px;
 `
 
 export const ButtonRow = styled.div`
 display: flex;
 flex-direction: column;
-align-items: center;
 justify-content: center;
+align-items: center;
 height: 100%;
+width: 15%;
 
 @media (max-width: 1023px) {
     display: flex;
@@ -97,22 +107,49 @@ height: 100%;
     gap: 8px;
 }
 `
+export const Favorites = styled.div`
+padding: 8px;
+font-size: 12px;
+color: #c4b69c;
+line-height: 1.2;
+text-transform: uppercase;
+background-color: transparent;
+border: none;
+height: 48px;
+width: 15%;
+
+div {
+    display: flex;
+    align-item: center;
+}
+
+img {
+    margin-right: 8px;
+}
+
+#icon {
+    margin-right: 0;
+    margin-left: 4px;
+}
+
+&:hover {
+    cursor: pointer;
+}
+`
 
 export const ButtonItem = styled.button`
 padding: 8px;
 font-size: 12px;
-border: 1px solid #c9b4a0;
-border-radius: 8px;
-color: #fff;
+color: #c4b69c;
 line-height: 1.2;
 text-transform: uppercase;
 display: flex;
-justify-content: center;
+
 align-items: center;
-background-color: #575047;
-margin-right: 16px;
+background-color: transparent;
 width: 100%;
 height: 100%;
+border: none;
 
 @media (max-width: 1023px) {
     margin: 8px 0;
@@ -124,13 +161,13 @@ img {
     margin-right: 8px;
 }
 
+#icon {
+    margin-right: 0;
+    margin-left: 4px;
+}
+
 &:hover {
     cursor: pointer;
-    background: #c9b4a0;
-    background: -webkit-linear-gradient(to left, #c9b4a0, #5f3106);
-    background: -o-linear-gradient(to left, #c9b4a0, #5f3106);
-    background: -moz-linear-gradient(to left, #c9b4a0, #5f3106);
-    background: linear-gradient(to left, #c9b4a0, #5f3106);
 }
 `
 export const CentralArea = styled.div`

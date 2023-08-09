@@ -6,6 +6,9 @@ import file from '../../assets/archive(1).svg'
 import clock from '../../assets/clock.svg'
 import calendar from '../../assets/calendar(1).svg'
 import logo from '../../assets/Logo_page-0001-removebg-preview1.png'
+import star from '../../assets/star.svg'
+import arrowDown from '../../assets/arrow-down.svg'
+import close from '../../assets/arrow-up.svg'
 
 import { Link } from "react-router-dom";
 
@@ -14,6 +17,23 @@ import { useEffect, useState } from 'react'
 
 function Menu() {
     const [now, setNow] = useState(new Date())
+    const [favorites, setFavorites] = useState(false)
+
+    function onClick() {
+        setFavorites(!favorites)
+    }
+
+    function icon() {
+        if (favorites === false) {
+            return (
+                <img src={arrowDown} alt='Favoritos' id='icon'/>
+            )
+            } else {
+                return (
+                    <img src={close} alt='Fechar favoritos' id='icon' />
+                )
+        }
+    }
 
     useEffect(() => {
         setInterval(() => {
@@ -25,7 +45,7 @@ function Menu() {
     let month = String(now.getMonth() + 1).padStart(2, '0')
     let year = now.getFullYear()
     let hour = now.getHours()
-    let minute = now.getMinutes()
+    let minute = now.getMinutes().toString().padStart(2, '0')
 
     return (
         <S.Container>
@@ -50,17 +70,41 @@ function Menu() {
                     <S.ListItem className='list-item'>
                         <S.ListAnchor className='list-anchor'>Ajuda</S.ListAnchor>
                     </S.ListItem>
-                    <S.ListItem className='list-item'>
+                    
                         <Link to="/">
                             <img src={exit} alt='Sair do sistema'/>
                         </Link>
-                    </S.ListItem>
+                    
                     </S.List>
                     </S.NavContainer>
         </header>
         <S.ContainerArea className="container">
                 <S.Wrapper className='wrapper'>
-                    <S.ButtonRow className='button-row'>
+                
+                {favorites === false ? (
+                    <S.Favorites
+                    className='button-item' 
+                    type='button'
+                    onClick={onClick}
+                    >
+                        <div>
+                        <img src={star} alt='Favoritos' />
+                        Favoritos
+                        {icon()}
+                        </div>
+                    </S.Favorites>
+                    
+                        ) : (
+                <S.ButtonRow>
+                    <S.ButtonItem 
+                    className='button-item' 
+                    type='button'
+                    onClick={onClick}
+                    >
+                        <img src={star} alt='Favoritos' />
+                        Favoritos
+                        {icon()}
+                    </S.ButtonItem>
                     <S.ButtonItem className='button-item' type='button'>
                         <img src={calendar} alt='Agenda' />
                         Agenda
@@ -85,8 +129,8 @@ function Menu() {
                         <img src={money} alt='Receber' />
                         Receber
                     </S.ButtonItem>
-                    </S.ButtonRow>
-
+                </S.ButtonRow>
+                        )}
                     <S.CentralArea className='central-area'>
                     <img src={logo} alt='Logo do sistema'/>
                     </S.CentralArea>
