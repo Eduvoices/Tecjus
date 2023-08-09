@@ -17,10 +17,10 @@ export const ContainerLogin = styled.div`
 export const Wrapper = styled.div`
 width: 480px;
 height: 496px;
-background-color: #3333;
+background-color: #dcdde1;
 border-radius: 12px;
 overflow: hidden;
-padding: 40px;
+padding: 32px;
 box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 position: relative;
 `
@@ -35,7 +35,7 @@ width: 100%;
 }
 
 img {
-    width: 180px;
+    width: 240px;
     margin: 16px 0;
 
     @media (max-width: 480px) {
@@ -46,8 +46,8 @@ img {
 export const WrapInput = styled.div`
     width: 100%;
     position: relative;
-    border-bottom: 2px solid #adadad;
-    margin: 36px 0;
+    border-bottom: 2px solid #999;
+    margin: 24px 0;
 `
 
 
@@ -59,7 +59,7 @@ export const FocusInput = styled.span`
     top: 0;
     left: 0;
     pointer-events: none;
-    color: #adadad;
+    color: #999;
 
     &::before {
     content: "";
@@ -83,7 +83,7 @@ export const FocusInput = styled.span`
 
     &::after {
     font-size: 14px;
-    color: #fff;
+    color: #999;
     display: block;
     width: 100%;
     position: absolute;
@@ -100,7 +100,7 @@ export const FocusInput = styled.span`
 `
 export const Input = styled.input`
 font-size: 14px;
-color: #fff;
+color: #4b453d;
 border: none;
 display: block;
 width: 100%;
@@ -140,7 +140,7 @@ display: flex;
 justify-content: center;
 align-items: center;
 width: 240px;
-height: 32px;
+height: 40px;
 background:  #4b453d;
 margin-top: 16px;
 
@@ -153,14 +153,6 @@ margin-top: 16px;
     cursor: pointer;
     background: #665e53;
 }
-`
-export const configuration = styled.img`
-display: flex;
-position: absolute;
-top: 0;
-right: 0;
-padding: 16px;
-cursor: pointer;
 `
 export const Remember = styled.div`
 display: flex;

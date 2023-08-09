@@ -1,21 +1,17 @@
 import { useState } from 'react';
 import logo from '../../assets/Logo_page-0001-removebg-preview1.png'
-import configuration from '../../assets/settings.svg'
 
 import * as S from './styles.js'
 
 function Login() {
-    const [email, setEmail] = useState("")
+    const [user, setUser] = useState("")
     const [password, setPassword] = useState("")
     const [firm, setFirm] = useState("")
-
-    console.log(email)
 
     return (
         <S.Container className="container">
         <S.ContainerLogin className="container-login">
             <S.Wrapper className="wrapper">
-            <S.configuration src={configuration} alt='Configurações' className='configuration'/>
             <S.LoginForm className="login-form">
                 
                 <div id='central-img'>
@@ -33,9 +29,9 @@ function Login() {
 
                 <S.WrapInput className='wrap-input'>
                 <S.Input  
-                type='email'
-                value={email}
-                onChange={e => setEmail(e.target.value)}
+                type='text'
+                value={user}
+                onChange={e => setUser(e.target.value)}
                 />
                 <S.FocusInput className='focus-input' data-placeholder='Login'></S.FocusInput>
                 </S.WrapInput>
