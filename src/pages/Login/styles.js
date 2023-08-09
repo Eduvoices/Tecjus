@@ -17,7 +17,7 @@ export const ContainerLogin = styled.div`
 export const Wrapper = styled.div`
 width: 480px;
 height: 496px;
-background-color: #dcdde1;
+background-color: #fff;
 border-radius: 12px;
 overflow: hidden;
 padding: 32px;
@@ -83,7 +83,7 @@ export const FocusInput = styled.span`
 
     &::after {
     font-size: 14px;
-    color: #999;
+    color: #4b453d;
     display: block;
     width: 100%;
     position: absolute;
@@ -100,7 +100,7 @@ export const FocusInput = styled.span`
 `
 export const Input = styled.input`
 font-size: 14px;
-color: #4b453d;
+color: #c4b69c;
 border: none;
 display: block;
 width: 100%;

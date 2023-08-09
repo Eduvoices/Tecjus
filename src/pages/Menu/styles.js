@@ -2,9 +2,13 @@ import { styled } from "styled-components";
 
 export const Container = styled.div`
 width: 100%;
-margin: 0 auto;
-background-color: #4b453d;
 height: 100vh;
+background-color: #9999;
+`
+
+export const ContainerArea = styled.div`
+width: 100%;
+margin: 0 auto;
 display: flex;
 justify-content: center;
 
@@ -13,9 +17,8 @@ justify-content: center;
 }
 `
 export const NavContainer = styled.nav`
-background-color: #4b453d;
-padding: 24px;
-position: relative
+padding: 8px;
+
 
 @media (max-width: 1023px) {
     display: flex;
@@ -64,16 +67,21 @@ border: none;
 `
 export const Wrapper = styled.main`
 width: 90%;
-background-color: #3333;
+background-color: #fff;
 border-radius: 12px;
-overflow: hidden;
 padding: 32px;
 box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+height: 540px;
+display: flex;
+justify-content: space-between;
 `
 
 export const ButtonRow = styled.div`
 display: flex;
-justify-content: space-between;
+flex-direction: column;
+align-items: center;
+justify-content: center;
+height: 100%;
 
 @media (max-width: 1023px) {
     display: flex;
@@ -103,6 +111,8 @@ justify-content: center;
 align-items: center;
 background-color: #575047;
 margin-right: 16px;
+width: 100%;
+height: 100%;
 
 @media (max-width: 1023px) {
     margin: 8px 0;
@@ -129,11 +139,10 @@ flex-direction: column;
 align-items: center;
 justify-content: center;
 padding: 16px;
-margin-top: 240px;
-color: #fff;
+color: #c4b69c;
 
 img {
-    width: 240px;
+    width: 360px;
     margin-bottom: 32px;
 }
 
@@ -147,11 +156,12 @@ p {
 `
 
 export const Salute = styled.div`
-color: #fff;
-display: flex;
-justify-content: space-between;
-align-items: center;
-padding: 16px;
+color: #c4b69c;
+margin-left: 8px;
+
+img {
+    margin-right: 8px;
+}
 
 @media (max-width: 1023px) {
     font-size: 12px;
@@ -159,16 +169,5 @@ padding: 16px;
     grid-template-columns: 1fr 1fr;
     gap: 8px;
     text-align: center;
-}
-`
-export const Birthday = styled.div`
-display: block;
-
-p {
-    padding: 8px;
-}
-
-@media (max-width: 1023px) {
-    width: 100%;
 }
 `
