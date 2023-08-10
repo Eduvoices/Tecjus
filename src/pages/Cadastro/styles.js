@@ -12,11 +12,11 @@ flex-wrap: wrap;
 align-items: center;
 justify-content: center;
 padding: 15px;
-background-color: #4b453d;
+background-color: #9999;
 ` 
 export const Wrapper = styled.div`
 width: 960px;
-background-color: #3333;
+background-color: #fff;
 border-radius: 12px;
 overflow: hidden;
 padding: 80px 56px 32px 56px;
@@ -26,13 +26,13 @@ position: relative;
 export const FormTitle = styled.span`
 display: block;
 font-size: 24px;
-color: azure;
+color: #c4b69c;
 line-height: 1.2;
 text-align: center;
 margin: 36px 0;
 
 img {
-    width: 240px;
+    width: 360px;
 
     @media (max-width: 480px) {
         width: 100%;
@@ -41,15 +41,12 @@ img {
 }
 `
 export const CadastroForm = styled.form`
-display: grid;
-grid-template-columns: 1fr 1fr;
-gap: 16px;
-font-size: 30px;
-color: azure;
 line-height: 1.2;
-text-align: center;
 margin: 64px 0;
+display: flex;
+align-items: center;
 justify-content: space-between;
+flex-wrap: wrap;
 
 @media (max-width: 1023px) {
     width: 100%;
@@ -58,13 +55,13 @@ justify-content: space-between;
 `
 export const FocusInput = styled.span`
 position: absolute;
-display: block;
+text-align: justify;
 width: 100%;
 height: 100%;
 top: 0;
 left: 0;
 pointer-events: none;
-color: #adadad;
+color: #9999;
 
 &::before {
     content: "";
@@ -89,7 +86,7 @@ color: #adadad;
 
 &::after {
     font-size: 12px;
-    color: #9999;
+    color: #4b453d;
     line-height: 1.2;
     display: block;
     width: 100%;
@@ -113,14 +110,11 @@ margin-bottom: 37px;
 
 .input {
     font-size: 16px;
-    color: #fff;
-    line-height: 1.2;
+    color: #c4b69c;
+    padding: 24px;
     border: none;
-    width: 100%;
+    text-align: left;
     height: 48px;
-    background: transparent;
-    padding: 0 8px;
-    text-align: center;
 
 
     &::-webkit-outer-spin-button,
@@ -148,17 +142,50 @@ margin-bottom: 37px;
         }
     }
 }
+
+#code, #numero, #uf {
+    width: 88px;
+}
+
+#uf {
+    text-transform: uppercase;
+}
+
+#nome, #responsavel {
+    width: 320px;
+}
+
+#rg, #cpf, #social {
+    width: 144px;
+}
+
+#nascimento, #cep {
+    width: 128px;
+}
+
+#endereco, #complemento, #cidade {
+    width: 240px;
+}
+
+#bairro {
+    width: 216px;
+}
+
+#telefone1, #telefone2, #telefone3 {
+    width: 180px;
+}
 `
 
 export const Required = styled.span`
 font-size: 12px;
-color: #9999;
+color: #c4b69c;
 line-height: 1.2;
 `
 
 export const ButtonRow = styled.div`
 display: flex;
 justify-content: space-between;
+margin-bottom: 16px;
 
 @media (max-width: 480px) {
     width: 100%;
@@ -178,7 +205,7 @@ justify-content: center;
 align-items: center;
 width: 100%;
 height: 48px;
-background:  #c9b4a0;
+background:  #4b453d;
 margin-left: 4px;
 
 @media (max-width: 480px) {
@@ -222,7 +249,7 @@ justify-content: center;
     margin-bottom: 24px;
     text-align: center;
     border-radius: 8px;
-    border: 2px solid #c9b4a0;
+    border: 2px solid #4b453d;
     padding: 8px;
     font-size: 14px;
     
@@ -232,9 +259,9 @@ justify-content: center;
 }
 
 h4 {
-    color: #fff;
+    color: #c4b69c;
     margin-bottom: 32px;
     font-size: 16px;
-    text-decoration: underline #c9b4a0;
+    text-decoration: underline #4b453d;
 }
 `

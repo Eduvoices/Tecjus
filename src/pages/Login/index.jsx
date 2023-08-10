@@ -6,7 +6,6 @@ import * as S from './styles.js'
 function Login() {
     const [user, setUser] = useState("")
     const [password, setPassword] = useState("")
-    const [firm, setFirm] = useState("")
 
     return (
         <S.Container className="container">
@@ -17,15 +16,6 @@ function Login() {
                 <div id='central-img'>
                     <img src={logo} alt="Logo do sistema"/>
                 </div>
-
-                <S.WrapInput className='wrap-input'>
-                <S.Input  
-                type='text'
-                value={firm}
-                onChange={e => setFirm(e.target.value)}
-                />
-                <S.FocusInput className='focus-input' data-placeholder='Escritório'></S.FocusInput>
-                </S.WrapInput>
 
                 <S.WrapInput className='wrap-input'>
                 <S.Input  

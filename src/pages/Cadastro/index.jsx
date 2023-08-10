@@ -11,6 +11,7 @@
     import * as S from './styles'
     
     import { useState } from 'react'
+import { Link } from 'react-router-dom'
 
     function Cadastro() {
         const [edit, setEdit] = useState(false)
@@ -23,7 +24,9 @@
             <S.Container className="container">
                 <S.ContainerCadastro className="container-cadastro">
                     <S.Wrapper className="wrapper">
-                    <S.Exit src={exit} alt='Sair do sistema' className='exit'/>
+                        <Link to='/'>
+                            <S.Exit src={exit} alt='Sair do sistema' className='exit'/>
+                        </Link>
                     <S.FormTitle  className="form-title">
                                 <img src={logo} alt="Logo do sistema"/>
                             </S.FormTitle>
@@ -32,10 +35,47 @@
                             Cadastro
                             </S.FormTitle>
 
-                            <S.Required id='required'>*Campo obrigatório</S.Required>
-
+                            <S.ButtonRow className="button-row">
+                                
+                                {edit === true ? (
+                                    <>
+                                    <S.FormBtn type="button" className='form-btn'>
+                                <img src={check} alt='' />
+                                Ok
+                                </S.FormBtn>
+                                <S.FormBtn type="button" className='form-btn' onClick={onClick}>
+                                <img src={cancel} alt='' />
+                                Cancelar
+                                </S.FormBtn>
+                                    </>
+                                ) : (
+                                    <>
+                                    <S.FormBtn type="submit" className='form-btn'>
+                                <img src={add} alt='Inserir'/>
+                                Inserir
+                                </S.FormBtn>
+                                <S.FormBtn type="button" className='form-btn' onClick={onClick}>
+                                <img src={editIcon} alt='' />
+                                Alterar
+                                </S.FormBtn>
+                                <S.FormBtn type="button" className='form-btn'>
+                                <img src={del} alt='' />
+                                Excluir
+                                </S.FormBtn>
+                                    </>
+                                )}
+                                
+                                <S.FormBtn type="submit" className='form-btn'>
+                                <img src={search} alt='' />
+                                Consulta
+                                </S.FormBtn>
+                                
+                            </S.ButtonRow>
+                        
+                        <S.Required id='required'>*Campo obrigatório</S.Required>
                         <S.CadastroForm className="cadastro-form">
                         <S.WrapInput className="wrap-input">
+                            
                                 <input className="input" type="number" id='code'/>
                                 <S.FocusInput className='focus-input' data-placeholder='Código'></S.FocusInput>
                             </S.WrapInput>
@@ -81,7 +121,7 @@
                                 <S.FocusInput className='focus-input' data-placeholder='Cidade *'></S.FocusInput>
                             </S.WrapInput>
                             <S.WrapInput className="wrap-input">
-                                <input className="input" type="number" id='uf'/>
+                                <input maxLength={2} className="input" type="text" id='uf'/>
                                 <S.FocusInput className='focus-input' data-placeholder='UF *'></S.FocusInput>
                             </S.WrapInput>
                             <S.WrapInput className="wrap-input">
@@ -116,44 +156,6 @@
                         <h4>Observações</h4>
                         <textarea id='textarea'/>
                         </S.Obs>
-                            
-                            <S.ButtonRow className="button-row">
-                                
-                                {edit === true ? (
-                                    <>
-                                    <S.FormBtn type="button" className='form-btn'>
-                                <img src={check} alt='' />
-                                Ok
-                                </S.FormBtn>
-                                <S.FormBtn type="button" className='form-btn' onClick={onClick}>
-                                <img src={cancel} alt='' />
-                                Cancelar
-                                </S.FormBtn>
-                                    </>
-                                ) : (
-                                    <>
-                                    <S.FormBtn type="submit" className='form-btn'>
-                                <img src={add} alt='Inserir'/>
-                                Inserir
-                                </S.FormBtn>
-                                <S.FormBtn type="button" className='form-btn' onClick={onClick}>
-                                <img src={editIcon} alt='' />
-                                Alterar
-                                </S.FormBtn>
-                                <S.FormBtn type="button" className='form-btn'>
-                                <img src={del} alt='' />
-                                Excluir
-                                </S.FormBtn>
-                                    </>
-                                )}
-                                
-                                <S.FormBtn type="submit" className='form-btn'>
-                                <img src={search} alt='' />
-                                Consulta
-                                </S.FormBtn>
-                                
-                            </S.ButtonRow>
-                            
                     </S.Wrapper>
                 </S.ContainerCadastro>
             </S.Container>

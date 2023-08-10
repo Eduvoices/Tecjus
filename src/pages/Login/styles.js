@@ -59,7 +59,7 @@ export const FocusInput = styled.span`
     top: 0;
     left: 0;
     pointer-events: none;
-    color: #999;
+    color: #9999;
 
     &::before {
     content: "";

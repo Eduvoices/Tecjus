@@ -44,7 +44,7 @@ function Menu() {
     let day = now.getDate().toString().padStart(2, '0')
     let month = String(now.getMonth() + 1).padStart(2, '0')
     let year = now.getFullYear()
-    let hour = now.getHours()
+    let hour = now.getHours().toString().padStart(2, '0')
     let minute = now.getMinutes().toString().padStart(2, '0')
 
     return (

@@ -11,10 +11,6 @@ width: 100%;
 margin: 0 auto;
 display: flex;
 justify-content: center;
-
-@media (max-width: 1023px) {
-    height: 100%;
-}
 `
 export const NavContainer = styled.nav`
 padding: 8px;
@@ -56,7 +52,7 @@ display: flex;
 align-items:center;
 justify-content: center;
 width: 100%;
-cursor: pointer;
+
 `
 export const ListAnchor = styled.button`
 padding: 16px;
@@ -72,6 +68,15 @@ align-items: center;
 background-color: #575047;
 margin-right: 16px;
 width: 100%;
+cursor: pointer;
+
+@media (max-width: 1023px) {
+    width: 70%;
+}
+
+&:hover {
+    background-color: #665e53;
+}
 `
 export const Wrapper = styled.main`
 width: 100%;
@@ -83,6 +88,11 @@ height: 540px;
 display: flex;
 justify-content: space-between;
 margin: 0 16px;
+
+@media (max-width: 1023px) {
+    display: block;
+    height: 100%;
+}
 `
 
 export const ButtonRow = styled.div`
@@ -94,17 +104,13 @@ height: 100%;
 width: 15%;
 
 @media (max-width: 1023px) {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
     width: 100%;
 }
 
 @media (min-width: 1024px) and (max-width: 1260px) {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 8px;
+
 }
 `
 export const Favorites = styled.div`
