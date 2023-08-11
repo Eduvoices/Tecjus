@@ -60,7 +60,7 @@ import { Link } from 'react-router-dom'
                                     </>
                                 )}
                                 
-                                <S.FormBtn type="submit" className='form-btn'>
+                                <S.FormBtn type="button" className='form-btn'>
                                 <img src={search} alt='' />
                                 Consulta
                                 </S.FormBtn>
@@ -115,8 +115,9 @@ import { Link } from 'react-router-dom'
                                 <input className="input" type="text" id='cidade'/>
                                 <S.FocusInput className='focus-input' data-placeholder='Cidade *'></S.FocusInput>
                             </S.WrapInput>
-                            <S.WrapInput className="wrap-select">
-                                <S.WrapSelect className="select" id='uf'>
+                            <S.WrapInput className="wrap-input">
+                                <S.WrapSelect id='uf'>
+                                    <S.Option>UF</S.Option>
                                     <S.Option>AC</S.Option>
                                     <S.Option>AL</S.Option>
                                     <S.Option>AM</S.Option>
@@ -175,7 +176,6 @@ import { Link } from 'react-router-dom'
                                 <input className="input" type="text" id='observation'/>
                                 <S.FocusInput className='focus-input' data-placeholder='Observações'></S.FocusInput>
                             </S.WrapInput>
-
                         </S.CadastroForm>
                     </S.Wrapper>
                 </S.ContainerCadastro>

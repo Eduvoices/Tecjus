@@ -207,6 +207,7 @@ export const ButtonRow = styled.div`
 display: flex;
 justify-content: space-between;
 margin-bottom: 16px;
+width: 100%;
 
 @media (max-width: 480px) {
     width: 100%;
@@ -228,6 +229,11 @@ width: 100%;
 height: 48px;
 background:  #4b453d;
 margin-left: 4px;
+position: relative;
+
+    &:hover {
+        cursor: pointer;
+    }
 
 @media (max-width: 480px) {
     width: 100%;
@@ -236,15 +242,6 @@ margin-left: 4px;
 
 img {
     margin-right: 8px;
-}
-
-&:hover {
-    cursor: pointer;
-    background: #c9b4a0;
-    background: -webkit-linear-gradient(to left, #c9b4a0, #5f3106);
-    background: -o-linear-gradient(to left, #c9b4a0, #5f3106);
-    background: -moz-linear-gradient(to left, #c9b4a0, #5f3106);
-    background: linear-gradient(to left, #c9b4a0, #5f3106);
 }
 `
 
