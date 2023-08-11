@@ -108,10 +108,6 @@ width: 15%;
     grid-template-columns: 1fr 1fr;
     width: 100%;
 }
-
-@media (min-width: 1024px) and (max-width: 1260px) {
-
-}
 `
 export const Favorites = styled.div`
 padding: 8px;

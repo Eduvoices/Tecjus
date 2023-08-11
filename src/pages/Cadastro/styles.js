@@ -1,4 +1,5 @@
 import { styled } from "styled-components";
+import bg from '../../assets/bg.png'
 
 export const Container = styled.div`
 width: 100%;
@@ -22,6 +23,21 @@ overflow: hidden;
 padding: 80px 56px 32px 56px;
 box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 position: relative;
+
+&::before {
+    content: '';
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    opacity: 0.2;
+    background-image: url(${bg});
+    bakcground-size: cover;
+    background-repeat: no-repeat;
+    background-position: 50%;
+}
 `
 export const FormTitle = styled.span`
 display: block;
@@ -115,6 +131,7 @@ margin-bottom: 37px;
     border: none;
     text-align: left;
     height: 48px;
+    background-color: transparent;
 
 
     &::-webkit-outer-spin-button,
@@ -173,6 +190,10 @@ margin-bottom: 37px;
 
 #telefone1, #telefone2, #telefone3 {
     width: 180px;
+}
+
+#observation {
+    width: 400px;
 }
 `
 
@@ -264,4 +285,26 @@ h4 {
     font-size: 16px;
     text-decoration: underline #4b453d;
 }
+`
+export const WrapSelect = styled.select`
+border: none;
+padding: 0 8px;
+height: 48px;
+background: transparent;
+color: #c4b69c;
+text-align: center;
+font-size: 16px;
+
+&:hover {
+    cursor: pointer;
+}
+`
+
+export const Option = styled.option`
+font-size: 16px;
+color: #c4b69c;
+text-align: center;
+line-height: 1.2;
+background: #transparent;
+padding: 0 8px;
 `

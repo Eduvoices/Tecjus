@@ -59,10 +59,10 @@ function Menu() {
                         <S.ListAnchor className='list-anchor'>Processos</S.ListAnchor>
                     </S.ListItem>
                     <S.ListItem className='list-item'>
-                        <S.ListAnchor className='list-anchor'>Financeiro</S.ListAnchor>
+                        <S.ListAnchor className='list-anchor'>Consultas</S.ListAnchor>
                     </S.ListItem>
                     <S.ListItem className='list-item'>
-                        <S.ListAnchor className='list-anchor'>Consultas</S.ListAnchor>
+                        <S.ListAnchor className='list-anchor'>Financeiro</S.ListAnchor>
                     </S.ListItem>
                     <S.ListItem className='list-item'>
                         <S.ListAnchor className='list-anchor'>Sistema</S.ListAnchor>
@@ -137,7 +137,7 @@ function Menu() {
 
                     
                     <S.Salute className='salute'>
-                        <p><img src={calendar} alt="ícone de calendário" />{day}/{month}/{year}.</p>
+                        <p><img src={calendar} alt="ícone de calendário" />{day}/{month}/{year}</p>
                         <p>
                             <img src={clock} alt="ícone de relógio" />{hour}:{minute}
                         </p>

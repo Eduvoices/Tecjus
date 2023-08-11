@@ -1,5 +1,4 @@
     import exit from '../../assets/log-out.svg'
-    import logo from '../../assets/Logo_page-0001-removebg-preview1.png'
     import add from '../../assets/plus-circle.svg'
     import editIcon from '../../assets/edit.svg'
     import del from '../../assets/trash-2.svg'
@@ -27,12 +26,8 @@ import { Link } from 'react-router-dom'
                         <Link to='/'>
                             <S.Exit src={exit} alt='Sair do sistema' className='exit'/>
                         </Link>
-                    <S.FormTitle  className="form-title">
-                                <img src={logo} alt="Logo do sistema"/>
-                            </S.FormTitle>
-
                             <S.FormTitle className="form-title">
-                            Cadastro
+                            Pessoa Física
                             </S.FormTitle>
 
                             <S.ButtonRow className="button-row">
@@ -120,8 +115,36 @@ import { Link } from 'react-router-dom'
                                 <input className="input" type="text" id='cidade'/>
                                 <S.FocusInput className='focus-input' data-placeholder='Cidade *'></S.FocusInput>
                             </S.WrapInput>
-                            <S.WrapInput className="wrap-input">
-                                <input maxLength={2} className="input" type="text" id='uf'/>
+                            <S.WrapInput className="wrap-select">
+                                <S.WrapSelect className="select" id='uf'>
+                                    <S.Option>AC</S.Option>
+                                    <S.Option>AL</S.Option>
+                                    <S.Option>AM</S.Option>
+                                    <S.Option>AP</S.Option>
+                                    <S.Option>BA</S.Option>
+                                    <S.Option>CE</S.Option>
+                                    <S.Option>DF</S.Option>
+                                    <S.Option>ES</S.Option>
+                                    <S.Option>GO</S.Option>
+                                    <S.Option>MA</S.Option>
+                                    <S.Option>MG</S.Option>
+                                    <S.Option>MS</S.Option>
+                                    <S.Option>MT</S.Option>
+                                    <S.Option>PA</S.Option>
+                                    <S.Option>PB</S.Option>
+                                    <S.Option>PE</S.Option>
+                                    <S.Option>PI</S.Option>
+                                    <S.Option>PR</S.Option>
+                                    <S.Option>RJ</S.Option>
+                                    <S.Option>RN</S.Option>
+                                    <S.Option>RO</S.Option>
+                                    <S.Option>RR</S.Option>
+                                    <S.Option>RS</S.Option>
+                                    <S.Option>SC</S.Option>
+                                    <S.Option>SE</S.Option>
+                                    <S.Option>SP</S.Option>
+                                    <S.Option>TO</S.Option>
+                                </S.WrapSelect>
                                 <S.FocusInput className='focus-input' data-placeholder='UF *'></S.FocusInput>
                             </S.WrapInput>
                             <S.WrapInput className="wrap-input">
@@ -148,14 +171,12 @@ import { Link } from 'react-router-dom'
                                 <input className="input" type="text" id='responsavel'/>
                                 <S.FocusInput className='focus-input' data-placeholder='Responsável'></S.FocusInput>
                             </S.WrapInput>
-                            
-                            
-                        </S.CadastroForm>
+                            <S.WrapInput className="wrap-input">
+                                <input className="input" type="text" id='observation'/>
+                                <S.FocusInput className='focus-input' data-placeholder='Observações'></S.FocusInput>
+                            </S.WrapInput>
 
-                        <S.Obs className='obs'>
-                        <h4>Observações</h4>
-                        <textarea id='textarea'/>
-                        </S.Obs>
+                        </S.CadastroForm>
                     </S.Wrapper>
                 </S.ContainerCadastro>
             </S.Container>
