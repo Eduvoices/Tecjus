@@ -1,5 +1,4 @@
 import { styled } from "styled-components";
-import bg from '../../assets/bg.png'
 
 export const Container = styled.div`
 width: 100%;
@@ -23,21 +22,6 @@ overflow: hidden;
 padding: 80px 56px 32px 56px;
 box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 position: relative;
-
-&::before {
-    content: '';
-    display: block;
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    top: 0;
-    left: 0;
-    opacity: 0.2;
-    background-image: url(${bg});
-    bakcground-size: cover;
-    background-repeat: no-repeat;
-    background-position: 50%;
-}
 `
 export const FormTitle = styled.span`
 display: block;
@@ -176,8 +160,12 @@ margin-bottom: 37px;
     width: 144px;
 }
 
-#nascimento, #cep {
+#nascimento {
     width: 128px;
+}
+
+#cep {
+    width: 144px;
 }
 
 #endereco, #complemento, #cidade {

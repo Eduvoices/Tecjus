@@ -14,10 +14,30 @@ import { Link } from 'react-router-dom'
 
     function Cadastro() {
         const [edit, setEdit] = useState(false)
+        const [street, setStreet] = useState('')
+        const [uf, setUf] = useState('')
+        const [block, setBlock] = useState('')
+        const [city, setCity] = useState('')
+        const [teste, setTeste] = useState('')
+
+        let cep = ''
 
         function onClick() {
         setEdit(!edit)
         }
+
+        const checkCEP = (e) => {
+            if (!e.target.value) return;
+            cep = e.target.value.replace(/\D/g, '');
+            setTeste(cep)
+            fetch(`https://viacep.com.br/ws/${cep}/json/`).then(res => res.json()).then(data => {
+                console.log(data);
+                setStreet(data.logradouro)
+                setBlock(data.bairro)
+                setCity(data.localidade)
+                setUf(data.uf)
+            });
+            }
 
         return (
             <S.Container className="container">
@@ -26,11 +46,7 @@ import { Link } from 'react-router-dom'
                         <Link to='/'>
                             <S.Exit src={exit} alt='Sair do sistema' className='exit'/>
                         </Link>
-                            <S.FormTitle className="form-title">
-                            Pessoa Física
-                            </S.FormTitle>
-
-                            <S.ButtonRow className="button-row">
+                        <S.ButtonRow className="button-row">
                                 
                                 {edit === true ? (
                                     <>
@@ -67,6 +83,10 @@ import { Link } from 'react-router-dom'
                                 
                             </S.ButtonRow>
                         
+                            <S.FormTitle className="form-title">
+                            Pessoa Física
+                            </S.FormTitle>
+
                         <S.Required id='required'>*Campo obrigatório</S.Required>
                         <S.CadastroForm className="cadastro-form">
                         <S.WrapInput className="wrap-input">
@@ -92,11 +112,16 @@ import { Link } from 'react-router-dom'
                                 <S.FocusInput className='focus-input' data-placeholder='Data de nascimento'></S.FocusInput>
                             </S.WrapInput>
                             <S.WrapInput className="wrap-input">
-                                <InputMask mask="99.999-999" className='input'  id='cep'/>
+                                <InputMask 
+                                mask="99.999-999" 
+                                className='input'  
+                                id='cep'
+                                onBlur={checkCEP}
+                                />
                                 <S.FocusInput className='focus-input' data-placeholder='CEP'></S.FocusInput>
                             </S.WrapInput>
                             <S.WrapInput className="wrap-input">
-                                <input className="input" type="text" id='endereco'/>
+                                <input className="input" type="text" id='endereco' defaultValue={street}/>
                                 <S.FocusInput className='focus-input' data-placeholder='Endereço *'></S.FocusInput>
                             </S.WrapInput>
                             <S.WrapInput className="wrap-input">
@@ -108,45 +133,50 @@ import { Link } from 'react-router-dom'
                                 <S.FocusInput className='focus-input' data-placeholder='Complemento'></S.FocusInput>
                             </S.WrapInput>
                             <S.WrapInput className="wrap-input">
-                                <input className="input" type="text" id='bairro'/>
+                                <input className="input" type="text" id='bairro' defaultValue={block}/>
                                 <S.FocusInput className='focus-input' data-placeholder='Bairro *'></S.FocusInput>
                             </S.WrapInput>
                             <S.WrapInput className="wrap-input">
-                                <input className="input" type="text" id='cidade'/>
-                                <S.FocusInput className='focus-input' data-placeholder='Cidade *'></S.FocusInput>
-                            </S.WrapInput>
-                            <S.WrapInput className="wrap-input">
                                 <S.WrapSelect id='uf'>
-                                    <S.Option>UF</S.Option>
-                                    <S.Option>AC</S.Option>
-                                    <S.Option>AL</S.Option>
-                                    <S.Option>AM</S.Option>
-                                    <S.Option>AP</S.Option>
-                                    <S.Option>BA</S.Option>
-                                    <S.Option>CE</S.Option>
-                                    <S.Option>DF</S.Option>
-                                    <S.Option>ES</S.Option>
-                                    <S.Option>GO</S.Option>
-                                    <S.Option>MA</S.Option>
-                                    <S.Option>MG</S.Option>
-                                    <S.Option>MS</S.Option>
-                                    <S.Option>MT</S.Option>
-                                    <S.Option>PA</S.Option>
-                                    <S.Option>PB</S.Option>
-                                    <S.Option>PE</S.Option>
-                                    <S.Option>PI</S.Option>
-                                    <S.Option>PR</S.Option>
-                                    <S.Option>RJ</S.Option>
-                                    <S.Option>RN</S.Option>
-                                    <S.Option>RO</S.Option>
-                                    <S.Option>RR</S.Option>
-                                    <S.Option>RS</S.Option>
-                                    <S.Option>SC</S.Option>
-                                    <S.Option>SE</S.Option>
-                                    <S.Option>SP</S.Option>
-                                    <S.Option>TO</S.Option>
+                                    {teste.length === 8 ? (
+                                        <S.Option value='UF'>{uf}</S.Option>
+                                    ): (
+                                        <S.Option value='UF'>UF</S.Option>
+                                    )}
+                                    
+                                    <S.Option value='AC'>AC</S.Option>
+                                    <S.Option value='AL'>AL</S.Option>
+                                    <S.Option value='AM'>AM</S.Option>
+                                    <S.Option value='AP'>AP</S.Option>
+                                    <S.Option value='BA'>BA</S.Option>
+                                    <S.Option value='CE'>CE</S.Option>
+                                    <S.Option value='DF'>DF</S.Option>
+                                    <S.Option value='ES'>ES</S.Option>
+                                    <S.Option value='GO'>GO</S.Option>
+                                    <S.Option value='MA'>MA</S.Option>
+                                    <S.Option value='MG'>MG</S.Option>
+                                    <S.Option value='MS'>MS</S.Option>
+                                    <S.Option value='MT'>MT</S.Option>
+                                    <S.Option value='PA'>PA</S.Option>
+                                    <S.Option value='PB'>PB</S.Option>
+                                    <S.Option value='PE'>PE</S.Option>
+                                    <S.Option value='PI'>PI</S.Option>
+                                    <S.Option value='PR'>PR</S.Option>
+                                    <S.Option value='RJ'>RJ</S.Option>
+                                    <S.Option value='RN'>RN</S.Option>
+                                    <S.Option value='RO'>RO</S.Option>
+                                    <S.Option value='RR'>RR</S.Option>
+                                    <S.Option value='RS'>RS</S.Option>
+                                    <S.Option value='SC'>SC</S.Option>
+                                    <S.Option value='SE'>SE</S.Option>
+                                    <S.Option value='SP'>SP</S.Option>
+                                    <S.Option value='TO'>TO</S.Option>
                                 </S.WrapSelect>
                                 <S.FocusInput className='focus-input' data-placeholder='UF *'></S.FocusInput>
+                            </S.WrapInput>
+                            <S.WrapInput className="wrap-input">
+                                <input className="input" type="text" id='cidade' defaultValue={city}/>
+                                <S.FocusInput className='focus-input' data-placeholder='Cidade *'></S.FocusInput>
                             </S.WrapInput>
                             <S.WrapInput className="wrap-input">
                                 <InputMask mask="(99) 99999-9999" className='input'  id='telefone1'/>
