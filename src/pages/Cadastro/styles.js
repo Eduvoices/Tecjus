@@ -176,7 +176,7 @@ pointer-events: none;
 }
 
 #cpf {
-    width: 168px;
+    width: 172px;
 }
 
 #nascimento {

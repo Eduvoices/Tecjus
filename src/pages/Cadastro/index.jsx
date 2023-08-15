@@ -15,10 +15,8 @@ import { Link } from 'react-router-dom'
     function Cadastro() {
         const [edit, setEdit] = useState(false)
         const [street, setStreet] = useState('')
-        const [uf, setUf] = useState('')
         const [block, setBlock] = useState('')
         const [city, setCity] = useState('')
-        const [teste, setTeste] = useState('')
         const [cpf, setCPF] = useState('')
 
         let cep = ''
@@ -33,16 +31,13 @@ import { Link } from 'react-router-dom'
         const checkCEP = (e) => {
             if (!e.target.value) return;
             cep = e.target.value.replace(/\D/g, '');
-            if (cep.length === 8) {
                 fetch(`https://viacep.com.br/ws/${cep}/json/`).then(res => res.json()).then(data => {
                     setStreet(data.logradouro)
                     setBlock(data.bairro)
                     setCity(data.localidade)
-                    setUf(data.uf)
-                    setTeste('success')
-                }).catch(alert('CEP inválido'))
+                }).catch((err) => alert('CEP inválido'));
             }
-            }
+            
 
             function isCPF(cpf = 0){
                 cpf  = cpf.replace(/\.|-/g,"");
@@ -59,10 +54,12 @@ import { Link } from 'react-router-dom'
                 soma += cpf[8] * 2;
                 soma = (soma * 10) % 11;
             
+                // eslint-disable-next-line eqeqeq
                 if(soma == 10 || soma == 11)
                     soma = 0;
             
             
+                // eslint-disable-next-line eqeqeq
                 if(soma != cpf[9])
                     return false;
             
@@ -79,9 +76,11 @@ import { Link } from 'react-router-dom'
                 soma += cpf[9] * 2;
                 soma = (soma * 10) % 11;
                 
+                // eslint-disable-next-line eqeqeq
                 if(soma == 10 || soma == 11)
                     soma = 0;
             
+                // eslint-disable-next-line eqeqeq
                 if(soma != cpf[10])
                     return false;
                 
@@ -167,7 +166,6 @@ import { Link } from 'react-router-dom'
                                 className='input'  
                                 id='cep'
                                 onBlur={checkCEP}
-                                minLength={8}
                                 />
                                 <S.FocusInput className='focus-input' data-placeholder='CEP'></S.FocusInput>
                             </S.WrapInput>
@@ -189,10 +187,6 @@ import { Link } from 'react-router-dom'
                             </S.WrapInput>
                             <S.WrapInput className="wrap-input">
                                 <S.WrapSelect id='uf'>
-                                    {teste.length === 10 ? (
-                                        <S.Option value='UF'>{uf}</S.Option>
-                                    ): (
-                                        <>
                                     <S.Option value='UF'>UF</S.Option>
                                     <S.Option value='AC'>AC</S.Option>
                                     <S.Option value='AL'>AL</S.Option>
@@ -221,10 +215,6 @@ import { Link } from 'react-router-dom'
                                     <S.Option value='SE'>SE</S.Option>
                                     <S.Option value='SP'>SP</S.Option>
                                     <S.Option value='TO'>TO</S.Option>
-                                        </>
-                                    )}
-                                    
-                                    
                                 </S.WrapSelect>
                                 <S.FocusInput className='focus-input' data-placeholder='UF *'></S.FocusInput>
                             </S.WrapInput>
