@@ -107,6 +107,21 @@ export const WrapInput = styled.div`
 position: relative;
 border-bottom: 2px solid #adadad;
 margin-bottom: 37px;
+margin-right: 12px;
+
+#invalid {
+font-size: 10px;
+color: red;
+position: absolute;
+text-align: justify;
+top: 0;
+left: 0;
+pointer-events: none;
+}
+
+#valid {
+    display: none;
+}
 
 .input {
     font-size: 16px;
@@ -156,12 +171,16 @@ margin-bottom: 37px;
     width: 320px;
 }
 
-#rg, #cpf, #social {
+#rg, #social {
     width: 144px;
 }
 
+#cpf {
+    width: 168px;
+}
+
 #nascimento {
-    width: 128px;
+    width: 132px;
 }
 
 #cep {
