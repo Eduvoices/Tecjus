@@ -1,10 +1,6 @@
     import exit from '../../assets/log-out.svg'
-    import add from '../../assets/plus-circle.svg'
-    import editIcon from '../../assets/edit.svg'
-    import del from '../../assets/trash-2.svg'
     import check from '../../assets/check.svg'
     import cancel from '../../assets/x.svg'
-    import search from '../../assets/search.svg'
     import InputMask from 'react-input-mask'
 
     import * as S from './styles'
@@ -94,43 +90,6 @@ import { Link } from 'react-router-dom'
                         <Link to='/'>
                             <S.Exit src={exit} alt='Sair do sistema' className='exit'/>
                         </Link>
-                        <S.ButtonRow className="button-row">
-                                
-                                {edit === true ? (
-                                    <>
-                                    <S.FormBtn type="button" className='form-btn'>
-                                <img src={check} alt='' />
-                                Ok
-                                </S.FormBtn>
-                                <S.FormBtn type="button" className='form-btn' onClick={onClick}>
-                                <img src={cancel} alt='' />
-                                Cancelar
-                                </S.FormBtn>
-                                    </>
-                                ) : (
-                                    <>
-                                    <S.FormBtn type="submit" className='form-btn'>
-                                <img src={add} alt='Inserir'/>
-                                Inserir
-                                </S.FormBtn>
-                                <S.FormBtn type="button" className='form-btn' onClick={onClick}>
-                                <img src={editIcon} alt='' />
-                                Alterar
-                                </S.FormBtn>
-                                <S.FormBtn type="button" className='form-btn'>
-                                <img src={del} alt='' />
-                                Excluir
-                                </S.FormBtn>
-                                    </>
-                                )}
-                                
-                                <S.FormBtn type="button" className='form-btn'>
-                                <img src={search} alt='' />
-                                Consulta
-                                </S.FormBtn>
-                                
-                            </S.ButtonRow>
-                        
                             <S.FormTitle className="form-title">
                             Pessoa Física
                             </S.FormTitle>
@@ -251,10 +210,20 @@ import { Link } from 'react-router-dom'
                                 <S.FocusInput className='focus-input' data-placeholder='Observações'></S.FocusInput>
                             </S.WrapInput>
                         </S.CadastroForm>
+                        <S.ButtonRow className="button-row">
+                                <S.FormBtn type="button" className='form-btn'>
+                                <img src={check} alt='' />
+                                Ok
+                                </S.FormBtn>
+                                <S.FormBtn type="button" className='form-btn' onClick={onClick}>
+                                <img src={cancel} alt='' />
+                                Cancelar
+                                </S.FormBtn>
+                            </S.ButtonRow>
                     </S.Wrapper>
                 </S.ContainerCadastro>
             </S.Container>
         )
     }
-
+    
     export default Cadastro

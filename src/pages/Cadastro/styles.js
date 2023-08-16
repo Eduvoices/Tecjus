@@ -109,6 +109,10 @@ border-bottom: 2px solid #adadad;
 margin-bottom: 37px;
 margin-right: 12px;
 
+@media (max-width: 1023px) {
+    width: 100%;
+}
+
 #invalid {
 font-size: 10px;
 color: red;
@@ -131,6 +135,11 @@ pointer-events: none;
     text-align: left;
     height: 48px;
     background-color: transparent;
+
+    @media (max-width: 1023px) {
+        width: 100%;
+        text-align:center;
+    }
 
 
     &::-webkit-outer-spin-button,
@@ -161,46 +170,90 @@ pointer-events: none;
 
 #code, #numero, #uf {
     width: 88px;
+
+    @media (max-width: 1023px) {
+        width: 100%;
+    }
 }
 
 #uf {
     text-transform: uppercase;
+
+    @media (max-width: 1023px) {
+        width: 100%;
+    }
 }
 
 #nome, #responsavel {
     width: 320px;
+
+    @media (max-width: 1023px) {
+        width: 100%;
+    }
 }
 
 #rg, #social {
     width: 144px;
+
+    @media (max-width: 1023px) {
+        width: 100%;
+    }
 }
 
 #cpf {
     width: 172px;
+
+    @media (max-width: 1023px) {
+        width: 100%;
+    }
 }
 
 #nascimento {
     width: 132px;
+
+    @media (max-width: 1023px) {
+        width: 100%;
+    }
 }
 
 #cep {
     width: 144px;
+
+    @media (max-width: 1023px) {
+        width: 100%;
+    }
 }
 
 #endereco, #complemento, #cidade {
     width: 240px;
+
+    @media (max-width: 1023px) {
+        width: 100%;
+    }
 }
 
 #bairro {
     width: 216px;
+
+    @media (max-width: 1023px) {
+        width: 100%;
+    }
 }
 
 #telefone1, #telefone2, #telefone3 {
     width: 180px;
+
+    @media (max-width: 1023px) {
+        width: 100%;
+    }
 }
 
 #observation {
     width: 400px;
+
+    @media (max-width: 1023px) {
+        width: 100%;
+    }
 }
 `
 
@@ -212,8 +265,7 @@ line-height: 1.2;
 
 export const ButtonRow = styled.div`
 display: flex;
-justify-content: space-between;
-margin-bottom: 16px;
+justify-content: center;
 width: 100%;
 
 @media (max-width: 480px) {

@@ -12,11 +12,11 @@ flex-wrap: wrap;
 align-items: center;
 justify-content: center;
 padding: 15px;
-background-color: #4b453d;
+background-color: #9999;
 `
 export const Wrapper = styled.div`
 width: 2040px;
-background-color: #3333;
+background-color: #fff;
 border-radius: 12px;
 overflow: hidden;
 padding: 32px;
@@ -34,7 +34,7 @@ flex-direction: column;
 export const FormTitle = styled.span`
 display: block;
 font-size: 24px;
-color: azure;
+color: #c4b69c;
 line-height: 1.2;
 text-align: center;
 margin: 36px 0;
@@ -48,10 +48,10 @@ display: flex;
 flex-wrap: wrap;
 gap: 16px;
 font-size: 30px;
-color: azure;
+color: #c4b69c;
 line-height: 1.2;
 text-align: center;
-margin: 64px 0;
+margin: 48px 0;
 justify-content: center;
 align-items: center;
 
@@ -68,7 +68,7 @@ height: 100%;
 top: 0;
 left: 0;
 pointer-events: none;
-color: #adadad;
+color: #c4b69c;
 
 &::before {
     content: "";
@@ -93,7 +93,7 @@ color: #adadad;
 
 &::after {
     font-size: 12px;
-    color: #9999;
+    color: #c4b69c;
     line-height: 1.2;
     display: block;
     width: 100%;
@@ -115,6 +115,20 @@ position: relative;
 border-bottom: 2px solid #adadad;
 display: flex;
 
+#invalid {
+    font-size: 10px;
+    color: red;
+    position: absolute;
+    text-align: justify;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    }
+    
+    #valid {
+        display: none;
+    }
+
 @media (max-width: 1023px) {
     display: block;
     margin-bottom: 8px;
@@ -122,7 +136,7 @@ display: flex;
 
 .input {
     font-size: 16px;
-    color: #fff;
+    color: #c4b69c;
     line-height: 1.2;
     border: none;
     width: 360px;
@@ -146,11 +160,11 @@ display: flex;
 }
 `
 export const WrapSelect = styled.select`
-border-bottom: 2px solid #adadad;
+border: 2px solid #adadad;
 padding: 0 8px;
 height: 48px;
 background: transparent;
-color: #fff;
+color: #c4b69c;
 text-align: center;
 font-size: 16px;
 
@@ -166,10 +180,10 @@ font-size: 16px;
 
 export const Option = styled.option`
 font-size: 16px;
-color: #fff;
+color: #c4b69c;
 text-align: center;
 line-height: 1.2;
-background: #4b453d;
+background: #fff;
 padding: 0 8px;
 `
 export const SearchBtn = styled.button`
@@ -194,6 +208,18 @@ background-color: transparent;
     background: linear-gradient(to left, #c9b4a0, #5f3106);
 }
 `
+export const ButtonRow = styled.div`
+display: flex;
+justify-content: space-around;
+width: 100%;
+
+@media (max-width: 480px) {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+}
+`
 
 export const FormBtn = styled.button`
 padding: 8px;
@@ -206,10 +232,16 @@ text-transform: uppercase;
 display: flex;
 justify-content: center;
 align-items: center;
-width: 360px;
+width: 240px;
 height: 48px;
-background:  #c9b4a0;
-margin-top: 240px;
+background:  #4b453d;
+margin-top: 48px;
+margin-right: 8px;
+
+@media(max-width: 480px) {
+    width: 100%;
+    margin-top: 24px;
+}
 
 img {
     margin-right: 8px;
@@ -234,31 +266,31 @@ padding: 16px;
 cursor: pointer;
 `
 export const Table = styled.table`
-color: #fff;
+color: #c4b69c;
 font-size: 12px;
 text-align: center;
 border-radius: 8px;
 padding: 8px;
 width: 100%;
-background: #4b453d;
+background: #fff;
 
 @media (max-width: 1023px) {
     display: none;
 }
 
 td , th{
-    border: 1px solid #fff;
+    border: 1px solid #000;
     padding: 8px;
 }
 `
 export const TableResp = styled.table`
-color: #fff;
+color: #c4b69c;
 font-size: 12px;
 text-align: justified;
 border-radius: 8px;
 padding: 8px;
 width: 100%;
-background: #4b453d;
+background: #fff;
 margin: 24px auto;
 display: none;
 
@@ -275,7 +307,7 @@ tbody {
 }
 
 td {
-    border: 1px solid #fff;
+    border: 1px solid #000;
     width: 50%;
     height: 48px;
     padding: 8px;
@@ -288,7 +320,7 @@ border: 2px dotted #c9b4a0;
 width: 100%;
 
 p {
-    color: #fff;
+    color: #c4b69c;
     font-size: 14px;
     line-height: 1.2;
     text-align: center;

@@ -1,20 +1,28 @@
 import exit from '../../assets/log-out.svg'
-import logo from '../../assets/Logo_page-0001-removebg-preview1.png'
 import file from '../../assets/file-text.svg'
 import search from '../../assets/search.svg'
+import add from '../../assets/plus-circle.svg'
+import trash from '../../assets/trash-2.svg'
+import edit from '../../assets/edit.svg'
 import InputMask from 'react-input-mask'
 
 import * as S from './styles'
 
 import { useState } from 'react'
+import { Link } from 'react-router-dom'
 
 function Consulta() {
     const [mask, setMask] = useState('')
+    const [cpf, setCPF] = useState('')
+
+    function validCPF(e) {
+        setCPF(e.target.value)
+    }
 
     function Input() {
     if (mask === 'cpf') {
         return (
-        <InputMask mask='999.999.999-99' className='input' />
+        <InputMask mask='999.999.999-99' className='input' onBlur={validCPF} defaultValue={cpf}/>
         )
     } else if (mask === 'data') {
         return (
@@ -27,31 +35,72 @@ function Consulta() {
     }
     }
 
+    function isCPF(cpf = 0){
+        cpf  = cpf.replace(/\.|-/g,"");
+    
+        let soma = 0;
+        soma += cpf[0] * 10;
+        soma += cpf[1] * 9;
+        soma += cpf[2] * 8;
+        soma += cpf[3] * 7;
+        soma += cpf[4] * 6;
+        soma += cpf[5] * 5;
+        soma += cpf[6] * 4;
+        soma += cpf[7] * 3;
+        soma += cpf[8] * 2;
+        soma = (soma * 10) % 11;
+    
+        // eslint-disable-next-line eqeqeq
+        if(soma == 10 || soma == 11)
+            soma = 0;
+    
+    
+        // eslint-disable-next-line eqeqeq
+        if(soma != cpf[9])
+            return false;
+    
+        soma = 0;
+        soma += cpf[0] * 11;
+        soma += cpf[1] * 10;
+        soma += cpf[2] * 9;
+        soma += cpf[3] * 8;
+        soma += cpf[4] * 7;
+        soma += cpf[5] * 6;
+        soma += cpf[6] * 5;
+        soma += cpf[7] * 4;
+        soma += cpf[8] * 3;
+        soma += cpf[9] * 2;
+        soma = (soma * 10) % 11;
+        
+        // eslint-disable-next-line eqeqeq
+        if(soma == 10 || soma == 11)
+            soma = 0;
+    
+        // eslint-disable-next-line eqeqeq
+        if(soma != cpf[10])
+            return false;
+        
+        return true;
+    }
     
         return (
         <S.Container className="container">
                 <S.ContainerConsulta className="container-consulta">
                     <S.Wrapper className="wrapper">
-                        <S.Exit src={exit} alt='Sair do sistema' className='exit'/>
-                        <S.FormTitle  className="form-title">
-                        <img src={logo} alt="Logo do sistema"/>
-                        </S.FormTitle>
-    
+                        <Link to='/'>
+                            <S.Exit src={exit} alt='Sair do sistema' className='exit'/>
+                        </Link>
                             <S.FormTitle className="form-title">
                             Consulta
                             </S.FormTitle>
-    
+
                         <S.ConsultaForm className="consulta-form">
-                            
                             <S.WrapInput className="wrap-input">
                                 <Input className="input" id=''/>
                                 <S.FocusInput className='focus-input' data-placeholder='Informação de busca'></S.FocusInput>
-                                
+                                <span id={isCPF(cpf) === true || cpf.length < 14 ? 'valid' : 'invalid'}>O cpf é inválido</span>
                             </S.WrapInput>
-    
 
-                        
-    
                             <S.WrapSelect className='wrap-select'>
                                 <S.Option className='option' onClick={e => setMask('')}>Tipo</S.Option>
                                 <S.Option className='option' onClick={e => setMask('')}>Nome</S.Option>
@@ -218,12 +267,25 @@ function Consulta() {
                             </tbody>
                         </S.TableResp>
                         </div>
-    
+
+                        <S.ButtonRow>
                         <S.FormBtn type="submit" className='form-btn'>
                                 <img src={file} alt='Cadastro' />
                                     Cadastro
                         </S.FormBtn>
-    
+                        <S.FormBtn type="button" className='form-btn'>
+                                <img src={add} alt='Inserir' />
+                                    Inserir
+                        </S.FormBtn>
+                        <S.FormBtn type="button" className='form-btn'>
+                                <img src={edit} alt='Alterar' />
+                                    Alterar
+                        </S.FormBtn>
+                        <S.FormBtn type="button" className='form-btn'>
+                                <img src={trash} alt='Excluir' />
+                                    Excluir
+                        </S.FormBtn>
+                        </S.ButtonRow>
                     </S.Wrapper>
                 </S.ContainerConsulta>
         </S.Container>

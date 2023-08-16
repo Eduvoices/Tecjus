@@ -19,11 +19,11 @@ function Login() {
 
                 <S.WrapInput className='wrap-input'>
                 <S.Input  
-                type='text'
+                type='email'
                 value={user}
                 onChange={e => setUser(e.target.value)}
                 />
-                <S.FocusInput className='focus-input' data-placeholder='Login'></S.FocusInput>
+                <S.FocusInput className='focus-input' data-placeholder='E-mail'></S.FocusInput>
                 </S.WrapInput>
 
                 <S.WrapInput className='wrap-input'>
@@ -37,7 +37,7 @@ function Login() {
 
                 <S.Remember>
                     <input type='checkbox' id='remember'/>
-                    <label htmlFor='remember'>Lembrar escritório e login</label>
+                    <label htmlFor='remember'>Lembrar e-mail</label>
                 </S.Remember>
                 
                 <S.ContainerFormBtn className='container-login-form-btn'>

@@ -142,7 +142,7 @@ align-items: center;
 width: 240px;
 height: 40px;
 background:  #4b453d;
-margin-top: 16px;
+margin-top: 32px;
 
 @media (max-width: 480px) {
     margin-top: 8px;
