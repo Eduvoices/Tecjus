@@ -15,21 +15,43 @@ padding: 15px;
 background-color: #9999;
 `
 export const Wrapper = styled.div`
-width: 2040px;
+width: 100%;
 background-color: #fff;
 border-radius: 12px;
 overflow: hidden;
 padding: 32px;
 box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 position: relative;
-align-items: center;
-justify-content: center;
-display: flex;
-flex-direction: column;
 
-.central {
-    margin: 0 auto;
+
+.overflow {
+    overflow-x: scroll;
+
 }
+
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+    width: 100%;
+    border: 1px solid #ddd;
+    margin-top: 32px;
+    color: #c4b69c;
+    font-size: 12px;
+    text-align: center;
+    border-radius: 8px;
+    padding: 8px;
+    background: #fff;
+    }
+
+    th, td {
+    text-align: left;
+    padding: 8px;
+    width: 100%;
+    border: 1px solid #000;
+    }
+
+    tr:nth-child(even){background-color: #f2f2f2}
 `
 export const FormTitle = styled.span`
 display: block;
@@ -208,55 +230,7 @@ background-color: transparent;
     background: linear-gradient(to left, #c9b4a0, #5f3106);
 }
 `
-export const ButtonRow = styled.div`
-display: flex;
-justify-content: space-around;
-width: 100%;
 
-@media (max-width: 480px) {
-    width: 100%;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 8px;
-}
-`
-
-export const FormBtn = styled.button`
-padding: 8px;
-font-size: 12px;
-border: none;
-border-radius: 8px;
-color: #fff;
-line-height: 1.2;
-text-transform: uppercase;
-display: flex;
-justify-content: center;
-align-items: center;
-width: 240px;
-height: 48px;
-background:  #4b453d;
-margin-top: 48px;
-margin-right: 8px;
-
-@media(max-width: 480px) {
-    width: 100%;
-    margin-top: 24px;
-}
-
-img {
-    margin-right: 8px;
-
-}
-
-&:hover {
-    cursor: pointer;
-    background: #c9b4a0;
-    background: -webkit-linear-gradient(to left, #c9b4a0, #5f3106);
-    background: -o-linear-gradient(to left, #c9b4a0, #5f3106);
-    background: -moz-linear-gradient(to left, #c9b4a0, #5f3106);
-    background: linear-gradient(to left, #c9b4a0, #5f3106);
-}
-`
 export const Exit = styled.img`
 display: flex;
 position: absolute;
@@ -264,54 +238,6 @@ top: 0;
 right: 0;
 padding: 16px;
 cursor: pointer;
-`
-export const Table = styled.table`
-color: #c4b69c;
-font-size: 12px;
-text-align: center;
-border-radius: 8px;
-padding: 8px;
-width: 100%;
-background: #fff;
-
-@media (max-width: 1023px) {
-    display: none;
-}
-
-td , th{
-    border: 1px solid #000;
-    padding: 8px;
-}
-`
-export const TableResp = styled.table`
-color: #c4b69c;
-font-size: 12px;
-text-align: justified;
-border-radius: 8px;
-padding: 8px;
-width: 100%;
-background: #fff;
-margin: 24px auto;
-display: none;
-
-tbody {
-    width: 100%;
-}
-
-.info {
-    font-weight: bold;
-}
-
-@media (max-width: 1023px) {
-    display: block;
-}
-
-td {
-    border: 1px solid #000;
-    width: 50%;
-    height: 48px;
-    padding: 8px;
-}
 `
 
 export const Drag = styled.div`
