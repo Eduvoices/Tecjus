@@ -51,7 +51,9 @@ table {
     border: 1px solid #000;
     }
 
-    tr:nth-child(even){background-color: #f2f2f2}
+    th {
+        background: #535c68;
+    }
 `
 export const FormTitle = styled.span`
 display: block;
