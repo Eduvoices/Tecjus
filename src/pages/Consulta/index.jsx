@@ -1,9 +1,5 @@
 import exit from '../../assets/log-out.svg'
-import file from '../../assets/file-text.svg'
 import search from '../../assets/search.svg'
-import add from '../../assets/plus-circle.svg'
-import trash from '../../assets/trash-2.svg'
-import edit from '../../assets/edit.svg'
 import InputMask from 'react-input-mask'
 
 import * as S from './styles'
@@ -91,7 +87,7 @@ function Consulta() {
                             <S.Exit src={exit} alt='Sair do sistema' className='exit'/>
                         </Link>
                             <S.FormTitle className="form-title">
-                            Consulta
+                            Pessoa Física
                             </S.FormTitle>
 
                         <S.ConsultaForm className="consulta-form">
@@ -267,25 +263,6 @@ function Consulta() {
                             </tbody>
                         </S.TableResp>
                         </div>
-
-                        <S.ButtonRow>
-                        <S.FormBtn type="submit" className='form-btn'>
-                                <img src={file} alt='Cadastro' />
-                                    Cadastro
-                        </S.FormBtn>
-                        <S.FormBtn type="button" className='form-btn'>
-                                <img src={add} alt='Inserir' />
-                                    Inserir
-                        </S.FormBtn>
-                        <S.FormBtn type="button" className='form-btn'>
-                                <img src={edit} alt='Alterar' />
-                                    Alterar
-                        </S.FormBtn>
-                        <S.FormBtn type="button" className='form-btn'>
-                                <img src={trash} alt='Excluir' />
-                                    Excluir
-                        </S.FormBtn>
-                        </S.ButtonRow>
                     </S.Wrapper>
                 </S.ContainerConsulta>
         </S.Container>

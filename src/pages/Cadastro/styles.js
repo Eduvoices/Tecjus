@@ -109,6 +109,18 @@ border-bottom: 2px solid #adadad;
 margin-bottom: 37px;
 margin-right: 12px;
 
+button {
+    font-size: 10px;
+    border: none;
+    background-color: transparent;
+    color: #c4b69c;
+    
+
+    &:hover {
+        cursor: pointer;
+    }
+}
+
 @media (max-width: 1023px) {
     width: 100%;
 }

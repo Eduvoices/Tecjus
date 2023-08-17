@@ -14,11 +14,9 @@ import { Link } from 'react-router-dom'
         const [block, setBlock] = useState('')
         const [city, setCity] = useState('')
         const [cpf, setCPF] = useState('')
+        const [value, setValue] = useState('')
 
         let cep = ''
-
-        // let cpf = "16916900075"
-        //     cpf = "46995793706"
 
         function onClick() {
         setEdit(!edit)
@@ -83,6 +81,15 @@ import { Link } from 'react-router-dom'
                 return true;
             }
 
+        const handleChange = (event) => {
+            setCPF(event.target.value)
+            setValue(event.target.value)
+        }
+
+        const handleClick = () => {
+            setValue('')
+            }
+
         return (
             <S.Container className="container">
                 <S.ContainerCadastro className="container-cadastro">
@@ -111,9 +118,14 @@ import { Link } from 'react-router-dom'
                                 <S.FocusInput className='focus-input' data-placeholder='RG'></S.FocusInput>
                             </S.WrapInput>
                             <S.WrapInput className="wrap-input">
-                                <InputMask mask="999.999.999-99" className='input'  id='cpf' onBlur={(e) => setCPF(e.target.value)}/>
+                                <InputMask mask="999.999.999-99" className='input'  id='cpf' onChange={handleChange} value={value}/>
+                                {isCPF(cpf) === false || value.length === 0 ? (
+                                    <button type='button' onClick={handleClick}>Limpar</button>
+                                ) : (
+                                    <span />
+                                )}
                                 <S.FocusInput className='focus-input' data-placeholder='CPF *'></S.FocusInput>
-                                <span id={isCPF(cpf) === true || cpf.length < 14 ? 'valid' : 'invalid'}>O cpf é inválido</span>
+                                <span id={isCPF(cpf) === true || cpf.length === 0 ? 'valid' : 'invalid'}>Campo vazio ou inválido</span>
                             </S.WrapInput>
                             <S.WrapInput className="wrap-input">
                                 <InputMask mask="99/99/9999" className='input'  id='nascimento'/>
