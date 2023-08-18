@@ -121,10 +121,14 @@ function Menu() {
                         <img src={file} alt='Faturar' />
                         Faturar
                     </S.ButtonItem>
+                    
                     <S.ButtonItem className='button-item' type='button'>
+                    <S.StyledLink to='/cadastro'>
                         <img src={user} alt='Pessoa Física' />
                         Pessoa Física
+                    </S.StyledLink>
                     </S.ButtonItem>
+                    
                     <S.ButtonItem className='button-item' type='button'>
                         <img src={money} alt='Receber' />
                         Receber

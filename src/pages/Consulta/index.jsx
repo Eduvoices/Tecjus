@@ -83,7 +83,7 @@ function Consulta() {
         <S.Container className="container">
                 <S.ContainerConsulta className="container-consulta">
                     <S.Wrapper className="wrapper">
-                        <Link to='/'>
+                        <Link to='/menu'>
                             <S.Exit src={exit} alt='Sair do sistema' className='exit'/>
                         </Link>
                             <S.FormTitle className="form-title">

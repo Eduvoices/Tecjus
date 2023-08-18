@@ -94,7 +94,7 @@ import { Link } from 'react-router-dom'
             <S.Container className="container">
                 <S.ContainerCadastro className="container-cadastro">
                     <S.Wrapper className="wrapper">
-                        <Link to='/'>
+                        <Link to='/menu'>
                             <S.Exit src={exit} alt='Sair do sistema' className='exit'/>
                         </Link>
                             <S.FormTitle className="form-title">

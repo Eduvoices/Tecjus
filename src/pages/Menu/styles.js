@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { styled } from "styled-components";
 
 export const Container = styled.div`
@@ -209,4 +210,9 @@ img {
     gap: 8px;
     text-align: center;
 }
+`
+
+export const StyledLink = styled(Link)`
+text-decoration: none;
+color: #c4b69c;
 `
