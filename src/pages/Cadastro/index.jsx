@@ -6,7 +6,7 @@
     import * as S from './styles'
     
     import { useState } from 'react'
-import { Link } from 'react-router-dom'
+    import { Link } from 'react-router-dom'
 
     function Cadastro() {
         const [edit, setEdit] = useState(false)

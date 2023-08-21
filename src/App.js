@@ -7,6 +7,7 @@ import Consulta from './pages/Consulta'
 import Menu from './pages/Menu';
 
 import { GlobalCss } from './styles';
+import CadastroUser from './pages/CadastroUser';
 
 const Rotas = createBrowserRouter([
     {
@@ -24,6 +25,10 @@ const Rotas = createBrowserRouter([
     {
       path: '/menu',
       element: <Menu />
+    },
+    {
+      path: '/usercadastro',
+      element: <CadastroUser />
     }
 ])
 
