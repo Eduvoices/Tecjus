@@ -93,6 +93,7 @@ import SelectCity from '../../components/SelectCity'
 
         const handleClick = () => {
             setValue('')
+
             }
 
         const handleInputChange = (e) => {
@@ -100,8 +101,6 @@ import SelectCity from '../../components/SelectCity'
             const {value, name} = e.target
             setFormValue({...formValue, [name]: value})
         }
-
-        console.log('FormValue', formValue)
 
         return (
             <S.Container className="container">
@@ -130,7 +129,7 @@ import SelectCity from '../../components/SelectCity'
                                 <S.FocusInput htmlFor='rg' className='focus-input' data-placeholder='RG'></S.FocusInput>
                             </S.WrapInput>
                             <S.WrapInput className="wrap-input">
-                                <InputMask mask="999.999.999-99" className='input'  id='cpf' onChange={handleChange} value={value} title='cpf' placeholder=''/>
+                                <InputMask mask="999.999.999-99" className='input'  id='cpf' onFocus={handleClick} onChange={handleChange} value={value} title='cpf' placeholder=''/>
                                 {isCPF(cpf) === false || value.length === 0 ? (
                                     <button type='button' onClick={handleClick}>Limpar</button>
                                 ) : (
@@ -170,49 +169,10 @@ import SelectCity from '../../components/SelectCity'
                                 <input className="input" type="text" id='bairro' defaultValue={block} title='bairro' placeholder=''/>
                                 <S.FocusInput htmlFor='bairro' className='focus-input' data-placeholder='Bairro *'></S.FocusInput>
                             </S.WrapInput>
-                            <SelectUf onChange={handleInputChange}/>
-                            <SelectCity state={formValue.states} onChange={handleInputChange}/>
-                            {/* <S.WrapInput className="wrap-input">
-                                <S.WrapSelect id='uf' title='uf'>
-                                    <S.Option value='UF'>UF</S.Option>
-                                    <S.Option value='AC'>AC</S.Option>
-                                    <S.Option value='AL'>AL</S.Option>
-                                    <S.Option value='AM'>AM</S.Option>
-                                    <S.Option value='AP'>AP</S.Option>
-                                    <S.Option value='BA'>BA</S.Option>
-                                    <S.Option value='CE'>CE</S.Option>
-                                    <S.Option value='DF'>DF</S.Option>
-                                    <S.Option value='ES'>ES</S.Option>
-                                    <S.Option value='GO'>GO</S.Option>
-                                    <S.Option value='MA'>MA</S.Option>
-                                    <S.Option value='MG'>MG</S.Option>
-                                    <S.Option value='MS'>MS</S.Option>
-                                    <S.Option value='MT'>MT</S.Option>
-                                    <S.Option value='PA'>PA</S.Option>
-                                    <S.Option value='PB'>PB</S.Option>
-                                    <S.Option value='PE'>PE</S.Option>
-                                    <S.Option value='PI'>PI</S.Option>
-                                    <S.Option value='PR'>PR</S.Option>
-                                    <S.Option value='RJ'>RJ</S.Option>
-                                    <S.Option value='RN'>RN</S.Option>
-                                    <S.Option value='RO'>RO</S.Option>
-                                    <S.Option value='RR'>RR</S.Option>
-                                    <S.Option value='RS'>RS</S.Option>
-                                    <S.Option value='SC'>SC</S.Option>
-                                    <S.Option value='SE'>SE</S.Option>
-                                    <S.Option value='SP'>SP</S.Option>
-                                    <S.Option value='TO'>TO</S.Option>
-                                </S.WrapSelect>
-                                <S.FocusInput htmlFor='uf' className='focus-input' data-placeholder='UF Select*'></S.FocusInput>
-                            </S.WrapInput> */}
-                            
-                            {/* <S.WrapInput>
-                                <S.WrapSelect id='ufSelect'title='ufSelector'>
-                                    <S.Option>{city}</S.Option>
-                                </S.WrapSelect>
-                                <S.FocusInput htmlFor='ufSelect' className='focus-input' data-placeholder='Cidade Select*'/>
-                            </S.WrapInput> */}
-                            
+
+                            <SelectUf id='states' name='states' onChange={handleInputChange}/>
+                            <SelectCity id='city' name='city' state={formValue.states} onChange={handleInputChange}/>
+
                             <S.WrapInput className="wrap-input">
                                 <input className="input" type="text" id='cidade' defaultValue={city} title='cicade' placeholder=''/>
                                 <S.FocusInput htmlFor='cidade' className='focus-input' data-placeholder='Cidade *'></S.FocusInput>

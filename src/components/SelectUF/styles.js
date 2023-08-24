@@ -132,6 +132,6 @@ font-size: 16px;
 color: #c4b69c;
 text-align: center;
 line-height: 1.2;
-background: #transparent;
+background: transparent;
 padding: 0 8px;
 `

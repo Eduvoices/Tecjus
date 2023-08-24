@@ -1,25 +1,23 @@
 import { useEffect, useState } from 'react'
 import * as S from './styles'
-import { fetchUF } from '../../helpers/ibge'
+import { fetchUF, parseStates } from '../../helpers/ibge'
 
-const SelectUf = ({onChange = () => {}}) => {
+const SelectUf = ({id, name, onChange = () => {}}) => {
     const [states, setStates] = useState([])
 
     useEffect(() => {
-        fetchUF().then((states)=>{
-            setStates(states)
-        })
+        fetchUF().then(parseStates).then(setStates)
     }, [])
 
 
 
     return (
         <S.Wrap>
-            <S.WrapSelect id='states' name='states' onChange={onChange}>
+            <S.WrapSelect id={id || name} name={name || id} onChange={onChange} title='select de estados(UF)'>
                 <S.Option>UF</S.Option>
                 {states.map((state)=>{
-                    const {sigla} = state
-                    return <S.Option key={sigla} value={sigla}>{sigla}</S.Option>
+                    const {value} = state
+                    return <S.Option key={value} value={value}>{value}</S.Option>
                 })}
             </S.WrapSelect>
             <S.FocusSelect data-placeholder='UF'/>

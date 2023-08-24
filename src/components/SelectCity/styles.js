@@ -135,8 +135,8 @@ width: 280px;
 export const Option = styled.option`
 font-size: 16px;
 color: #c4b69c;
-text-align: center;
+text-align: justify;
 line-height: 1.2;
-background: #transparent;
+background: transparent;
 padding: 0 8px;
 `
