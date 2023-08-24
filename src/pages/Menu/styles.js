@@ -68,7 +68,7 @@ justify-content: center;
 align-items: center;
 background-color: #575047;
 margin-right: 16px;
-width: 100%;
+width: 75%;
 cursor: pointer;
 
 @media (max-width: 1023px) {
@@ -120,6 +120,8 @@ background-color: transparent;
 border: none;
 height: 48px;
 width: 15%;
+display: flex;
+align-items: center;
 
 div {
     display: flex;
@@ -215,4 +217,12 @@ img {
 export const StyledLink = styled(Link)`
 text-decoration: none;
 color: #c4b69c;
+`
+export const Exit = styled.img`
+display: flex;
+position: absolute;
+top: 0;
+right: 0;
+padding: 16px;
+cursor: pointer;
 `

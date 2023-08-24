@@ -53,7 +53,7 @@ flex-wrap: wrap;
     display: block;
 }
 `
-export const FocusInput = styled.span`
+export const FocusInput = styled.label`
 position: absolute;
 text-align: justify;
 width: 100%;
@@ -188,8 +188,8 @@ pointer-events: none;
     }
 }
 
-#uf {
-    text-transform: uppercase;
+#uf, #ufSelect {
+    text-transform: capitalize;
 
     @media (max-width: 1023px) {
         width: 100%;
@@ -236,12 +236,16 @@ pointer-events: none;
     }
 }
 
-#endereco, #complemento, #cidade {
-    width: 240px;
+#complemento, #cidade, #ufSelect {
+    width: 280px;
 
     @media (max-width: 1023px) {
         width: 100%;
     }
+}
+
+#endereco {
+    width: 320px;
 }
 
 #bairro {
@@ -261,7 +265,7 @@ pointer-events: none;
 }
 
 #observation {
-    width: 400px;
+    width: 240px;
 
     @media (max-width: 1023px) {
         width: 100%;

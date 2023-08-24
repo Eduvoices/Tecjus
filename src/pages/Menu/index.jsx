@@ -53,29 +53,30 @@ function Menu() {
                     <S.NavContainer className='nav-container'>
                     <S.List className='list'>
                     <S.ListItem className='list-item'>
-                        <S.ListAnchor className='list-anchor'>Cadastros</S.ListAnchor>
+                        <S.ListAnchor type='button' className='list-anchor'>Cadastros</S.ListAnchor>
                     </S.ListItem>
                     <S.ListItem className='list-item'>
-                        <S.ListAnchor className='list-anchor'>Processos</S.ListAnchor>
+                        <S.ListAnchor type='button' className='list-anchor'>Processos</S.ListAnchor>
                     </S.ListItem>
                     <S.ListItem className='list-item'>
-                        <S.ListAnchor className='list-anchor'>Consultas</S.ListAnchor>
+                        <S.ListAnchor type='button' className='list-anchor'>Consultas</S.ListAnchor>
                     </S.ListItem>
                     <S.ListItem className='list-item'>
-                        <S.ListAnchor className='list-anchor'>Financeiro</S.ListAnchor>
+                        <S.ListAnchor type='button' className='list-anchor'>Financeiro</S.ListAnchor>
                     </S.ListItem>
                     <S.ListItem className='list-item'>
-                        <S.ListAnchor className='list-anchor'>Sistema</S.ListAnchor>
+                        <S.ListAnchor type='button' className='list-anchor'>Sistema</S.ListAnchor>
                     </S.ListItem>
                     <S.ListItem className='list-item'>
-                        <S.ListAnchor className='list-anchor'>Ajuda</S.ListAnchor>
+                        <S.ListAnchor type='button' className='list-anchor'>Ajuda</S.ListAnchor>
                     </S.ListItem>
                     
-                        <Link to="/">
-                            <img src={exit} alt='Sair do sistema'/>
-                        </Link>
+                        
                     
                     </S.List>
+                    <Link to="/">
+                    <S.Exit src={exit} alt='Sair do sistema' className='exit'/>
+                        </Link>
                     </S.NavContainer>
         </header>
         <S.ContainerArea className="container">
@@ -87,11 +88,9 @@ function Menu() {
                     type='button'
                     onClick={onClick}
                     >
-                        <div>
                         <img src={star} alt='Favoritos' />
                         Favoritos
                         {icon()}
-                        </div>
                     </S.Favorites>
                     
                         ) : (

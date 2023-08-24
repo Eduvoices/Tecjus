@@ -4,9 +4,13 @@
     import InputMask from 'react-input-mask'
 
     import * as S from './styles'
+
     
     import { useState } from 'react'
     import { Link } from 'react-router-dom'
+    import SelectUf from '../../components/SelectUF'
+import SelectCity from '../../components/SelectCity'
+
 
     function Cadastro() {
         const [edit, setEdit] = useState(false)
@@ -15,6 +19,7 @@
         const [city, setCity] = useState('')
         const [cpf, setCPF] = useState('')
         const [value, setValue] = useState('')
+        const [formValue, setFormValue] = useState({})
 
         let cep = ''
 
@@ -90,6 +95,14 @@
             setValue('')
             }
 
+        const handleInputChange = (e) => {
+            e.preventDefault()
+            const {value, name} = e.target
+            setFormValue({...formValue, [name]: value})
+        }
+
+        console.log('FormValue', formValue)
+
         return (
             <S.Container className="container">
                 <S.ContainerCadastro className="container-cadastro">
@@ -104,32 +117,31 @@
                         <S.Required id='required'>*Campo obrigatório</S.Required>
                         <S.CadastroForm className="cadastro-form">
                         <S.WrapInput className="wrap-input">
-                            
-                                <input className="input" type="number" id='code'/>
-                                <S.FocusInput className='focus-input' data-placeholder='Código'></S.FocusInput>
+                                <input className="input" type="number" id='code' title='codigo' placeholder=''/>
+                                <S.FocusInput htmlFor='code' className='focus-input' data-placeholder='Código'></S.FocusInput>
                             </S.WrapInput>
 
                             <S.WrapInput className="wrap-input">
-                                <input className="input" type="text" id='nome'/>
-                                <S.FocusInput className='focus-input' data-placeholder='Nome completo *'></S.FocusInput>
+                                <input className="input" type="text" id='nome'title='nome' placeholder=''/>
+                                <S.FocusInput htmlFor='nome' className='focus-input' data-placeholder='Nome completo *'></S.FocusInput>
                             </S.WrapInput>
                             <S.WrapInput className="wrap-input">
-                                <InputMask mask="99.999.999-9" className='input'  id='rg'/>
-                                <S.FocusInput className='focus-input' data-placeholder='RG'></S.FocusInput>
+                                <InputMask mask="99.999.999-9" className='input'  id='rg' title='rg' placeholder=''/>
+                                <S.FocusInput htmlFor='rg' className='focus-input' data-placeholder='RG'></S.FocusInput>
                             </S.WrapInput>
                             <S.WrapInput className="wrap-input">
-                                <InputMask mask="999.999.999-99" className='input'  id='cpf' onChange={handleChange} value={value}/>
+                                <InputMask mask="999.999.999-99" className='input'  id='cpf' onChange={handleChange} value={value} title='cpf' placeholder=''/>
                                 {isCPF(cpf) === false || value.length === 0 ? (
                                     <button type='button' onClick={handleClick}>Limpar</button>
                                 ) : (
                                     <span />
                                 )}
-                                <S.FocusInput className='focus-input' data-placeholder='CPF *'></S.FocusInput>
+                                <S.FocusInput htmlFor='cpf' className='focus-input' data-placeholder='CPF *'></S.FocusInput>
                                 <span id={isCPF(cpf) === true || cpf.length === 0 ? 'valid' : 'invalid'}>Campo vazio ou inválido</span>
                             </S.WrapInput>
                             <S.WrapInput className="wrap-input">
-                                <InputMask mask="99/99/9999" className='input'  id='nascimento'/>
-                                <S.FocusInput className='focus-input' data-placeholder='Data de nascimento'></S.FocusInput>
+                                <InputMask mask="99/99/9999" className='input'  id='nascimento' title='nascimento' placeholder=''/>
+                                <S.FocusInput htmlFor='nascimento' className='focus-input' data-placeholder='Data de nascimento'></S.FocusInput>
                             </S.WrapInput>
                             <S.WrapInput className="wrap-input">
                                 <InputMask 
@@ -137,27 +149,31 @@
                                 className='input'  
                                 id='cep'
                                 onBlur={checkCEP}
+                                title='cep'
+                                placeholder=''
                                 />
-                                <S.FocusInput className='focus-input' data-placeholder='CEP'></S.FocusInput>
+                                <S.FocusInput htmlFor='cep' className='focus-input' data-placeholder='CEP'></S.FocusInput>
                             </S.WrapInput>
                             <S.WrapInput className="wrap-input">
-                                <input className="input" type="text" id='endereco' defaultValue={street}/>
-                                <S.FocusInput className='focus-input' data-placeholder='Endereço *'></S.FocusInput>
+                                <input className="input" type="text" id='endereco' defaultValue={street} title='endereço' placeholder=''/>
+                                <S.FocusInput htmlFor='endereco' className='focus-input' data-placeholder='Endereço *'></S.FocusInput>
                             </S.WrapInput>
                             <S.WrapInput className="wrap-input">
-                                <input className="input" type="number" id='numero'/>
-                                <S.FocusInput className='focus-input' data-placeholder='Nº *'></S.FocusInput>
+                                <input className="input" type="number" id='numero' title='numero' placeholder=''/>
+                                <S.FocusInput htmlFor='numero' className='focus-input' data-placeholder='Nº *'></S.FocusInput>
                             </S.WrapInput>
                             <S.WrapInput className="wrap-input">
-                                <input className="input" type="text" id='complemento'/>
-                                <S.FocusInput className='focus-input' data-placeholder='Complemento'></S.FocusInput>
+                                <input className="input" type="text" id='complemento' title='complemento' placeholder=''/>
+                                <S.FocusInput htmlFor='complemento' className='focus-input' data-placeholder='Complemento'></S.FocusInput>
                             </S.WrapInput>
                             <S.WrapInput className="wrap-input">
-                                <input className="input" type="text" id='bairro' defaultValue={block}/>
-                                <S.FocusInput className='focus-input' data-placeholder='Bairro *'></S.FocusInput>
+                                <input className="input" type="text" id='bairro' defaultValue={block} title='bairro' placeholder=''/>
+                                <S.FocusInput htmlFor='bairro' className='focus-input' data-placeholder='Bairro *'></S.FocusInput>
                             </S.WrapInput>
-                            <S.WrapInput className="wrap-input">
-                                <S.WrapSelect id='uf'>
+                            <SelectUf onChange={handleInputChange}/>
+                            <SelectCity state={formValue.states} onChange={handleInputChange}/>
+                            {/* <S.WrapInput className="wrap-input">
+                                <S.WrapSelect id='uf' title='uf'>
                                     <S.Option value='UF'>UF</S.Option>
                                     <S.Option value='AC'>AC</S.Option>
                                     <S.Option value='AL'>AL</S.Option>
@@ -187,39 +203,47 @@
                                     <S.Option value='SP'>SP</S.Option>
                                     <S.Option value='TO'>TO</S.Option>
                                 </S.WrapSelect>
-                                <S.FocusInput className='focus-input' data-placeholder='UF *'></S.FocusInput>
+                                <S.FocusInput htmlFor='uf' className='focus-input' data-placeholder='UF Select*'></S.FocusInput>
+                            </S.WrapInput> */}
+                            
+                            {/* <S.WrapInput>
+                                <S.WrapSelect id='ufSelect'title='ufSelector'>
+                                    <S.Option>{city}</S.Option>
+                                </S.WrapSelect>
+                                <S.FocusInput htmlFor='ufSelect' className='focus-input' data-placeholder='Cidade Select*'/>
+                            </S.WrapInput> */}
+                            
+                            <S.WrapInput className="wrap-input">
+                                <input className="input" type="text" id='cidade' defaultValue={city} title='cicade' placeholder=''/>
+                                <S.FocusInput htmlFor='cidade' className='focus-input' data-placeholder='Cidade *'></S.FocusInput>
                             </S.WrapInput>
                             <S.WrapInput className="wrap-input">
-                                <input className="input" type="text" id='cidade' defaultValue={city}/>
-                                <S.FocusInput className='focus-input' data-placeholder='Cidade *'></S.FocusInput>
+                                <InputMask mask="(99) 99999-9999" className='input'  id='telefone1' title='telefone1' placeholder=''/>
+                                <S.FocusInput htmlFor='telefone1' className='focus-input' data-placeholder='Telefone 1 *'></S.FocusInput>
                             </S.WrapInput>
                             <S.WrapInput className="wrap-input">
-                                <InputMask mask="(99) 99999-9999" className='input'  id='telefone1'/>
-                                <S.FocusInput className='focus-input' data-placeholder='Telefone 1 *'></S.FocusInput>
-                            </S.WrapInput>
-                            <S.WrapInput className="wrap-input">
-                                <InputMask mask="(99) 99999-9999" className='input'  id='telefone2'/>
-                                <S.FocusInput className='focus-input' data-placeholder='Telefone 2'></S.FocusInput>
+                                <InputMask mask="(99) 99999-9999" className='input'  id='telefone2' title='telefone2' placeholder=''/>
+                                <S.FocusInput htmlFor='telefone2' className='focus-input' data-placeholder='Telefone 2'></S.FocusInput>
                             </S.WrapInput>
                             <S.WrapInput className="wrap-input">
                                 <InputMask mask="(99) 99999-9999" className='input'  id='telefone3'/>
-                                <S.FocusInput className='focus-input' data-placeholder='Telefone 3'></S.FocusInput>
+                                <S.FocusInput htmlFor='telefone3' className='focus-input' data-placeholder='Telefone 3' title='telefone3' placeholder=''></S.FocusInput>
                             </S.WrapInput>
                             <S.WrapInput className="wrap-input">
-                                <input className="input" type="email" id='email'/>
-                                <S.FocusInput className='focus-input' data-placeholder='Email'></S.FocusInput>
+                                <input className="input" type="email" id='email'autoComplete='off' title='email'/>
+                                <S.FocusInput htmlFor='email' className='focus-input' data-placeholder='Email'></S.FocusInput>
                             </S.WrapInput>
                             <S.WrapInput className="wrap-input">
-                                <input className="input" type="text" id='social'/>
-                                <S.FocusInput className='focus-input' data-placeholder='Rede Social'></S.FocusInput>
+                                <input className="input" type="text" id='social' title='rede-social'/>
+                                <S.FocusInput htmlFor='social' className='focus-input' data-placeholder='Rede Social'></S.FocusInput>
                             </S.WrapInput>
                             <S.WrapInput className="wrap-input">
-                                <input className="input" type="text" id='responsavel'/>
-                                <S.FocusInput className='focus-input' data-placeholder='Responsável'></S.FocusInput>
+                                <input className="input" type="text" id='responsavel' title='responsavel' placeholder=''/>
+                                <S.FocusInput htmlFor='responsavel' className='focus-input' data-placeholder='Responsável'></S.FocusInput>
                             </S.WrapInput>
                             <S.WrapInput className="wrap-input">
-                                <input className="input" type="text" id='observation'/>
-                                <S.FocusInput className='focus-input' data-placeholder='Observações'></S.FocusInput>
+                                <input className="input" type="text" id='observation' title='observação' placeholder=''/>
+                                <S.FocusInput htmlFor='observation' className='focus-input' data-placeholder='Observações'></S.FocusInput>
                             </S.WrapInput>
                         </S.CadastroForm>
                         <S.ButtonRow className="button-row">
