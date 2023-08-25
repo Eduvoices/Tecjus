@@ -213,7 +213,7 @@ pointer-events: none;
 }
 
 #cpf {
-    width: 172px;
+    width: 180px;
 
     @media (max-width: 1023px) {
         width: 100%;
@@ -377,6 +377,6 @@ font-size: 16px;
 color: #c4b69c;
 text-align: center;
 line-height: 1.2;
-background: #transparent;
+background: transparent;
 padding: 0 8px;
 `
