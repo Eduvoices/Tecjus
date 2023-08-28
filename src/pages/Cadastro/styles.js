@@ -109,6 +109,11 @@ border-bottom: 2px solid #adadad;
 margin-bottom: 37px;
 margin-right: 12px;
 
+p {
+    font-size: 10px;
+    color: red;
+}
+
 button {
     font-size: 10px;
     border: none;
@@ -136,7 +141,13 @@ pointer-events: none;
 }
 
 #valid {
-    display: none;
+    font-size: 10px;
+    color: green;
+    position: absolute;
+    text-align: justify;
+    top: 0;
+    left: 0;
+    pointer-events: none;
 }
 
 .input {

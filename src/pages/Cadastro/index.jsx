@@ -10,6 +10,7 @@
     import { Link } from 'react-router-dom'
     import SelectUf from '../../components/SelectUF'
     import SelectCity from '../../components/SelectCity'
+import { useRef } from 'react'
 
 
     function Cadastro() {
@@ -22,6 +23,16 @@
         const [tel1, setTel1] = useState('')
         const [tel2, setTel2] = useState('')
         const [tel3, setTel3] = useState('')
+        const [birth, setBirth] = useState('')
+
+        const [email, setEmail] = useState('')
+        const [emailErr, setEmailErr] = useState('')
+
+        const ref = useRef(null)
+
+        const handleRef = () => {
+            ref.current.value = ''
+        }
 
         let cep = ''
 
@@ -44,11 +55,8 @@
                 setTel2('')
                 setTel3('')
                 setCPF('')
+                setBirth('')
             }
-
-        function handleClick() {
-            setCPF('')
-        }
 
         function isCPF(cpf = 0){
                 cpf  = cpf.replace(/\.|-/g,"");
@@ -116,6 +124,18 @@
                 event.preventDefault();
             }
             }
+        
+        const validate = () => {
+            if (!validEmail.test(email)) {
+                setEmailErr(true)
+            } else {
+                setEmailErr(false)
+            }
+        }
+
+
+
+        const validEmail = new RegExp("^[a-zA-Z0-9._:$!%-]+@[a-zA-Z0-9.-]+.[a-zA-Z]$")
 
         return (
             <S.Container className="container">
@@ -173,25 +193,27 @@
                             </S.WrapInput>
                             <S.WrapInput 
                                 className="wrap-input">
-                                <InputMask mask="999.999.999-99" 
+                                <input
+                                maxLength={14}
                                 className='input'  
                                 id='cpf' 
                                 title='cpf' 
                                 placeholder=''
-                                onChange={handleChange}
+                                onBlur={handleChange}
+                                ref={ref}
                                 onKeyDown={handleEnter}
-                                value={cpf}
+                                onFocus={handleRef}
                                 />
-                                {isCPF(cpf) === false || cpf.length === 0 ? (
-                                    <button type='button' onClick={handleClick}>Limpar</button>
-                                ) : (
-                                    <span />
-                                )}
                                 <S.FocusInput 
                                 htmlFor='cpf' 
                                 className='focus-input' 
                                 data-placeholder='CPF *'></S.FocusInput>
-                                <span id={isCPF(cpf) === true || cpf.length === 0 ? 'valid' : 'invalid'}>Campo vazio ou inválido</span>
+                                {isCPF(cpf) === true ? (
+                                    <span id='valid'>Cpf válido</span>
+                                ) : (
+                                    <span id='invalid'>Campo vazio ou CPF inválido</span>
+                                )}
+                                {/* <span id={isCPF(cpf) === true || cpf.length === 0 ? 'valid' : 'invalid'}>Campo vazio ou inválido</span> */}
                             </S.WrapInput>
                             <S.WrapInput className="wrap-input">
                                 <InputMask 
@@ -200,8 +222,9 @@
                                 className='input'  
                                 id='nascimento' 
                                 title='nascimento' 
+                                onChange={(e)=>setBirth(e.target.value)}
                                 placeholder='' 
-                                value=''/>
+                                value={birth}/>
                                 <S.FocusInput 
                                 htmlFor='nascimento' 
                                 className='focus-input' 
@@ -337,7 +360,11 @@
                                 id='email'
                                 autoComplete='off' 
                                 title='email'
+                                onChange={(e)=>setEmail(e.target.value)}
+                                value={email}
+                                onBlur={validate}
                                 onKeyDown={handleEnter}/>
+                                {emailErr && <p>Por favor, digite um email válido</p>}
                                 <S.FocusInput 
                                 htmlFor='email' 
                                 className='focus-input' 

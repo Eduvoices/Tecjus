@@ -18,15 +18,15 @@ function Consulta() {
     function Input() {
     if (mask === 'cpf') {
         return (
-        <InputMask mask='999.999.999-99' className='input' onBlur={validCPF} defaultValue={cpf}/>
+        <InputMask mask='999.999.999-99' className='input' onBlur={validCPF} defaultValue={cpf} onKeyDown={handleEnter}/>
         )
     } else if (mask === 'data') {
         return (
-        <InputMask mask='99/99/9999' className='input'/>
+        <InputMask mask='99/99/9999' className='input' onKeyDown={handleEnter}/>
         )
     } else {
         return (
-        <input className="input" id=''/>
+        <input className="input" id='' onKeyDown={handleEnter}/>
         )
     }
     }
@@ -78,6 +78,15 @@ function Consulta() {
         
         return true;
     }
+
+    function handleEnter(e) {
+        if (e.keyCode === 13) {
+            const input = e.target.form
+            const i = Array.prototype.indexOf.call(input, e.target)
+            input.elements[i + 1].focus()
+            e.preventDefault()
+        }
+    }
     
         return (
         <S.Container className="container">
@@ -128,50 +137,50 @@ function Consulta() {
                     <div className='overflow'>
                                     <table>
                                         <tbody>
-                                        <tr>
-                                        <th>Código</th>
-                                            <th>Nome</th>
-                                            <th>CPF</th>
-                                            <th>Rua</th>
-                                            <th>Número</th>
-                                            <th>Bairro</th>
-                                            <th>Complemento</th>
-                                            <th>CEP</th>
-                                            <th>Cidade</th>
-                                            <th>Data de nascimento</th>
-                                            <th>Telefone 1</th>
-                                            <th>Telefone 2</th>
-                                            <th>Telefone 3</th>
-                                            <th>E-mail</th>
-                                            <th>Responsável</th>
-                                            <th>Rede Social</th>
-                                            <th>Como ?</th>
-                                            <th>Observação</th>
-                                            <th>Data de Cadastro</th>
-                                        </tr>
-                                        <tr>
-                                        <td>1072</td>
-                                        <td>Priscila Paiva Blasechi</td>
-                                        <td>000.000.000-00</td>
-                                        <td>Rua Teste do Teste Teste</td>
-                                        <td>000</td>
-                                        <td>Bairro</td>
-                                        <td>Complemento</td>
-                                        <td>00000-000</td>
-                                        <td>Arapongas</td>
-                                        <td>01/01/1010</td>
-                                        <td>(99)99999-9999</td>
-                                        <td>(99)99999-9999</td>
-                                        <td>(99)99999-9999</td>
-                                        <td>exemplo@exemplo.com</td>
-                                        <td>Nome do Responsável</td>
-                                        <td>@exemplo</td>
-                                        <td>Complemento</td>
-                                        <td>Exemplo</td>
-                                        <td>01/01/1010</td>
-                                        </tr>
+                                            <tr>
+                                                <th>Código</th>
+                                                <th>Nome</th>
+                                                <th>CPF</th>
+                                                <th>Rua</th>
+                                                <th>Número</th>
+                                                <th>Bairro</th>
+                                                <th>Complemento</th>
+                                                <th>CEP</th>
+                                                <th>Cidade</th>
+                                                <th>Data de nascimento</th>
+                                                <th>Telefone 1</th>
+                                                <th>Telefone 2</th>
+                                                <th>Telefone 3</th>
+                                                <th>E-mail</th>
+                                                <th>Responsável</th>
+                                                <th>Rede Social</th>
+                                                <th>Como ?</th>
+                                                <th>Observação</th>
+                                                <th>Data de Cadastro</th>
+                                            </tr>
+                                            
+                                            <tr>
+                                                <td>1072</td>
+                                                <td>Priscila Paiva Blasechi</td>
+                                                <td>000.000.000-00</td>
+                                                <td>Rua Teste do Teste Teste</td>
+                                                <td>000</td>
+                                                <td>Bairro</td>
+                                                <td>Complemento</td>
+                                                <td>00000-000</td>
+                                                <td>Arapongas</td>
+                                                <td>01/01/1010</td>
+                                                <td>(99)99999-9999</td>
+                                                <td>(99)99999-9999</td>
+                                                <td>(99)99999-9999</td>
+                                                <td>exemplo@exemplo.com</td>
+                                                <td>Nome do Responsável</td>
+                                                <td>@exemplo</td>
+                                                <td>Complemento</td>
+                                                <td>Exemplo</td>
+                                                <td>01/01/1010</td>
+                                            </tr>
                                         </tbody>
-                                        
                                     </table>
                     </div>
 

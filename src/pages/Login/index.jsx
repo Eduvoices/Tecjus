@@ -7,6 +7,15 @@ function Login() {
     const [user, setUser] = useState("")
     const [password, setPassword] = useState("")
 
+    function handleEnter(e) {
+        if (e.keyCode === 13) {
+            const input = e.target.form
+            const i = Array.prototype.indexOf.call(input, e.target)
+            input.elements[i + 1].focus()
+            e.preventDefault()
+        }
+    }
+
     return (
         <S.Container className="container">
         <S.ContainerLogin className="container-login">
@@ -22,6 +31,7 @@ function Login() {
                 type='email'
                 value={user}
                 onChange={e => setUser(e.target.value)}
+                onKeyDown={handleEnter}
                 />
                 <S.FocusInput className='focus-input' data-placeholder='E-mail'></S.FocusInput>
                 </S.WrapInput>
@@ -31,6 +41,7 @@ function Login() {
                 type='password'
                 value={password}
                 onChange={e => setPassword(e.target.value)}
+                onKeyDown={handleEnter}
                 />
                 <S.FocusInput className='focus-input' data-placeholder='Senha'></S.FocusInput>
                 </S.WrapInput>
