@@ -43,9 +43,11 @@ img {
 `
 export const CadastroForm = styled.form`
 line-height: 1.2;
-margin: 64px 0;
-display: grid;
-grid-template-columns: 1fr 1fr 1fr 1fr;
+margin: 24px 0;
+display: flex;
+flex-wrap: wrap;
+justify-content: center;
+align-items: space-around;
 
 @media (max-width: 1023px) {
     width: 100%;
@@ -157,6 +159,11 @@ border-bottom: 2px solid #adadad;
 margin-bottom: 37px;
 margin-right: 12px;
 
+p {
+    font-size: 10px;
+    color: red;
+}
+
 .radio {
     height: 48px;
     display: flex;
@@ -253,7 +260,7 @@ font-size: 16px;
 color: #c4b69c;
 text-align: center;
 line-height: 1.2;
-background: #transparent;
+background: transparent;
 padding: 0 8px;
 `
 export const ButtonRow = styled.div`
