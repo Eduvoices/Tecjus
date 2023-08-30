@@ -6,7 +6,7 @@ import cancel from '../../assets/x.svg'
 import * as S from './styles'
 
 import { Link } from 'react-router-dom'
-import { useState } from 'react'
+import { useRef, useState } from 'react'
 
 function CadastroUser() {
     const [email, setEmail] = useState("");
@@ -15,6 +15,8 @@ function CadastroUser() {
 
     const [inputEmailErr, setInputEmailErr] = useState(false);
     const [inputPasswordErr, setInputPasswordErr] = useState(false);
+
+    const ref = useRef(null)
 
     const validate = () => {
         if (!validEmail.test(email)) {
@@ -42,7 +44,17 @@ function CadastroUser() {
         setConfirm('')
         setEmail('')
         setPassword('')
+        ref.current.value = ''
     }
+
+    const handleChange = (e) => {
+        setConfirm(e.target.value)
+
+        if (confirm !== password) {
+            ref.current.value = ''
+        }
+    }
+
 
     const validEmail = new RegExp("^[a-zA-Z0-9._:$!%-]+@[a-zA-Z0-9.-]+.[a-zA-Z]$");
 
@@ -68,7 +80,7 @@ function CadastroUser() {
                             type="email" 
                             title='email' 
                             placeholder='' 
-                            value={email} 
+                            value={email}
                             onChange={(e)=>setEmail(e.target.value)} 
                             onKeyDown={handleEnter}/>
                             {inputEmailErr && <p>Por favor, digite um email válido</p>}
@@ -83,8 +95,8 @@ function CadastroUser() {
                             title='password' 
                             placeholder='' 
                             onKeyDown={handleEnter}
-                            value={password}
-                            onChange={(e)=>setPassword(e.target.value)}/>
+                            ref={ref}
+                            onBlur={(e)=>setPassword(e.target.value)}/>
                             {inputPasswordErr && <p>Por favor, digite uma senha mais forte</p>}
                             <S.FocusInput htmlFor='input2' className='focus-input' data-placeholder='Senha'></S.FocusInput>
                         </S.WrapInput>
@@ -96,8 +108,8 @@ function CadastroUser() {
                             title='confirmPassword' 
                             placeholder='' 
                             onKeyDown={handleEnter}
-                            value={confirm}
-                            onChange={(e) => setConfirm(e.target.value)}
+                            onBlur={handleChange}
+                            ref={ref}
                             />
                             {confirm === password ? (<span />) : (<p>Digite uma senha igual</p>)}
                             <S.FocusInput htmlFor='input3' className='focus-input' data-placeholder='Confirmar senha'></S.FocusInput>
