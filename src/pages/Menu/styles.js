@@ -16,7 +16,6 @@ justify-content: center;
 export const NavContainer = styled.nav`
 padding: 8px;
 
-
 @media (max-width: 1023px) {
     display: flex;
     align-items: center;
@@ -54,6 +53,14 @@ align-items:center;
 justify-content: center;
 width: 100%;
 
+#menu-cadastro {
+    width: 100%;
+
+    #submenu {
+        display: none;
+    }
+}
+
 `
 export const ListAnchor = styled.button`
 padding: 16px;
@@ -63,11 +70,9 @@ border-radius: 8px;
 color: #fff;
 line-height: 1.2;
 text-transform: uppercase;
-display: flex;
-justify-content: center;
-align-items: center;
+display: block;
+text-decoration: none;
 background-color: #575047;
-margin-right: 16px;
 width: 75%;
 cursor: pointer;
 
@@ -125,7 +130,7 @@ align-items: center;
 
 div {
     display: flex;
-    align-item: center;
+    align-items: center;
 }
 
 img {
@@ -225,4 +230,32 @@ top: 0;
 right: 0;
 padding: 16px;
 cursor: pointer;
+`
+
+export const Dropdown = styled.div`
+display: inline-block;
+position: relative;
+width: 75%;
+
+${ListItem} {
+    width: 100%;
+}
+
+${ListAnchor} {
+    width: 100%;
+}
+
+&:hover {
+    .dropdownContent {
+        display: block;
+    }
+}
+
+.dropdownContent {
+    position: absolute;
+    display: none;
+    background-color: transparent;
+    z-index: 1;
+    width: 100%;
+}
 `

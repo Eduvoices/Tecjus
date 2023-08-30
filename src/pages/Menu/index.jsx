@@ -53,30 +53,52 @@ function Menu() {
                     <S.NavContainer className='nav-container'>
                     <S.List className='list'>
                     <S.ListItem className='list-item'>
-                        <S.ListAnchor type='button' className='list-anchor'>Cadastros</S.ListAnchor>
+                        <S.Dropdown className='dropdown'>
+                        <S.ListAnchor type='button' className='dropBtn'>Cadastros</S.ListAnchor>
+                        <div className='dropdownContent'>
+                            <Link to='/cadastro'>
+                                <S.ListAnchor type='button' className='list-anchor'>Pessoa Física</S.ListAnchor>
+                            </Link>
+
+                            <Link to='/usercadastro'>
+                                <S.ListAnchor type='button' className='list-anchor'>Usuário</S.ListAnchor>
+                            </Link>
+                        </div>
+                        </S.Dropdown>
                     </S.ListItem>
                     <S.ListItem className='list-item'>
                         <S.ListAnchor type='button' className='list-anchor'>Processos</S.ListAnchor>
                     </S.ListItem>
                     <S.ListItem className='list-item'>
-                        <S.ListAnchor type='button' className='list-anchor'>Consultas</S.ListAnchor>
+                        <S.Dropdown>
+                            <S.ListAnchor type='button' className='list-anchor'>Consultas</S.ListAnchor>
+                            <div className='dropdownContent'>
+                                <Link to='/consulta'>
+                                    <S.ListAnchor type='button' className='list-anchor'>Pessoa Física</S.ListAnchor>
+                                </Link>
+                            </div>
+                        </S.Dropdown>
                     </S.ListItem>
                     <S.ListItem className='list-item'>
                         <S.ListAnchor type='button' className='list-anchor'>Financeiro</S.ListAnchor>
                     </S.ListItem>
                     <S.ListItem className='list-item'>
-                        <S.ListAnchor type='button' className='list-anchor'>Sistema</S.ListAnchor>
+                        <S.Dropdown>
+                            <S.ListAnchor type='button' className='list-anchor'>Sistema</S.ListAnchor>
+                            <div className='dropdownContent'>
+                                <Link>
+                                    <S.ListAnchor type='button' className='list-anchor'>Alterar Senha</S.ListAnchor>
+                                </Link>
+                            </div>
+                        </S.Dropdown>
                     </S.ListItem>
                     <S.ListItem className='list-item'>
                         <S.ListAnchor type='button' className='list-anchor'>Ajuda</S.ListAnchor>
                     </S.ListItem>
-                    
-                        
-                    
                     </S.List>
                     <Link to="/">
-                    <S.Exit src={exit} alt='Sair do sistema' className='exit'/>
-                        </Link>
+                        <S.Exit src={exit} alt='Sair do sistema' className='exit'/>
+                    </Link>
                     </S.NavContainer>
         </header>
         <S.ContainerArea className="container">

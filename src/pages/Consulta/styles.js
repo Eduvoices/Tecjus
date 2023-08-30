@@ -32,27 +32,66 @@ position: relative;
 
 table {
     border-collapse: collapse;
-    border-spacing: 0;
     width: 100%;
     border: 1px solid #ddd;
     margin-top: 32px;
     color: #c4b69c;
     font-size: 12px;
-    text-align: center;
     border-radius: 8px;
     padding: 8px;
     background: #fff;
+    position: relative;
     }
 
     th, td {
-    text-align: left;
-    padding: 8px;
+    text-align: justify;
+    padding: 16px;
     width: 100%;
     border: 1px solid #000;
+    white-space: nowrap;
+    height: 48px;
     }
 
     th {
         background: #535c68;
+        text-align: center;
+
+        div {
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+
+            img {
+                margin-left: 8px;
+            }
+
+            div {
+                display: inline-block;
+                position: relative;
+
+                    &:hover {
+                        .dropdownContent {
+                            display: block;
+                        }
+                    }
+
+                    .dropdownContent {
+                        position: absolute;
+                        display: none;
+                        z-index: 1;
+                        background-color: #f1f1f1;
+                        box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+                        padding: 8px;
+                        font-size: 12px;
+                        line-height: 1.2;
+                        height: 120px;
+
+                        p {
+                            margin-top: 4px;
+                        }
+                    }
+            }
+        }
     }
 `
 export const FormTitle = styled.span`
@@ -84,7 +123,7 @@ align-items: center;
     width: 100%
 }
 `
-export const FocusInput = styled.span`
+export const FocusInput = styled.label`
 position: absolute;
 display: block;
 width: 100%;
@@ -187,6 +226,7 @@ export const WrapSelect = styled.select`
 border: 2px solid #adadad;
 padding: 0 8px;
 height: 48px;
+width: 160px;
 background: transparent;
 color: #c4b69c;
 text-align: center;
@@ -240,17 +280,4 @@ top: 0;
 right: 0;
 padding: 16px;
 cursor: pointer;
-`
-
-export const Drag = styled.div`
-padding: 16px;
-border: 2px dotted #c9b4a0;
-width: 100%;
-
-p {
-    color: #c4b69c;
-    font-size: 14px;
-    line-height: 1.2;
-    text-align: center;
-}
 `
