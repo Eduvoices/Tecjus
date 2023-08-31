@@ -70,351 +70,351 @@ function Consulta() {
                                     <table>
                                         <tbody>
                                             <tr>
-                                                <th>
-                                                    <div>
-                                                        Código
-                                                        <div className='dropdown'>
-                                                            <img src={moreOptions} alt="Mais opções" />
-                                                            <div className='dropdownContent'>
-                                                                <Link to='/cadastro'>
-                                                                    <p>Inserir</p>
-                                                                </Link>
-                                                                <Link to='/cadastro'>
-                                                                    <p>Alterar</p>
-                                                                </Link>
-                                                                <p>Excluir</p>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </th>
-                                                <th>
-                                                    <div>
-                                                        Nome 
-                                                        <div className='dropdown'>
-                                                            <img src={moreOptions} alt="Mais opções" />
-                                                            <div className='dropdownContent'>
-                                                                <Link to='/cadastro'>
-                                                                    <p>Inserir</p>
-                                                                </Link>
-                                                                <Link to='/cadastro'>
-                                                                    <p>Alterar</p>
-                                                                </Link>
-                                                                <p>Excluir</p>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </th>
-                                                <th>
-                                                    <div>
-                                                        CPF 
-                                                        <div className='dropdown'>
-                                                            <img src={moreOptions} alt="Mais opções" />
-                                                            <div className='dropdownContent'>
-                                                                <Link to='/cadastro'>
-                                                                    <p>Inserir</p>
-                                                                </Link>
-                                                                <Link to='/cadastro'>
-                                                                    <p>Alterar</p>
-                                                                </Link>
-                                                                <p>Excluir</p>
-                                                            </div>
-                                                        </div>                                                    
-                                                    </div>
-                                                </th>
-                                                <th>
-                                                    <div>
-                                                        Endereço 
-                                                        <div className='dropdown'>
-                                                            <img src={moreOptions} alt="Mais opções" />
-                                                            <div className='dropdownContent'>
-                                                                <Link to='/cadastro'>
-                                                                    <p>Inserir</p>
-                                                                </Link>
-                                                                <Link to='/cadastro'>
-                                                                    <p>Alterar</p>
-                                                                </Link>
-                                                                <p>Excluir</p>
-                                                            </div>
-                                                        </div>                                                   
-                                                    </div>
-                                                </th>
-                                                <th>
-                                                    <div>
-                                                        Nº 
-                                                        <div className='dropdown'>
-                                                            <img src={moreOptions} alt="Mais opções" />
-                                                            <div className='dropdownContent'>
-                                                                <Link to='/cadastro'>
-                                                                    <p>Inserir</p>
-                                                                </Link>
-                                                                <Link to='/cadastro'>
-                                                                    <p>Alterar</p>
-                                                                </Link>
-                                                                <p>Excluir</p>
-                                                            </div>
-                                                        </div>                                                    
-                                                    </div>
-                                                </th>
-                                                <th>
-                                                    <div>
-                                                        Bairro 
-                                                        <div className='dropdown'>
-                                                            <img src={moreOptions} alt="Mais opções" />
-                                                            <div className='dropdownContent'>
-                                                                <Link to='/cadastro'>
-                                                                    <p>Inserir</p>
-                                                                </Link>
-                                                                <Link to='/cadastro'>
-                                                                    <p>Alterar</p>
-                                                                </Link>
-                                                                <p>Excluir</p>
-                                                            </div>
-                                                        </div>                                                    
-                                                    </div>
-                                                </th>
-                                                <th>
-                                                    <div>
-                                                        Complemento 
-                                                        <div className='dropdown'>
-                                                            <img src={moreOptions} alt="Mais opções" />
-                                                            <div className='dropdownContent'>
-                                                                <Link to='/cadastro'>
-                                                                    <p>Inserir</p>
-                                                                </Link>
-                                                                <Link to='/cadastro'>
-                                                                    <p>Alterar</p>
-                                                                </Link>
-                                                                <p>Excluir</p>
-                                                            </div>
-                                                        </div>                                                    
-                                                    </div>
-                                                </th>
-                                                <th>
-                                                    <div>
-                                                        CEP 
-                                                        <div className='dropdown'>
-                                                            <img src={moreOptions} alt="Mais opções" />
-                                                            <div className='dropdownContent'>
-                                                                <Link to='/cadastro'>
-                                                                    <p>Inserir</p>
-                                                                </Link>
-                                                                <Link to='/cadastro'>
-                                                                    <p>Alterar</p>
-                                                                </Link>
-                                                                <p>Excluir</p>
-                                                            </div>
-                                                        </div>                                                    
-                                                    </div>
-                                                </th>
-                                                <th>
-                                                    <div>
-                                                        Cidade 
-                                                        <div className='dropdown'>
-                                                            <img src={moreOptions} alt="Mais opções" />
-                                                            <div className='dropdownContent'>
-                                                                <Link to='/cadastro'>
-                                                                    <p>Inserir</p>
-                                                                </Link>
-                                                                <Link to='/cadastro'>
-                                                                    <p>Alterar</p>
-                                                                </Link>
-                                                                <p>Excluir</p>
-                                                            </div>
-                                                        </div>                                                    
-                                                    </div>
-                                                </th>
-                                                <th>
-                                                    <div>
-                                                        Data de nascimento 
-                                                        <div className='dropdown'>
-                                                            <img src={moreOptions} alt="Mais opções" />
-                                                            <div className='dropdownContent'>
-                                                                <Link to='/cadastro'>
-                                                                    <p>Inserir</p>
-                                                                </Link>
-                                                                <Link to='/cadastro'>
-                                                                    <p>Alterar</p>
-                                                                </Link>
-                                                                <p>Excluir</p>
-                                                            </div>
-                                                        </div>                                                    
-                                                    </div>
-                                                </th>
-                                                <th>
-                                                    <div>
-                                                        Telefone 1 
-                                                        <div className='dropdown'>
-                                                            <img src={moreOptions} alt="Mais opções" />
-                                                            <div className='dropdownContent'>
-                                                                <Link to='/cadastro'>
-                                                                    <p>Inserir</p>
-                                                                </Link>
-                                                                <Link to='/cadastro'>
-                                                                    <p>Alterar</p>
-                                                                </Link>
-                                                                <p>Excluir</p>
-                                                            </div>
-                                                        </div>                                                    
-                                                    </div>
-                                                </th>
-                                                <th>
-                                                    <div>
-                                                        Telefone 2 
-                                                        <div className='dropdown'>
-                                                            <img src={moreOptions} alt="Mais opções" />
-                                                            <div className='dropdownContent'>
-                                                                <Link to='/cadastro'>
-                                                                    <p>Inserir</p>
-                                                                </Link>
-                                                                <Link to='/cadastro'>
-                                                                    <p>Alterar</p>
-                                                                </Link>
-                                                                <p>Excluir</p>
-                                                            </div>
-                                                        </div>                                                    
-                                                    </div>
-                                                </th>
-                                                <th>
-                                                    <div>
-                                                        Telefone 3 
-                                                        <div className='dropdown'>
-                                                            <img src={moreOptions} alt="Mais opções" />
-                                                            <div className='dropdownContent'>
-                                                                <Link to='/cadastro'>
-                                                                    <p>Inserir</p>
-                                                                </Link>
-                                                                <Link to='/cadastro'>
-                                                                    <p>Alterar</p>
-                                                                </Link>
-                                                                <p>Excluir</p>
-                                                            </div>
-                                                        </div>                                                    
-                                                    </div>
-                                                </th>
-                                                <th>
-                                                    <div>
-                                                        E-mail 
-                                                        <div className='dropdown'>
-                                                            <img src={moreOptions} alt="Mais opções" />
-                                                            <div className='dropdownContent'>
-                                                                <Link to='/cadastro'>
-                                                                    <p>Inserir</p>
-                                                                </Link>
-                                                                <Link to='/cadastro'>
-                                                                    <p>Alterar</p>
-                                                                </Link>
-                                                                <p>Excluir</p>
-                                                            </div>
-                                                        </div>                                                   
-                                                    </div>
-                                                </th>
-                                                <th>
-                                                    <div>
-                                                        Responsável 
-                                                        <div className='dropdown'>
-                                                            <img src={moreOptions} alt="Mais opções" />
-                                                            <div className='dropdownContent'>
-                                                                <Link to='/cadastro'>
-                                                                    <p>Inserir</p>
-                                                                </Link>
-                                                                <Link to='/cadastro'>
-                                                                    <p>Alterar</p>
-                                                                </Link>
-                                                                <p>Excluir</p>
-                                                            </div>
-                                                        </div>                                                    
-                                                    </div>
-                                                </th>
-                                                <th>
-                                                    <div>
-                                                        Rede social 
-                                                        <div className='dropdown'>
-                                                            <img src={moreOptions} alt="Mais opções" />
-                                                            <div className='dropdownContent'>
-                                                                <Link to='/cadastro'>
-                                                                    <p>Inserir</p>
-                                                                </Link>
-                                                                <Link to='/cadastro'>
-                                                                    <p>Alterar</p>
-                                                                </Link>
-                                                                <p>Excluir</p>
-                                                            </div>
-                                                        </div>                                                    
-                                                    </div>
-                                                </th>
-                                                <th>
-                                                    <div>
-                                                        Como? 
-                                                        <div className='dropdown'>
-                                                            <img src={moreOptions} alt="Mais opções" />
-                                                            <div className='dropdownContent'>
-                                                                <Link to='/cadastro'>
-                                                                    <p>Inserir</p>
-                                                                </Link>
-                                                                <Link to='/cadastro'>
-                                                                    <p>Alterar</p>
-                                                                </Link>
-                                                                <p>Excluir</p>
-                                                            </div>
-                                                        </div>                                                    
-                                                    </div>
-                                                </th>
-                                                <th>
-                                                    <div>
-                                                        Obs 
-                                                        <div className='dropdown'>
-                                                            <img src={moreOptions} alt="Mais opções" />
-                                                            <div className='dropdownContent'>
-                                                                <Link to='/cadastro'>
-                                                                    <p>Inserir</p>
-                                                                </Link>
-                                                                <Link to='/cadastro'>
-                                                                    <p>Alterar</p>
-                                                                </Link>
-                                                                <p>Excluir</p>
-                                                            </div>
-                                                        </div>                                                    
-                                                    </div>
-                                                </th>
-                                                <th>
-                                                    <div>
-                                                        Data de cadastro 
-                                                        <div className='dropdown'>
-                                                            <img src={moreOptions} alt="Mais opções" />
-                                                            <div className='dropdownContent'>
-                                                                <Link to='/cadastro'>
-                                                                    <p>Inserir</p>
-                                                                </Link>
-                                                                <Link to='/cadastro'>
-                                                                    <p>Alterar</p>
-                                                                </Link>
-                                                                <p>Excluir</p>
-                                                            </div>
-                                                        </div>                                                    
-                                                    </div>
-                                                </th>
+                                                <th>Código</th>
+                                                <th>Nome</th>
+                                                <th>CPF</th>
+                                                <th>Endereço</th>
+                                                <th>Nº</th>
+                                                <th>Bairro</th>
+                                                <th>Complemento</th>
+                                                <th>CEP</th>
+                                                <th>Cidade</th>
+                                                <th>Data de nascimento</th>
+                                                <th>Telefone 1</th>
+                                                <th>Telefone 2</th>
+                                                <th>Telefone 3</th>
+                                                <th>E-mail</th>
+                                                <th>Responsável</th>
+                                                <th>Rede social</th>
+                                                <th>Como?</th>
+                                                <th>Obs</th>
+                                                <th>Data de cadastro</th>
                                             </tr>
                                             
                                             <tr>
-                                                <td>1072</td>
-                                                <td>Priscila Paiva Blasechi</td>
-                                                <td>000.000.000-00</td>
-                                                <td>Rua Teste do Teste Teste</td>
-                                                <td>000</td>
-                                                <td>Bairro</td>
-                                                <td>Complemento</td>
-                                                <td>00000-000</td>
-                                                <td>Arapongas</td>
-                                                <td>01/01/1010</td>
-                                                <td>(99)99999-9999</td>
-                                                <td>(99)99999-9999</td>
-                                                <td>(99)99999-9999</td>
-                                                <td>exemplo@exemplo.com</td>
-                                                <td>Nome do Responsável</td>
-                                                <td>@exemplo</td>
-                                                <td>Complemento</td>
-                                                <td>Exemplo</td>
-                                                <td>01/01/1010</td>
+                                                <td>
+                                                    <div>
+                                                        1072
+                                                        <div className='dropdown'>
+                                                            <img src={moreOptions} alt="Mais opções" />
+                                                            <div className='dropdownContent'>
+                                                                <Link to='/cadastro'>
+                                                                    <p>Inserir</p>
+                                                                </Link>
+                                                                <Link to='/cadastro'>
+                                                                    <p>Alterar</p>
+                                                                </Link>
+                                                                <p>Excluir</p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div>
+                                                        Priscila Paiva Blasechi
+                                                        <div className='dropdown'>
+                                                            <img src={moreOptions} alt="Mais opções" />
+                                                            <div className='dropdownContent'>
+                                                                <Link to='/cadastro'>
+                                                                    <p>Inserir</p>
+                                                                </Link>
+                                                                <Link to='/cadastro'>
+                                                                    <p>Alterar</p>
+                                                                </Link>
+                                                                <p>Excluir</p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div>
+                                                        000.000.000-00
+                                                        <div className='dropdown'>
+                                                            <img src={moreOptions} alt="Mais opções" />
+                                                            <div className='dropdownContent'>
+                                                                <Link to='/cadastro'>
+                                                                    <p>Inserir</p>
+                                                                </Link>
+                                                                <Link to='/cadastro'>
+                                                                    <p>Alterar</p>
+                                                                </Link>
+                                                                <p>Excluir</p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div>
+                                                        Rua Teste do Teste Teste
+                                                        <div className='dropdown'>
+                                                            <img src={moreOptions} alt="Mais opções" />
+                                                            <div className='dropdownContent'>
+                                                                <Link to='/cadastro'>
+                                                                    <p>Inserir</p>
+                                                                </Link>
+                                                                <Link to='/cadastro'>
+                                                                    <p>Alterar</p>
+                                                                </Link>
+                                                                <p>Excluir</p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div>
+                                                        000
+                                                        <div className='dropdown'>
+                                                            <img src={moreOptions} alt="Mais opções" />
+                                                            <div className='dropdownContent'>
+                                                                <Link to='/cadastro'>
+                                                                    <p>Inserir</p>
+                                                                </Link>
+                                                                <Link to='/cadastro'>
+                                                                    <p>Alterar</p>
+                                                                </Link>
+                                                                <p>Excluir</p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div>
+                                                        Bairro
+                                                        <div className='dropdown'>
+                                                            <img src={moreOptions} alt="Mais opções" />
+                                                            <div className='dropdownContent'>
+                                                                <Link to='/cadastro'>
+                                                                    <p>Inserir</p>
+                                                                </Link>
+                                                                <Link to='/cadastro'>
+                                                                    <p>Alterar</p>
+                                                                </Link>
+                                                                <p>Excluir</p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div>
+                                                        Complemento
+                                                        <div className='dropdown'>
+                                                            <img src={moreOptions} alt="Mais opções" />
+                                                            <div className='dropdownContent'>
+                                                                <Link to='/cadastro'>
+                                                                    <p>Inserir</p>
+                                                                </Link>
+                                                                <Link to='/cadastro'>
+                                                                    <p>Alterar</p>
+                                                                </Link>
+                                                                <p>Excluir</p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div>
+                                                        00000-000
+                                                        <div className='dropdown'>
+                                                            <img src={moreOptions} alt="Mais opções" />
+                                                            <div className='dropdownContent'>
+                                                                <Link to='/cadastro'>
+                                                                    <p>Inserir</p>
+                                                                </Link>
+                                                                <Link to='/cadastro'>
+                                                                    <p>Alterar</p>
+                                                                </Link>
+                                                                <p>Excluir</p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div>
+                                                        Arapongas
+                                                        <div className='dropdown'>
+                                                            <img src={moreOptions} alt="Mais opções" />
+                                                            <div className='dropdownContent'>
+                                                                <Link to='/cadastro'>
+                                                                    <p>Inserir</p>
+                                                                </Link>
+                                                                <Link to='/cadastro'>
+                                                                    <p>Alterar</p>
+                                                                </Link>
+                                                                <p>Excluir</p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div>
+                                                        01/01/1010
+                                                        <div className='dropdown'>
+                                                            <img src={moreOptions} alt="Mais opções" />
+                                                            <div className='dropdownContent'>
+                                                                <Link to='/cadastro'>
+                                                                    <p>Inserir</p>
+                                                                </Link>
+                                                                <Link to='/cadastro'>
+                                                                    <p>Alterar</p>
+                                                                </Link>
+                                                                <p>Excluir</p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div>
+                                                        (99)99999-9999
+                                                        <div className='dropdown'>
+                                                            <img src={moreOptions} alt="Mais opções" />
+                                                            <div className='dropdownContent'>
+                                                                <Link to='/cadastro'>
+                                                                    <p>Inserir</p>
+                                                                </Link>
+                                                                <Link to='/cadastro'>
+                                                                    <p>Alterar</p>
+                                                                </Link>
+                                                                <p>Excluir</p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div>
+                                                        (99)99999-9999
+                                                        <div className='dropdown'>
+                                                            <img src={moreOptions} alt="Mais opções" />
+                                                            <div className='dropdownContent'>
+                                                                <Link to='/cadastro'>
+                                                                    <p>Inserir</p>
+                                                                </Link>
+                                                                <Link to='/cadastro'>
+                                                                    <p>Alterar</p>
+                                                                </Link>
+                                                                <p>Excluir</p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div>
+                                                        (99)99999-9999
+                                                        <div className='dropdown'>
+                                                            <img src={moreOptions} alt="Mais opções" />
+                                                            <div className='dropdownContent'>
+                                                                <Link to='/cadastro'>
+                                                                    <p>Inserir</p>
+                                                                </Link>
+                                                                <Link to='/cadastro'>
+                                                                    <p>Alterar</p>
+                                                                </Link>
+                                                                <p>Excluir</p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div>
+                                                        exemplo@exemplo.com
+                                                        <div className='dropdown'>
+                                                            <img src={moreOptions} alt="Mais opções" />
+                                                            <div className='dropdownContent'>
+                                                                <Link to='/cadastro'>
+                                                                    <p>Inserir</p>
+                                                                </Link>
+                                                                <Link to='/cadastro'>
+                                                                    <p>Alterar</p>
+                                                                </Link>
+                                                                <p>Excluir</p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div>
+                                                        Nome do Responsável
+                                                        <div className='dropdown'>
+                                                            <img src={moreOptions} alt="Mais opções" />
+                                                            <div className='dropdownContent'>
+                                                                <Link to='/cadastro'>
+                                                                    <p>Inserir</p>
+                                                                </Link>
+                                                                <Link to='/cadastro'>
+                                                                    <p>Alterar</p>
+                                                                </Link>
+                                                                <p>Excluir</p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div>
+                                                        @exemplo
+                                                        <div className='dropdown'>
+                                                            <img src={moreOptions} alt="Mais opções" />
+                                                            <div className='dropdownContent'>
+                                                                <Link to='/cadastro'>
+                                                                    <p>Inserir</p>
+                                                                </Link>
+                                                                <Link to='/cadastro'>
+                                                                    <p>Alterar</p>
+                                                                </Link>
+                                                                <p>Excluir</p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div>
+                                                        Complemento
+                                                        <div className='dropdown'>
+                                                            <img src={moreOptions} alt="Mais opções" />
+                                                            <div className='dropdownContent'>
+                                                                <Link to='/cadastro'>
+                                                                    <p>Inserir</p>
+                                                                </Link>
+                                                                <Link to='/cadastro'>
+                                                                    <p>Alterar</p>
+                                                                </Link>
+                                                                <p>Excluir</p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div>
+                                                        Exemplo
+                                                        <div className='dropdown'>
+                                                            <img src={moreOptions} alt="Mais opções" />
+                                                            <div className='dropdownContent'>
+                                                                <Link to='/cadastro'>
+                                                                    <p>Inserir</p>
+                                                                </Link>
+                                                                <Link to='/cadastro'>
+                                                                    <p>Alterar</p>
+                                                                </Link>
+                                                                <p>Excluir</p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div>
+                                                        01/01/1010
+                                                        <div className='dropdown'>
+                                                            <img src={moreOptions} alt="Mais opções" />
+                                                            <div className='dropdownContent'>
+                                                                <Link to='/cadastro'>
+                                                                    <p>Inserir</p>
+                                                                </Link>
+                                                                <Link to='/cadastro'>
+                                                                    <p>Alterar</p>
+                                                                </Link>
+                                                                <p>Excluir</p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </td>
                                             </tr>
                                         </tbody>
                                     </table>

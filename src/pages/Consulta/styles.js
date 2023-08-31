@@ -40,12 +40,11 @@ table {
     border-radius: 8px;
     padding: 8px;
     background: #fff;
-    position: relative;
     }
 
     th, td {
     text-align: justify;
-    padding: 16px;
+    padding: 32px;
     width: 100%;
     border: 1px solid #000;
     white-space: nowrap;
@@ -55,7 +54,9 @@ table {
     th {
         background: #535c68;
         text-align: center;
+    }
 
+    td {
         div {
             display: flex;
             align-items: center;
@@ -66,7 +67,7 @@ table {
             }
 
             div {
-                display: inline-block;
+                display: inline-flex;
                 position: relative;
 
                     &:hover {
@@ -78,14 +79,11 @@ table {
                     .dropdownContent {
                         position: absolute;
                         display: none;
-                        z-index: 1;
                         background-color: #f1f1f1;
                         box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
                         padding: 8px;
                         font-size: 12px;
                         line-height: 1.2;
-                        height: 120px;
-
                         p {
                             margin-top: 4px;
                         }

@@ -16,7 +16,8 @@ function CadastroUser() {
     const [inputEmailErr, setInputEmailErr] = useState(false);
     const [inputPasswordErr, setInputPasswordErr] = useState(false);
 
-    const ref = useRef(null)
+    const refPassword = useRef(null)
+    const refConfirm = useRef(null)
 
     const validate = () => {
         if (!validEmail.test(email)) {
@@ -44,14 +45,16 @@ function CadastroUser() {
         setConfirm('')
         setEmail('')
         setPassword('')
-        ref.current.value = ''
+        // ref.current.value = ''
     }
 
-    const handleChange = (e) => {
+    function confereSenha(e) {
+        const senha = refPassword.current.value
+        const confirma = refConfirm.current.value
         setConfirm(e.target.value)
 
-        if (confirm !== password) {
-            ref.current.value = ''
+        if (senha !== confirma) {
+            refConfirm.current.value = ''
         }
     }
 
@@ -81,6 +84,7 @@ function CadastroUser() {
                             title='email' 
                             placeholder='' 
                             value={email}
+                            ref={refPassword}
                             onChange={(e)=>setEmail(e.target.value)} 
                             onKeyDown={handleEnter}/>
                             {inputEmailErr && <p>Por favor, digite um email válido</p>}
@@ -89,27 +93,29 @@ function CadastroUser() {
 
                         <S.WrapInput className="wrap-input">
                             <input 
-                            id='input2' 
+                            id='input2'
+                            required
                             className="input" 
                             type="password" 
                             title='password' 
                             placeholder='' 
                             onKeyDown={handleEnter}
-                            ref={ref}
+                            ref={refPassword}
                             onBlur={(e)=>setPassword(e.target.value)}/>
                             {inputPasswordErr && <p>Por favor, digite uma senha mais forte</p>}
                             <S.FocusInput htmlFor='input2' className='focus-input' data-placeholder='Senha'></S.FocusInput>
                         </S.WrapInput>
                         <S.WrapInput className="wrap-input">
                             <input 
-                            id='input3' 
+                            id='input3'
+                            required
                             className="input" 
                             type="password" 
                             title='confirmPassword' 
                             placeholder='' 
                             onKeyDown={handleEnter}
-                            onBlur={handleChange}
-                            ref={ref}
+                            onBlur={confereSenha}
+                            ref={refConfirm}
                             />
                             {confirm === password ? (<span />) : (<p>Digite uma senha igual</p>)}
                             <S.FocusInput htmlFor='input3' className='focus-input' data-placeholder='Confirmar senha'></S.FocusInput>
