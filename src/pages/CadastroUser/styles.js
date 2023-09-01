@@ -268,6 +268,10 @@ display: flex;
 justify-content: center;
 width: 100%;
 
+    .disabled {
+        background-color: #f1f1f1;
+    }
+
 @media (max-width: 480px) {
     width: 100%;
 }
@@ -288,6 +292,7 @@ height: 48px;
 background:  #4b453d;
 margin-left: 4px;
 position: relative;
+pointer-events: ${(props) => props.disabled?'none':null};
 
     &:hover {
         cursor: pointer;

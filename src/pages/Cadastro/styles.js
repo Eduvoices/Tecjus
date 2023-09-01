@@ -141,7 +141,7 @@ pointer-events: none;
 }
 
 #valid {
-    font-size: 10px;
+    font-size: 8px;
     color: green;
     position: absolute;
     text-align: justify;
@@ -295,6 +295,10 @@ display: flex;
 justify-content: center;
 width: 100%;
 
+.disabled {
+        background-color: #f1f1f1;
+    }
+
 @media (max-width: 480px) {
     width: 100%;
     display: block;
@@ -316,6 +320,7 @@ height: 48px;
 background:  #4b453d;
 margin-left: 4px;
 position: relative;
+pointer-events: ${(props) => props.disabled?'none':null};
 
     &:hover {
         cursor: pointer;

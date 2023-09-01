@@ -12,9 +12,9 @@ function CadastroUser() {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [confirm, setConfirm] = useState("")
+    const [radio, setRadio] = useState('')
 
     const [inputEmailErr, setInputEmailErr] = useState(false);
-    const [inputPasswordErr, setInputPasswordErr] = useState(false);
 
     const refPassword = useRef(null)
     const refConfirm = useRef(null)
@@ -24,11 +24,6 @@ function CadastroUser() {
         setInputEmailErr(true);
         } else {
         setInputEmailErr(false);
-        }
-        if (!validPassword.test(password)) {
-        setInputPasswordErr(true);
-        } else {
-        setInputPasswordErr(false);
         }
     };
 
@@ -45,7 +40,6 @@ function CadastroUser() {
         setConfirm('')
         setEmail('')
         setPassword('')
-        // ref.current.value = ''
     }
 
     function confereSenha(e) {
@@ -58,10 +52,18 @@ function CadastroUser() {
         }
     }
 
+    function enable() {
+        // const senha = refPassword.current.value
+        // const confirma = refConfirm.current.value
+        let teste = confirm === password
+        if (email && teste && password && radio) {
+            return false
+        } else {
+            return true
+        }
+    }
 
     const validEmail = new RegExp("^[a-zA-Z0-9._:$!%-]+@[a-zA-Z0-9.-]+.[a-zA-Z]$");
-
-    const validPassword = new RegExp("^(?=.*?[A-Za-z])(?=.*?[0-9]).{6,}$");
 
 
     return (
@@ -102,7 +104,6 @@ function CadastroUser() {
                             onKeyDown={handleEnter}
                             ref={refPassword}
                             onBlur={(e)=>setPassword(e.target.value)}/>
-                            {inputPasswordErr && <p>Por favor, digite uma senha mais forte</p>}
                             <S.FocusInput htmlFor='input2' className='focus-input' data-placeholder='Senha'></S.FocusInput>
                         </S.WrapInput>
                         <S.WrapInput className="wrap-input">
@@ -125,7 +126,7 @@ function CadastroUser() {
                         <S.WrapInput>
                             <div className="radio">
                                 <div>
-                            <input type='radio' name='radio' id='ativo' onKeyDown={handleEnter}></input>
+                            <input type='radio' name='radio' id='ativo' onKeyDown={handleEnter} onChange={(e)=>setRadio(e.target.value)}></input>
                             <label htmlFor='ativo'>Ativo</label>
                                 </div>
                                 <div>
@@ -137,11 +138,11 @@ function CadastroUser() {
                         </S.WrapInput>
 
                         <S.ButtonRow className="button-row">
-                                <S.FormBtn type="button" className='form-btn'>
-                                <img src={check} alt='botão de confirmação' onClick={validate}/>
+                                <S.FormBtn type="button" className={!enable() ? '' : 'disabled'} disabled={enable()} onClick={validate}>
+                                <img src={check} alt='botão de confirmação'/>
                                 Confirmar
                                 </S.FormBtn>
-                                <S.FormBtn onClick={clear} className='form-btn'>
+                                <S.FormBtn type='reset' className='form-btn'onClick={clear}>
                                 <img src={cancel} alt='botão de cancelamento' />
                                 Cancelar
                                 </S.FormBtn>

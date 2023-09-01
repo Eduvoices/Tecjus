@@ -1,17 +1,16 @@
+    import { useState } from 'react'
+    import { Link } from 'react-router-dom'
+    import { useRef } from 'react'
+    import InputMask from 'react-input-mask'
+    
     import exit from '../../assets/log-out.svg'
     import check from '../../assets/check.svg'
     import cancel from '../../assets/x.svg'
-    import InputMask from 'react-input-mask'
-
-    import * as S from './styles'
-
     
-    import { useState } from 'react'
-    import { Link } from 'react-router-dom'
     import SelectUf from '../../components/SelectUF'
     import SelectCity from '../../components/SelectCity'
-import { useRef } from 'react'
-
+    
+    import * as S from './styles'
 
     function Cadastro() {
         const [street, setStreet] = useState('')
@@ -24,15 +23,16 @@ import { useRef } from 'react'
         const [tel2, setTel2] = useState('')
         const [tel3, setTel3] = useState('')
         const [birth, setBirth] = useState('')
+        const [name, setName] = useState('')
+        const [number, setNumber] = useState('')
 
         const [email, setEmail] = useState('')
         const [emailErr, setEmailErr] = useState('')
 
         const ref = useRef(null)
 
-        const handleRef = () => {
-            ref.current.value = ''
-        }
+        const nome = name
+        const numero = number
 
         let cep = ''
 
@@ -58,53 +58,64 @@ import { useRef } from 'react'
                 setBirth('')
             }
 
-        function isCPF(cpf = 0){
-                cpf  = cpf.replace(/\.|-/g,"");
-            
-                let soma = 0;
-                soma += cpf[0] * 10;
-                soma += cpf[1] * 9;
-                soma += cpf[2] * 8;
-                soma += cpf[3] * 7;
-                soma += cpf[4] * 6;
-                soma += cpf[5] * 5;
-                soma += cpf[6] * 4;
-                soma += cpf[7] * 3;
-                soma += cpf[8] * 2;
-                soma = (soma * 10) % 11;
-            
+        function validarPrimeiroDigito(cpf) {
+            let sum = 0;
+            for (let i = 0; i < 9; i++) {
+              sum += cpf[i] * (10 - i);
+            }
+            const resto = (sum * 10) % 11;
+            if (resto < 10) {
                 // eslint-disable-next-line eqeqeq
-                if(soma == 10 || soma == 11)
-                    soma = 0;
+                return cpf[9] == resto;
+            }
+            // eslint-disable-next-line eqeqeq
+            return cpf[9] == 0;
+            }
             
-            
+            function validarSegundoDigito(cpf) {
+            let sum = 0;
+            for (let i = 0; i < 10; i++) {
+              sum += cpf[i] * (11 - i);
+            }
+            const resto = (sum * 10) % 11;
+            if (resto < 10) {
                 // eslint-disable-next-line eqeqeq
-                if(soma != cpf[9])
-                    return false;
+                return cpf[10] == resto;
+            }
+            // eslint-disable-next-line eqeqeq
+            return cpf[10] == 0;
+            }
             
-                soma = 0;
-                soma += cpf[0] * 11;
-                soma += cpf[1] * 10;
-                soma += cpf[2] * 9;
-                soma += cpf[3] * 8;
-                soma += cpf[4] * 7;
-                soma += cpf[5] * 6;
-                soma += cpf[6] * 5;
-                soma += cpf[7] * 4;
-                soma += cpf[8] * 3;
-                soma += cpf[9] * 2;
-                soma = (soma * 10) % 11;
-                
+            function validarRepetido(cpf) {
+            const primeiro = cpf[0];
+            let diferente = false;
+            for(let i = 1; i < cpf.length; i++) {
                 // eslint-disable-next-line eqeqeq
-                if(soma == 10 || soma == 11)
-                    soma = 0;
+                if(cpf[i] != primeiro) {
+                diferente = true;
+                }
+            }
+            return diferente;
+            }
             
+            function validarCpf(cpf) {
                 // eslint-disable-next-line eqeqeq
-                if(soma != cpf[10])
-                    return false;
-                
+                if (cpf.length != 11) {
+                return false;
+                }
+                if(!validarRepetido(cpf)) {
+                return false;
+                }
+                if (!validarPrimeiroDigito(cpf)) {
+                return false;
+                }
+                if (!validarSegundoDigito(cpf)) {
+                return false;
+                }
                 return true;
             }
+
+            const cpfValido = validarCpf(cpf)
 
         const handleChange = (event) => {
             setCPF(event.target.value)
@@ -133,8 +144,15 @@ import { useRef } from 'react'
             }
         }
 
+        function enable() {
+            if (street && cpfValido && nome && numero && tel1 && block) {
+                return false
+            } else {
+                return true
+            }
+        }
 
-
+        console.log(enable())
         const validEmail = new RegExp("^[a-zA-Z0-9._:$!%-]+@[a-zA-Z0-9.-]+.[a-zA-Z]$")
 
         return (
@@ -172,6 +190,7 @@ import { useRef } from 'react'
                                 id='nome'
                                 title='nome' 
                                 placeholder=''
+                                onBlur={(e) => setName(e.target.value)}
                                 onKeyDown={handleEnter}/>
                                 <S.FocusInput 
                                 htmlFor='nome' 
@@ -202,18 +221,16 @@ import { useRef } from 'react'
                                 onBlur={handleChange}
                                 ref={ref}
                                 onKeyDown={handleEnter}
-                                onFocus={handleRef}
                                 />
                                 <S.FocusInput 
                                 htmlFor='cpf' 
                                 className='focus-input' 
                                 data-placeholder='CPF *'></S.FocusInput>
-                                {isCPF(cpf) === true ? (
-                                    <span id='valid'>Cpf válido</span>
+                                {cpfValido === true || cpf.length < 11 ? (
+                                    <span id='valid'></span>
                                 ) : (
-                                    <span id='invalid'>Campo vazio ou CPF inválido</span>
+                                    <span id='invalid'>CPF inválido</span>
                                 )}
-                                {/* <span id={isCPF(cpf) === true || cpf.length === 0 ? 'valid' : 'invalid'}>Campo vazio ou inválido</span> */}
                             </S.WrapInput>
                             <S.WrapInput className="wrap-input">
                                 <InputMask 
@@ -252,7 +269,8 @@ import { useRef } from 'react'
                                 className="input" 
                                 type="text" 
                                 id='endereco' 
-                                defaultValue={street} 
+                                defaultValue={street}
+                                onChange={(e)=> setStreet(e.target.value)} 
                                 title='endereço' 
                                 placeholder=''
                                 onKeyDown={handleEnter}/>
@@ -268,6 +286,7 @@ import { useRef } from 'react'
                                 id='numero' 
                                 title='numero' 
                                 placeholder=''
+                                onBlur={(e)=>setNumber(e.target.value)}
                                 onKeyDown={handleEnter}/>
                                 <S.FocusInput 
                                 htmlFor='numero' 
@@ -295,6 +314,7 @@ import { useRef } from 'react'
                                 defaultValue={block} 
                                 title='bairro' 
                                 placeholder=''
+                                onChange={(e) => setBlock(e.target.value)}
                                 onKeyDown={handleEnter}/>
                                 <S.FocusInput 
                                 htmlFor='bairro' 
@@ -409,11 +429,11 @@ import { useRef } from 'react'
                                 data-placeholder='Observações'></S.FocusInput>
                             </S.WrapInput>
                             <S.ButtonRow className="button-row">
-                                <S.FormBtn type="button" className='form-btn'>
-                                <img src={check} alt='' />
+                                <S.FormBtn type="button" className={!enable() ? '' : 'disabled'} disabled={enable()}>
+                                <img src={check} alt=''/>
                                 Ok
                                 </S.FormBtn>
-                                <S.FormBtn type="reset" onClick={limpaCampo} className='form-btn'>
+                                <S.FormBtn type="reset" onClick={limpaCampo}>
                                 <img src={cancel} alt='' />
                                 Cancelar
                                 </S.FormBtn>
