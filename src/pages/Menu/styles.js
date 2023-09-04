@@ -24,7 +24,6 @@ padding: 8px;
 `
 export const List = styled.ul`
 display: flex;
-
 align-items: center;
 width: 100%;
 
@@ -60,8 +59,16 @@ width: 100%;
         display: none;
     }
 }
-
 `
+
+export const ListTeste = styled.li`
+list-style: none;
+display: flex;
+align-items:center;
+justify-content: center;
+width: 20%;
+`
+
 export const ListAnchor = styled.button`
 padding: 16px;
 font-size: 12px;
@@ -75,6 +82,13 @@ text-decoration: none;
 background-color: #575047;
 width: 75%;
 cursor: pointer;
+display: flex;
+align-items: center;
+justify-content: center;
+
+img {
+    margin-right: 8px;
+}
 
 @media (max-width: 1023px) {
     width: 70%;

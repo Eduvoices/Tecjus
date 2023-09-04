@@ -13,14 +13,14 @@ const SelectCity = ({id, name, state, onChange=()=>{}}) => {
 
     return (
         <S.Wrap>
-            <S.WrapSelect id={id || name} name={name || id} onChange={onChange} title='select de cidades'>
-                <S.Option>Cidade</S.Option>
+            <S.WrapSelect id={id || name} name={name || id} onChange={onChange} title='select de cidades' required>
+                <S.Option value=''>Cidade</S.Option>
                 {cities.map((city)=>{
                     const {value, label} = city
                     return <S.Option key={value} value={value}>{label}</S.Option>
                 })}
             </S.WrapSelect>
-            <S.FocusSelect data-placeholder='Cidade'/>
+            <S.FocusSelect data-placeholder='Cidade *'/>
         </S.Wrap>
     )
 }

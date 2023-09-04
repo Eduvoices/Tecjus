@@ -53,8 +53,6 @@ function CadastroUser() {
     }
 
     function enable() {
-        // const senha = refPassword.current.value
-        // const confirma = refConfirm.current.value
         let teste = confirm === password
         if (email && teste && password && radio) {
             return false
@@ -77,6 +75,11 @@ function CadastroUser() {
                         Cadastro de Usuário
                         </S.FormTitle>
 
+                    <S.FormTitle>
+                    <S.Required id='required'>*Campo obrigatório</S.Required>
+
+                    </S.FormTitle>
+
                     <S.CadastroForm className="cadastro-form">
                     <S.WrapInput className="wrap-input">
                             <input 
@@ -90,7 +93,7 @@ function CadastroUser() {
                             onChange={(e)=>setEmail(e.target.value)} 
                             onKeyDown={handleEnter}/>
                             {inputEmailErr && <p>Por favor, digite um email válido</p>}
-                            <S.FocusInput htmlFor='input1' className='focus-input' data-placeholder='E-mail'></S.FocusInput>
+                            <S.FocusInput htmlFor='input1' className='focus-input' data-placeholder='E-mail *'></S.FocusInput>
                         </S.WrapInput>
 
                         <S.WrapInput className="wrap-input">
@@ -104,7 +107,7 @@ function CadastroUser() {
                             onKeyDown={handleEnter}
                             ref={refPassword}
                             onBlur={(e)=>setPassword(e.target.value)}/>
-                            <S.FocusInput htmlFor='input2' className='focus-input' data-placeholder='Senha'></S.FocusInput>
+                            <S.FocusInput htmlFor='input2' className='focus-input' data-placeholder='Senha *'></S.FocusInput>
                         </S.WrapInput>
                         <S.WrapInput className="wrap-input">
                             <input 
@@ -119,7 +122,7 @@ function CadastroUser() {
                             ref={refConfirm}
                             />
                             {confirm === password ? (<span />) : (<p>Digite uma senha igual</p>)}
-                            <S.FocusInput htmlFor='input3' className='focus-input' data-placeholder='Confirmar senha'></S.FocusInput>
+                            <S.FocusInput htmlFor='input3' className='focus-input' data-placeholder='Confirmar senha *'></S.FocusInput>
                         </S.WrapInput>
                         
 
@@ -134,7 +137,7 @@ function CadastroUser() {
                             <label htmlFor='cancelado'>Cancelado</label>
                                 </div>
                             </div>
-                            <S.FocuSpan className='focus-input' data-placeholder='Status'></S.FocuSpan>
+                            <S.FocuSpan className='focus-input' data-placeholder='Status *'></S.FocuSpan>
                         </S.WrapInput>
 
                         <S.ButtonRow className="button-row">

@@ -9,6 +9,8 @@ import logo from '../../assets/Logo_page-0001-removebg-preview1.png'
 import star from '../../assets/star.svg'
 import arrowDown from '../../assets/arrow-down.svg'
 import close from '../../assets/arrow-up.svg'
+import userPlus from '../../assets/user-plus.svg'
+import settings from '../../assets/settings2.svg'
 
 import { Link } from "react-router-dom";
 
@@ -57,11 +59,17 @@ function Menu() {
                         <S.ListAnchor type='button' className='dropBtn'>Cadastros</S.ListAnchor>
                         <div className='dropdownContent'>
                             <Link to='/cadastro'>
-                                <S.ListAnchor type='button' className='list-anchor'>Pessoa Física</S.ListAnchor>
+                                <S.ListAnchor type='button' className='list-anchor'>
+                                    <img src={user} alt="" />
+                                    Pessoa Física
+                                </S.ListAnchor>
                             </Link>
 
                             <Link to='/usercadastro'>
-                                <S.ListAnchor type='button' className='list-anchor'>Usuário</S.ListAnchor>
+                                <S.ListAnchor type='button' className='list-anchor'>
+                                    <img src={userPlus} alt="" />
+                                    Usuário
+                                </S.ListAnchor>
                             </Link>
                         </div>
                         </S.Dropdown>
@@ -74,7 +82,10 @@ function Menu() {
                             <S.ListAnchor type='button' className='list-anchor'>Consultas</S.ListAnchor>
                             <div className='dropdownContent'>
                                 <Link to='/consulta'>
-                                    <S.ListAnchor type='button' className='list-anchor'>Pessoa Física</S.ListAnchor>
+                                    <S.ListAnchor type='button' className='list-anchor'>
+                                        <img src={user} alt="" />
+                                        Pessoa Física
+                                    </S.ListAnchor>
                                 </Link>
                             </div>
                         </S.Dropdown>
@@ -87,7 +98,10 @@ function Menu() {
                             <S.ListAnchor type='button' className='list-anchor'>Sistema</S.ListAnchor>
                             <div className='dropdownContent'>
                                 <Link>
-                                    <S.ListAnchor type='button' className='list-anchor'>Alterar Senha</S.ListAnchor>
+                                    <S.ListAnchor type='button' className='list-anchor'>
+                                        <img src={settings} alt="" />
+                                        Alterar Senha
+                                    </S.ListAnchor>
                                 </Link>
                             </div>
                         </S.Dropdown>
@@ -95,10 +109,12 @@ function Menu() {
                     <S.ListItem className='list-item'>
                         <S.ListAnchor type='button' className='list-anchor'>Ajuda</S.ListAnchor>
                     </S.ListItem>
-                    </S.List>
+                    <S.ListTeste>
                     <Link to="/">
                         <S.Exit src={exit} alt='Sair do sistema' className='exit'/>
                     </Link>
+                    </S.ListTeste>
+                    </S.List>
                     </S.NavContainer>
         </header>
         <S.ContainerArea className="container">

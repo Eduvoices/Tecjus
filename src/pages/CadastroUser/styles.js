@@ -17,10 +17,10 @@ background-color: #9999;
 export const Wrapper = styled.div`
 width: 1280px;
 height: 100%;
+padding: 24px;
 background-color: #fff;
 border-radius: 12px;
 overflow: hidden;
-padding: 80px 56px 32px 56px;
 box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 position: relative;
 `
@@ -46,8 +46,9 @@ line-height: 1.2;
 margin: 24px 0;
 display: flex;
 flex-wrap: wrap;
-justify-content: center;
-align-items: space-around;
+justify-content: space-around;
+align-items: center;
+margin-top: 32px;
 
 @media (max-width: 1023px) {
     width: 100%;
@@ -157,7 +158,7 @@ export const WrapInput = styled.div`
 position: relative;
 border-bottom: 2px solid #adadad;
 margin-bottom: 37px;
-margin-right: 12px;
+width: 480px;
 
 p {
     font-size: 10px;
@@ -292,6 +293,7 @@ height: 48px;
 background:  #4b453d;
 margin-left: 4px;
 position: relative;
+margin-right: 48px;
 pointer-events: ${(props) => props.disabled?'none':null};
 
     &:hover {
@@ -307,4 +309,10 @@ pointer-events: ${(props) => props.disabled?'none':null};
 img {
     margin-right: 8px;
 }
+`
+
+export const Required = styled.span`
+font-size: 12px;
+color: #c4b69c;
+line-height: 1.2;
 `

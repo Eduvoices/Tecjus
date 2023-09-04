@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { styled } from "styled-components";
 
 export const Container = styled.div`
@@ -69,6 +70,7 @@ table {
             div {
                 display: inline-flex;
                 position: relative;
+                margin: 0 0 0 20px;
 
                     &:hover {
                         .dropdownContent {
@@ -86,6 +88,10 @@ table {
                         line-height: 1.2;
                         p {
                             margin-top: 4px;
+                        }
+
+                        ${Link} {
+                            display: flex;
                         }
                     }
             }

@@ -25,11 +25,16 @@
         const [birth, setBirth] = useState('')
         const [name, setName] = useState('')
         const [number, setNumber] = useState('')
+        const [code, setCode] = useState('')
+        const [uf, setUf] = useState('')
+        const [city, setCity] = useState('')
 
         const [email, setEmail] = useState('')
         const [emailErr, setEmailErr] = useState('')
 
         const ref = useRef(null)
+        const refTel = useRef(null)
+        const refCep = useRef(null)
 
         const nome = name
         const numero = number
@@ -37,9 +42,9 @@
         let cep = ''
 
         const checkCEP = (e) => {
+            setCepState(e.target.value)
             if (!e.target.value) return;
             cep = e.target.value.replace(/\D/g, '');
-            setCepState(e.target.value)
                 fetch(`https://viacep.com.br/ws/${cep}/json/`).then(res => res.json()).then(data => {
                     setStreet(data.logradouro)
                     setBlock(data.bairro)
@@ -56,6 +61,9 @@
                 setTel3('')
                 setCPF('')
                 setBirth('')
+                setCode('')
+                refTel.current.value = ''
+                refCep.current.value = ''
             }
 
         function validarPrimeiroDigito(cpf) {
@@ -125,6 +133,8 @@
             e.preventDefault()
             const {value, name} = e.target
             setFormValue({...formValue, [name]: value})
+            const teste = formValue.states
+            setUf(teste)
         }
 
         function handleEnter(event) {
@@ -144,15 +154,16 @@
             }
         }
 
+
+
         function enable() {
-            if (street && cpfValido && nome && numero && tel1 && block) {
+            if (street && cpfValido && nome && numero && tel1 && block && code && cepState && uf) {
                 return false
             } else {
                 return true
             }
         }
 
-        console.log(enable())
         const validEmail = new RegExp("^[a-zA-Z0-9._:$!%-]+@[a-zA-Z0-9.-]+.[a-zA-Z]$")
 
         return (
@@ -176,11 +187,13 @@
                                 title='codigo' 
                                 placeholder=''
                                 onKeyDown={handleEnter}
+                                value={code}
+                                onChange={(e) => setCode(e.target.value)}
                                 />
                                 <S.FocusInput 
                                 htmlFor='code' 
                                 className='focus-input' 
-                                data-placeholder='Código'></S.FocusInput>
+                                data-placeholder='Código *'></S.FocusInput>
                             </S.WrapInput>
 
                             <S.WrapInput className="wrap-input">
@@ -253,16 +266,17 @@
                                 mask="99.999-999" 
                                 className='input'  
                                 id='cep'
-                                onChange={checkCEP}
+                                onBlur={checkCEP}
                                 title='cep'
                                 placeholder=''
-                                value={cepState}
+                                ref={refCep}
+                                // value={cepState}
                                 onKeyDown={handleEnter}
                                 />
                                 <S.FocusInput 
                                 htmlFor='cep' 
                                 className='focus-input' 
-                                data-placeholder='CEP'></S.FocusInput>
+                                data-placeholder='CEP *'></S.FocusInput>
                             </S.WrapInput>
                             <S.WrapInput className="wrap-input">
                                 <input 
@@ -329,10 +343,10 @@
                                 <InputMask 
                                 mask="(99) 99999-9999" 
                                 className='input' 
-                                onChange={(e)=>setTel1(e.target.value)}  
+                                onBlur={(e)=>setTel1(e.target.value)}  
                                 id='telefone1' 
                                 title='telefone1'
-                                value={tel1} 
+                                ref={refTel}
                                 placeholder='' 
                                 name='tel1'
                                 onKeyDown={handleEnter}/>
