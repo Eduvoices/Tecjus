@@ -133,8 +133,14 @@
             e.preventDefault()
             const {value, name} = e.target
             setFormValue({...formValue, [name]: value})
-            const teste = formValue.states
-            setUf(teste)
+            setUf(value)
+        }
+
+        const handleCityChange = (e) => {
+            e.preventDefault()
+            const {value, name} = e.target
+            setFormValue({...formValue, [name] : value})
+            setCity(value)
         }
 
         function handleEnter(event) {
@@ -157,7 +163,7 @@
 
 
         function enable() {
-            if (street && cpfValido && nome && numero && tel1 && block && code && cepState && uf) {
+            if (street && cpfValido && nome && numero && tel1 && block && code && cepState && uf && city) {
                 return false
             } else {
                 return true
@@ -337,7 +343,7 @@
                             </S.WrapInput>
 
                             <SelectUf id='states' name='states' onChange={handleInputChange}/>
-                            <SelectCity id='city' name='city' state={formValue.states} onChange={handleInputChange}/>
+                            <SelectCity id='city' name='city' state={formValue.states} onChange={handleCityChange}/>
 
                             <S.WrapInput className="wrap-input">
                                 <InputMask 
