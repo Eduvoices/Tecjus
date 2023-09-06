@@ -6,6 +6,8 @@ function Recibos() {
     const [nome, setNome] = useState('')
     const [emitente, setEmitente] = useState('')
     const [valor, setValor] = useState('')
+    const [description, setDescription] = useState('')
+    const [extenso, setExtenso] = useState('')
 
 
     function dataAtual() {
@@ -41,14 +43,20 @@ function Recibos() {
                 Valor: R$ <br />
                 <input type="number" name="" id="valor" step='0.01' onChange={(e)=>setValor(e.target.value)}/> <br /> <br />
 
+                Valor por extenso (opcional): <br />
+                <input type="text" name="" id="extenso" onChange={(e)=>setExtenso(e.target.value)} /> <br /> <br />
+
+                Descrição (opcional) <br />
+                <input type='text' name="descrption" id="description" onChange={(e)=>setDescription(e.target.value)}/> <br /> <br />
+
                 <button onClick={onClick}>Gerar recibo</button>
             </Dados>
 
             <Print>
                 <div>
                 <h1>Recibo - <span id="recibo_emitente">{emitente}</span></h1>
-                <p>Recebemos de <span id="recibo_nome">{nome}</span></p>
-                <p>Valor<h4 id="recibo_valor">R$ {cash}</h4></p>
+                <p>Recebemos de <span id="recibo_nome">{nome}</span> a importância de <h4 id="recibo_valor">R$ {cash}</h4> ({extenso}), referente a {description}.</p>
+                {/* <p>Valor<h4 id="recibo_valor">R$ {cash}</h4></p> */}
                 <p>Data <span id="recibo_data">{dataAtual()}</span></p>
                 <div className="assinatura">Assinatura</div>
                 </div>
