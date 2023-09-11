@@ -1,15 +1,15 @@
 import { useState } from "react"
 import { Dados, Print } from "./styles"
 
-import logo from '../../assets/copy.png'
+import logo from '../../assets/Logo_page-0001-removebg-preview1.png'
 
 
 function Recibos() {
     const [nome, setNome] = useState('')
     const [emitente, setEmitente] = useState('')
     const [valor, setValor] = useState('')
-    const [description, setDescription] = useState('')
     const [extenso, setExtenso] = useState('')
+    const [numeroCtrl, setNumeroCtrl] = useState('')
 
 
     function dataAtual() {
@@ -39,6 +39,9 @@ function Recibos() {
                 /> 
                 <br /> <br />
 
+                Número de controle: <br />
+                <input type="text" name="" id="ctrlNumber" onChange={(e)=>setNumeroCtrl(e.target.value)}/> <br /> <br />
+
                 Recebemos de: <br />
                 <input type="text" name="" id="nome" onChange={(e)=> setNome(e.target.value)}/> <br /> <br />
 
@@ -48,22 +51,26 @@ function Recibos() {
                 Valor por extenso (opcional): <br />
                 <input type="text" name="" id="extenso" onChange={(e)=>setExtenso(e.target.value)} /> <br /> <br />
 
-                Descrição (opcional) <br />
-                <input type='text' name="descrption" id="description" onChange={(e)=>setDescription(e.target.value)}/> <br /> <br />
-
                 <button onClick={onClick}>Gerar recibo</button>
             </Dados>
 
             <Print>
                 <div>
-                    <div className="title">
-                        <h1>Recibo - <span id="recibo_emitente">{emitente}</span></h1>
-                        <img src={logo} alt="" />
+                    <img src={logo} alt=""/>
+                    <h1>RECIBO</h1>
+                    <div id="controle">
+                        <span>{numeroCtrl}</span>
                     </div>
-                <p>Recebemos de <span id="recibo_nome">{nome}</span> a importância de <h4 id="recibo_valor">R$ {cash}</h4> ({extenso}), referente a {description}.</p>
-                {/* <p>Valor<h4 id="recibo_valor">R$ {cash}</h4></p> */}
-                <p>Data <span id="recibo_data">{dataAtual()}</span></p>
-                <div className="assinatura">{emitente}</div>
+                    <p>Recebemos de <span id="recibo_nome">{nome}</span> a importância de <span id="recibo_valor">R$ {cash}</span> ({extenso}), referente ao pagamento de honorários advocatícios.</p>
+                    <span id="data">{dataAtual()}</span>
+                    <span id="assinatura">{emitente}</span>
+
+                    <div className="canhoto">
+                        <span>{dataAtual()}</span>
+                        <span id="recibo_nome">{nome}</span>
+                        <span>R$ {cash}</span>
+                        <span>{numeroCtrl}</span>
+                    </div>
                 </div>
             </Print>
         </>
