@@ -199,6 +199,7 @@ p {
     text-align: left;
     height: 48px;
     background-color: transparent;
+    width: 100%;
 
     @media (max-width: 1023px) {
         width: 100%;

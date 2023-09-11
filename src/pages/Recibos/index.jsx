@@ -1,6 +1,8 @@
 import { useState } from "react"
 import { Dados, Print } from "./styles"
 
+import logo from '../../assets/copy.png'
+
 
 function Recibos() {
     const [nome, setNome] = useState('')
@@ -54,11 +56,14 @@ function Recibos() {
 
             <Print>
                 <div>
-                <h1>Recibo - <span id="recibo_emitente">{emitente}</span></h1>
+                    <div className="title">
+                        <h1>Recibo - <span id="recibo_emitente">{emitente}</span></h1>
+                        <img src={logo} alt="" />
+                    </div>
                 <p>Recebemos de <span id="recibo_nome">{nome}</span> a importância de <h4 id="recibo_valor">R$ {cash}</h4> ({extenso}), referente a {description}.</p>
                 {/* <p>Valor<h4 id="recibo_valor">R$ {cash}</h4></p> */}
                 <p>Data <span id="recibo_data">{dataAtual()}</span></p>
-                <div className="assinatura">Assinatura</div>
+                <div className="assinatura">{emitente}</div>
                 </div>
             </Print>
         </>

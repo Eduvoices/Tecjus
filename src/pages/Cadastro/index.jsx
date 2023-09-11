@@ -48,6 +48,8 @@
                 fetch(`https://viacep.com.br/ws/${cep}/json/`).then(res => res.json()).then(data => {
                     setStreet(data.logradouro)
                     setBlock(data.bairro)
+                    setUf(data.uf)
+                    setCity(data.localidade)
                 }).catch((err) => console.log(''));
             }
             
@@ -62,6 +64,8 @@
                 setCPF('')
                 setBirth('')
                 setCode('')
+                setCity('')
+                setUf('')
                 refTel.current.value = ''
                 refCep.current.value = ''
             }
@@ -342,8 +346,8 @@
                                 data-placeholder='Bairro *'></S.FocusInput>
                             </S.WrapInput>
 
-                            <SelectUf id='states' name='states' onChange={handleInputChange}/>
-                            <SelectCity id='city' name='city' state={formValue.states} onChange={handleCityChange}/>
+                            <SelectUf id='states' name='states' onChange={handleInputChange} uf={uf}/>
+                            <SelectCity id='city' name='city' state={formValue.states || uf} city={city} onChange={handleCityChange}/>
 
                             <S.WrapInput className="wrap-input">
                                 <InputMask 

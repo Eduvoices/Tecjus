@@ -20,6 +20,20 @@ display: none;
     display: block;
 }
 
+img {
+    padding: 16px;
+}
+
+.title {
+    display: inline-flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid black;
+
+}
+
+
 div {
     display: flex;
     flex-direction: column;
@@ -31,7 +45,6 @@ div {
 }
 
 h1 {
-    border-bottom: 1px solid black;
     margin-bottom: 20px;
 }
 

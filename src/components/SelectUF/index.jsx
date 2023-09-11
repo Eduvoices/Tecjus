@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react'
 import * as S from './styles'
 import { fetchUF, parseStates } from '../../helpers/ibge'
 
-const SelectUf = ({id, name, onChange = () => {}}) => {
+const SelectUf = ({id, uf, name, onChange = () => {}}) => {
     const [states, setStates] = useState([])
 
     useEffect(() => {
@@ -14,7 +14,10 @@ const SelectUf = ({id, name, onChange = () => {}}) => {
     return (
         <S.Wrap>
             <S.WrapSelect id={id || name} name={name || id} onChange={onChange} title='select de estados(UF)' required>
-                <S.Option value=''>UF</S.Option>
+                
+                {uf ? (
+                    <S.Option value={uf}>{uf}</S.Option>
+                ) : (<S.Option value=''>UF</S.Option>)}
                 {states.map((state)=>{
                     const {value} = state
                     return <S.Option key={value} value={value}>{value}</S.Option>

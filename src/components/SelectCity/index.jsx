@@ -2,19 +2,22 @@ import { useEffect, useState } from 'react'
 import * as S from './styles'
 import { fetchCitiesByState, parseCities } from '../../helpers/ibge'
 
-const SelectCity = ({id, name, state, onChange=()=>{}}) => {
+const SelectCity = ({id, name, city, state, uf, onChange=()=>{}}) => {
     const [cities, setCities] = useState([])
 
     useEffect(()=>{
-        fetchCitiesByState(state).then(parseCities).then((cities)=>{
+        fetchCitiesByState(state || uf).then(parseCities).then((cities)=>{
             setCities(cities)
         })
-    }, [state])
+    }, [state, uf])
 
     return (
         <S.Wrap>
             <S.WrapSelect id={id || name} name={name || id} onChange={onChange} title='select de cidades' required>
-                <S.Option value=''>Cidade</S.Option>
+            {city ? (
+                    <S.Option value={city}>{city}</S.Option>
+                ) : (<S.Option value=''>Cidade</S.Option>)}
+                
                 {cities.map((city)=>{
                     const {value, label} = city
                     return <S.Option key={value} value={value}>{label}</S.Option>
