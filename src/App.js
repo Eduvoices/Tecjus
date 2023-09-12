@@ -9,6 +9,7 @@ import Menu from './pages/Menu';
 import { GlobalCss } from './styles';
 import CadastroUser from './pages/CadastroUser';
 import Recibos from './pages/Recibos';
+import AlteraSenha from './pages/AlterarSenha';
 
 const Rotas = createBrowserRouter([
     {
@@ -34,6 +35,10 @@ const Rotas = createBrowserRouter([
     {
       path: '/recibos',
       element: <Recibos />
+    },
+    {
+      path: '/alterarsenha',
+      element: <AlteraSenha />
     }
 ])
 

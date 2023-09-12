@@ -91,13 +91,23 @@ function Menu() {
                         </S.Dropdown>
                     </S.ListItem>
                     <S.ListItem className='list-item'>
-                        <S.ListAnchor type='button' className='list-anchor'>Financeiro</S.ListAnchor>
+                        <S.Dropdown>
+                            <S.ListAnchor type='button' className='list-anchor'>Financeiro</S.ListAnchor>
+                            <div className="dropdownContent">
+                                <Link to='/recibos'>
+                                    <S.ListAnchor type='button' className='list-anchor'>
+                                        <img src={money} alt="" />
+                                        Recibos
+                                    </S.ListAnchor>
+                                </Link>
+                            </div>
+                        </S.Dropdown>
                     </S.ListItem>
                     <S.ListItem className='list-item'>
                         <S.Dropdown>
                             <S.ListAnchor type='button' className='list-anchor'>Sistema</S.ListAnchor>
                             <div className='dropdownContent'>
-                                <Link>
+                                <Link to='/alterarsenha'>
                                     <S.ListAnchor type='button' className='list-anchor'>
                                         <img src={settings} alt="" />
                                         Alterar Senha
