@@ -35,9 +35,16 @@
         const ref = useRef(null)
         const refTel = useRef(null)
         const refCep = useRef(null)
+        const refBtn = useRef(null)
 
         const nome = name
         const numero = number
+
+        function enterAsTab(e) {
+            if (e.keyCode === 13) {
+                refBtn.current.focus()
+            }
+        }
 
         let cep = ''
 
@@ -446,14 +453,14 @@
                                 id='observation' 
                                 title='observação' 
                                 placeholder=''
-                                onKeyDown={handleEnter}/>
+                                onKeyDown={enterAsTab}/>
                                 <S.FocusInput 
                                 htmlFor='observation' 
                                 className='focus-input' 
                                 data-placeholder='Observações'></S.FocusInput>
                             </S.WrapInput>
                             <S.ButtonRow className="button-row">
-                                <S.FormBtn type="button" className={!enable() ? '' : 'disabled'} disabled={enable()}>
+                                <S.FormBtn type="button" className={!enable() ? '' : 'disabled'} disabled={enable()} ref={refBtn}>
                                 <img src={check} alt=''/>
                                 Ok
                                 </S.FormBtn>

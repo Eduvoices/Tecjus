@@ -18,6 +18,7 @@ function CadastroUser() {
 
     const refPassword = useRef(null)
     const refConfirm = useRef(null)
+    const refBtn = useRef(null)
 
     const validate = () => {
         if (!validEmail.test(email)) {
@@ -26,6 +27,12 @@ function CadastroUser() {
         setInputEmailErr(false);
         }
     };
+
+    function enterAsTab(e) {
+        if (e.keyCode === 13) {
+            refBtn.current.focus()
+        }
+    }
 
     function handleEnter(event) {
         if (event.keyCode === 13) {
@@ -133,7 +140,7 @@ function CadastroUser() {
                             <label htmlFor='ativo'>Ativo</label>
                                 </div>
                                 <div>
-                            <input type='radio' name='radio' id='cancelado' onKeyDown={handleEnter}></input>
+                            <input type='radio' name='radio' id='cancelado' onKeyDown={enterAsTab}></input>
                             <label htmlFor='cancelado'>Cancelado</label>
                                 </div>
                             </div>
@@ -141,7 +148,7 @@ function CadastroUser() {
                         </S.WrapInput>
 
                         <S.ButtonRow className="button-row">
-                                <S.FormBtn type="button" className={!enable() ? '' : 'disabled'} disabled={enable()} onClick={validate}>
+                                <S.FormBtn type="button" className={!enable() ? '' : 'disabled'} disabled={enable()} onClick={validate} ref={refBtn}>
                                 <img src={check} alt='botão de confirmação'/>
                                 Confirmar
                                 </S.FormBtn>

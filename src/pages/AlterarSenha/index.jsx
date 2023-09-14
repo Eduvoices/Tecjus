@@ -16,6 +16,7 @@ function AlteraSenha() {
     const refSenhaAtual = useRef(null)
     const refNovaSenha = useRef(null)
     const refConfirmaSenha = useRef(null)
+    const refBtn = useRef(null)
 
     function handleEnter(event) {
         if (event.keyCode === 13) {
@@ -32,22 +33,18 @@ function AlteraSenha() {
         setSenhaAtual('')
     }
 
-    function checkSenha(e) {
-        const novaSenha = refNovaSenha.current.value
-        const confirmaNovaSenha = refConfirmaSenha.current.value
-        setConfirmaSenha(e.target.value)
-
-        if (novaSenha !== confirmaNovaSenha) {
-            refConfirmaSenha.current.value = ''
-        }
-    }
-
     function enableBtn() {
         let check = confirmaSenha === novaSenha
         if (senhaAtual && check && novaSenha) {
             return false
         } else {
             return true
+        }
+    }
+
+    function enterAsTab(e) {
+        if (e.keyCode === 13) {
+            refBtn.current.focus()
         }
     }
 
@@ -79,7 +76,7 @@ function AlteraSenha() {
                             onBlur={(e) => setSenhaAtual(e.target.value)}
                             onKeyDown={handleEnter}
                             />
-                            {senhaAtual !== novaSenha || !senhaAtual ? (<span />) : (<p>Digite uma senha diferente da anterior</p>)}
+                            {senhaAtual !== novaSenha || !senhaAtual ? (<span />) : (<p>A nova senha não pode ser igual à anterior.</p>)}
                             <S.FocusInput htmlFor="senha-atual" data-placeholder='Senha Atual*'></S.FocusInput>
                         </S.WrapInput>
 
@@ -104,16 +101,16 @@ function AlteraSenha() {
                             className='input'
                             title='confirma-senha'
                             placeholder=''
-                            onKeyDown={handleEnter}
+                            onKeyDown={enterAsTab}
                             ref={refConfirmaSenha}
-                            onBlur={checkSenha}
+                            onChange={(e) => setConfirmaSenha(e.target.value)}
                             />
                             {confirmaSenha === novaSenha || !confirmaSenha ? (<span />) : (<p>Digite uma senha igual</p>)}
                             <S.FocusInput htmlFor="confirma-senha" data-placeholder='Confirmar Senha*'></S.FocusInput>
                         </S.WrapInput>
 
                         <S.ButtonRow>
-                            <S.FormBtn type='button' className={!enableBtn() ? '' : 'disabled'} disabled={enableBtn()}>
+                            <S.FormBtn type='button' className={!enableBtn() ? '' : 'disabled'} disabled={enableBtn()} ref={refBtn}>
                                 <img src={confirm} alt="Confirmar" />
                                 Confirmar
                             </S.FormBtn>
