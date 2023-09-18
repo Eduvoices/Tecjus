@@ -10,6 +10,7 @@ import { GlobalCss } from './styles';
 import CadastroUser from './pages/CadastroUser';
 import Recibos from './pages/Recibos';
 import AlteraSenha from './pages/AlterarSenha';
+import Agenda from './pages/Agenda';
 
 const Rotas = createBrowserRouter([
     {
@@ -39,6 +40,10 @@ const Rotas = createBrowserRouter([
     {
       path: '/alterarsenha',
       element: <AlteraSenha />
+    },
+    {
+      path: 'agenda',
+      element: <Agenda />
     }
 ])
 
